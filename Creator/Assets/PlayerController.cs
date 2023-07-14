@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour
 {   //移動所需變數
     public CharacterController controller;
     public float speed;
-    
+    public float gravity = -9.81f;//重力
+    Vector3 velocity;
+
     //滑鼠鎖定%控制所需變數
     [Header("Control Setting")]
     float mouseSensitivity = 100.0f;     //攝像機上下選轉X變化量
@@ -32,7 +34,10 @@ public class PlayerController : MonoBehaviour
         float z = Input.GetAxis("Vertical");    //垂直
         Vector3 move = transform.right * x + transform.forward * z;
 
-       controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move * speed * Time.deltaTime);
+        velocity.y += gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
         Debug.Log(z);
     }
     void Eye()
