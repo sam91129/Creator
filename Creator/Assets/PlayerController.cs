@@ -5,7 +5,8 @@ using System.Threading;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{   //移動所需變數
+{   
+    //移動所需變數
     public CharacterController controller;
     public float walk;
     public float run;
@@ -25,6 +26,15 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
     bool isGrounded;
 
+    //視線檢測所需變數
+    [Header("Interaction Setting")]
+    [SerializeField] private float _maxDistance = 10.0f;
+    [SerializeField] float _vistionRadius = 0.1f;
+    [SerializeField] LayerMask _layerMask;
+    Vector3 _origin;
+    Vector3 _direction;
+    RaycastHit _hits;
+
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;   //上下不超過90度 
@@ -33,10 +43,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Movement(); //移動
+        GroundCheck();
         Eye();      //第一人稱
+        ViweCast();
+
+        //Debug.Log(_hits);
     }
-    void Movement()
-    {
+    void Movement()    {
         float x = Input.GetAxis("Horizontal");  //平行
         float z = Input.GetAxis("Vertical");    //垂直
         Vector3 move = transform.right * x + transform.forward * z;
@@ -61,5 +74,22 @@ public class PlayerController : MonoBehaviour
         {
             velocity.y = -2f;
         }
+    }
+    
+    void ViweCast()
+    {
+        _origin = _camera.transform.position;
+        _direction = _camera.transform.forward;
+
+        if (Physics.SphereCast(_origin, _vistionRadius, _direction, out _hits, _maxDistance, _layerMask))
+        {
+
+        }
+    }
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(_origin, _direction);
+        Gizmos.DrawWireSphere(_origin + _direction * _hits.distance, _vistionRadius);
     }
 }
