@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638249353295294374
-    m_Hash: 2658017082
+      ticks: 638252624597679866
+    m_Hash: 1072978262
   m_LockFileStatus:
     m_FilePath: D:/User/Desktop/unity/Assets/Creator/Creator/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638249353295371297
-    m_Hash: 106488485
+      ticks: 638252624597719870
+    m_Hash: 2215379265
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -475,12 +475,12 @@ m_ResolvedPackages:
   unityLifecycle:
     version: 1.2.5
     nextVersion: 
-- packageId: com.unity.inputsystem@1.6.1
+- packageId: com.unity.inputsystem@1.6.3
   testable: 0
   isDirectDependency: 1
-  version: 1.6.1
+  version: 1.6.3
   source: 1
-  resolvedPath: D:\User\Desktop\unity\Assets\Creator\Creator\Library\PackageCache\com.unity.inputsystem@1.6.1
+  resolvedPath: D:\User\Desktop\unity\Assets\Creator\Creator\Library\PackageCache\com.unity.inputsystem@1.6.3
   assetPath: Packages/com.unity.inputsystem
   name: com.unity.inputsystem
   displayName: Input System
@@ -489,7 +489,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: asset
+  type: assets
   description: A new input system which can be used as a more extensible and customizable
     alternative to Unity's classic input system in UnityEngine.Input.
   status: 0
@@ -535,9 +535,11 @@ m_ResolvedPackages:
     - 1.5.0
     - 1.5.1
     - 1.6.1
+    - 1.6.3
     compatible:
     - 1.6.1
-    verified: 1.6.1
+    - 1.6.3
+    verified: 1.6.3
   dependencies:
   - name: com.unity.modules.uielements
     version: 1.0.0
@@ -571,13 +573,13 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638207453750000000
+  datePublishedTicks: 638251794420000000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.6/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.com/Unity-Technologies/InputSystem.git
-    revision: 6e8cbe050db664506f3400e4d0735f9e4b604915
+    revision: 0d0891efc00ce912af6f03974eac0b8afd20a8ac
     path: 
   unityLifecycle:
     version: 1.6.1
