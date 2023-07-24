@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
-{   
+{
+    private playerMove _playerMove;
+    private Vector3 _moveInput;
+
     //移動所需變數
     public CharacterController controller;
     public float walk;
@@ -35,21 +39,37 @@ public class PlayerController : MonoBehaviour
     Vector3 _direction;
     RaycastHit _hits;
 
+   
     void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;   //上下不超過90度 
+        _playerMove = GetComponent<playerMove>();
     }
 
     void Update()
     {
-        Movement(); //移動
+        if (_playerMove == null) return;
+        _playerMove.SetMoveInput(_moveInput);
+        _playerMove.SetLookDirection(_moveInput);
+        //Movement(); //移動
         GroundCheck();
         Eye();      //第一人稱
         ViweCast();
 
         //Debug.Log(_hits);
     }
-    void Movement()    {
+
+    public void OnJump(InputValue value)
+    {
+      // playerMove.Jump();
+    }
+
+    public void OnMove(InputValue value)
+    {
+        Vector2 input = value.Get<Vector2>();
+        _moveInput = new Vector3(input.x, 0f, input.y);
+    }
+    /*void Movement()    {
         float x = Input.GetAxis("Horizontal");  //平行
         float z = Input.GetAxis("Vertical");    //垂直
         Vector3 move = transform.right * x + transform.forward * z;
@@ -57,7 +77,7 @@ public class PlayerController : MonoBehaviour
         else controller.Move(move * walk * Time.deltaTime);
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-    }
+    }*/
     void Eye()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime; ;  //繞X軸旋轉
