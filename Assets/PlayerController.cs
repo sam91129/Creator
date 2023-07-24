@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     Vector3 _origin;
     Vector3 _direction;
     RaycastHit _hits;
+    GameObject _gameObject;
 
     void Awake()
     {
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Movement(); //移動
+        //Movement(); //移動
         GroundCheck();
         Eye();      //第一人稱
         ViweCast();
@@ -62,9 +63,9 @@ public class PlayerController : MonoBehaviour
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime; ;  //繞X軸旋轉
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime; ;  //繞Y軸旋轉
-        xRotation -= mouseY;
+        xRotation -= mouseY;                                                            
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);                                  //頭部轉90度
-        _camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        _camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);          //
         playerbody.Rotate(Vector3.up * mouseX);
     }
     void GroundCheck()
@@ -83,8 +84,16 @@ public class PlayerController : MonoBehaviour
 
         if (Physics.SphereCast(_origin, _vistionRadius, _direction, out _hits, _maxDistance, _layerMask))
         {
-
+            _gameObject = _hits.collider.gameObject;
         }
+    }
+
+    void UseItem()
+    {
+        //if (_gameObject != null && C)
+        //{
+
+        //}
     }
     void OnDrawGizmos()
     {
