@@ -38,10 +38,17 @@ public class PlayerController : MonoBehaviour
     Vector3 _origin;
     Vector3 _direction;
     RaycastHit _hits;
-    GameObject _gameObject;
+
+    [Header("能力設置")]
+    int limitObject = 1;
+    int energy;
+    int objectNumber;
+    GameObject[] _gameObject;
+    bool isQuick;
 
     void Awake()
     {
+        _gameObject = new GameObject[limitObject];
         _playerRig = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;   //上下不超過90度 
         speed = walk;
@@ -51,7 +58,7 @@ public class PlayerController : MonoBehaviour
         if (moveValue != Vector2.zero)
         {
             this.transform.position += move * speed * Time.deltaTime;
-        }
+        }       //onMove
         if (mouseValue != Vector2.zero)
         {
             float mouseX = mouseValue.x * mouseSensitivity * Time.deltaTime; ;  //繞X軸旋轉
@@ -60,22 +67,11 @@ public class PlayerController : MonoBehaviour
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);                                  //頭部轉90度
             _camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);          //
             playerbody.Rotate(Vector3.up * mouseX);
-        }
-        ViweCast();
+        }      //onVision
     }
     public void onVision(InputAction.CallbackContext ctx)
     {
         mouseValue = ctx.ReadValue<Vector2>();
-    }
-    void ViweCast()
-    {
-        _origin = _camera.transform.position;
-        _direction = _camera.transform.forward;
-
-        if (Physics.SphereCast(_origin, _vistionRadius, _direction, out _hits, _maxDistance, _layerMask))
-        {
-            _gameObject = _hits.collider.gameObject;
-        }
     }
     public void onMove(InputAction.CallbackContext ctx)    
     {
@@ -91,12 +87,41 @@ public class PlayerController : MonoBehaviour
     {
         if(isGrounded) if (ctx.started) _playerRig.AddForce(0, jump*100.0f , 0);
     }
-    void UseItem()
+    public void onUse(InputAction.CallbackContext ctx)
     {
-        //if (_gameObject != null && C)
-        //{
-
-        //}
+        if(ctx.performed) isQuick = true;
+        if(ctx.canceled)
+        {
+            _origin = _camera.transform.position;
+            _direction = _camera.transform.forward;
+            if (Physics.SphereCast(_origin, _vistionRadius, _direction, out _hits, _maxDistance, _layerMask))
+            {
+                if (_gameObject[objectNumber] != null) _gameObject[objectNumber].GetComponent<Wall_System>().Revert();
+                _gameObject[objectNumber] = _hits.collider.gameObject;
+                if (isQuick)
+                {
+                    _gameObject[objectNumber].GetComponent<Wall_System>().QuickChangeScale();
+                    isQuick = false;
+                }
+                else _gameObject[objectNumber].GetComponent<Wall_System>().NormalChangeScale();
+                objectNumber++;
+                if (objectNumber >= limitObject) objectNumber = 0;
+            }
+        }
+    }
+    void count()
+    {
+        limitObject = 1 + energy;
+        _gameObject = new GameObject[limitObject];
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Energy")
+        {
+            energy++;
+            count();
+            Destroy(other.gameObject);
+        }
     }
     void OnDrawGizmos()
     {

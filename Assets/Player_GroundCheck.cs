@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundCheck : MonoBehaviour
+public class Player_GroundCheck : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
