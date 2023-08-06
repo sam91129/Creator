@@ -7,8 +7,8 @@ public class Wall_System : MonoBehaviour
     public float MaxScaleSize;
     Vector3 originalScale;
 
-    float normalScaleSpeed = 1f;
-    float quickScaleSpeed = 15.0f;
+    float normalScaleSpeed;
+    float quickScaleSpeed;
     float x;
 
     bool isNormal = false;
@@ -18,13 +18,14 @@ public class Wall_System : MonoBehaviour
 
     void Awake()
     {
+        normalScaleSpeed = MaxScaleSize / 3;
+        quickScaleSpeed = 2.0f * MaxScaleSize;
         originalScale = transform.localScale;
         if (transform.localScale.y < MaxScaleSize) isPositive = true;
         else if (transform.localScale.y > MaxScaleSize) isNegative = true;
     }
     void Update()
     {
-        Debug.Log(transform.localScale);
         if (isNormal && isPositive)
         {
             transform.localScale += new Vector3(0, normalScaleSpeed * Time.deltaTime,0);
@@ -49,13 +50,18 @@ public class Wall_System : MonoBehaviour
     public void NormalChangeScale()
     {
         isNormal = true;
+        Debug.Log("NormalScale");
     }
     public void QuickChangeScale()
     {
         isQuick = true;
+        Debug.Log("QuickScale");
     }
     public void Revert()
     {
         this.transform.localScale = originalScale;
+        isNormal = false;
+        isQuick = false;
+        Debug.Log(this.gameObject.name+"/Revert");
     }
 }

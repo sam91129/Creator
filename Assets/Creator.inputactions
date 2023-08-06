@@ -49,13 +49,22 @@
                     "processors": "",
                     "interactions": "Hold(duration=3)",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "HoldToCancel",
+                    "type": "Button",
+                    "id": "100cc742-30f3-47e5-ae8c-f63f1363295d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=1.5)",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "143bb1cd-cc10-4eca-a2f0-a3664166fe91",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -269,6 +278,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cc9a0966-e5eb-4dc8-ae2e-5cd0ec7dad79",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "HoldToCancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e04cc8a1-8a87-418d-8ff3-1344fa63fe5d",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "HoldToCancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

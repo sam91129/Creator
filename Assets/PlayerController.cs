@@ -44,11 +44,13 @@ public class PlayerController : MonoBehaviour
     int energy;
     int objectNumber;
     GameObject[] _gameObject;
+    string[] _saveObject;
     bool isQuick;
+    bool isRepeat;
 
     void Awake()
     {
-        _gameObject = new GameObject[limitObject];
+        _gameObject = new GameObject[99];
         _playerRig = GetComponent<Rigidbody>();
         Cursor.lockState = CursorLockMode.Locked;   //上下不超過90度 
         speed = walk;
@@ -96,23 +98,41 @@ public class PlayerController : MonoBehaviour
             _direction = _camera.transform.forward;
             if (Physics.SphereCast(_origin, _vistionRadius, _direction, out _hits, _maxDistance, _layerMask))
             {
-                if (_gameObject[objectNumber] != null) _gameObject[objectNumber].GetComponent<Wall_System>().Revert();
-                _gameObject[objectNumber] = _hits.collider.gameObject;
-                if (isQuick)
+                repeatCheck();
+                if (!isRepeat)
                 {
-                    _gameObject[objectNumber].GetComponent<Wall_System>().QuickChangeScale();
-                    isQuick = false;
+                    Debug.Log("pass");
+                    if (_gameObject[objectNumber] != null) _gameObject[objectNumber].GetComponent<Wall_System>().Revert();
+                    _gameObject[objectNumber] = _hits.collider.gameObject;
+                    if (isQuick)
+                    {
+                        _gameObject[objectNumber].GetComponent<Wall_System>().QuickChangeScale();
+                        isQuick = false;
+                    }
+                    else _gameObject[objectNumber].GetComponent<Wall_System>().NormalChangeScale();
+                    objectNumber++;
+                    if (objectNumber >= limitObject) objectNumber = 0;
                 }
-                else _gameObject[objectNumber].GetComponent<Wall_System>().NormalChangeScale();
-                objectNumber++;
-                if (objectNumber >= limitObject) objectNumber = 0;
+                else isRepeat = false;
             }
+        }
+    }
+    public void onCancel(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            for (int i = 0; i < limitObject; i++)
+            {
+                _gameObject[i].GetComponent<Wall_System>().Revert();
+                _gameObject[i] = null;
+            }
+            objectNumber = 0;
         }
     }
     void count()
     {
         limitObject = 1 + energy;
-        _gameObject = new GameObject[limitObject];
+        if (_gameObject[objectNumber] != null) objectNumber++;
     }
     void OnTriggerEnter(Collider other)
     {
@@ -128,5 +148,15 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawRay(_origin, _direction);
         Gizmos.DrawWireSphere(_origin + _direction * _hits.distance, _vistionRadius);
+    }
+    void repeatCheck()
+    {
+        for (int i = 0; i < limitObject; i++)
+        {
+            if (_gameObject[i] != null)
+            {
+                if (_gameObject[i] == _hits.collider.gameObject) isRepeat = true;
+            }
+        }
     }
 }
