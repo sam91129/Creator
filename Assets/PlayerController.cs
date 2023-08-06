@@ -123,8 +123,11 @@ public class PlayerController : MonoBehaviour
         {
             for (int i = 0; i < limitObject; i++)
             {
-                _gameObject[i].GetComponent<Wall_System>().Revert();
-                _gameObject[i] = null;
+                if (_gameObject[i] != null)
+                {
+                    _gameObject[i].GetComponent<Wall_System>().Revert();
+                    _gameObject[i] = null;
+                }
             }
             objectNumber = 0;
         }
