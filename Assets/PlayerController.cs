@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
 
     //地面確認所需變數
     [Header("地面檢測")]
-    public SphereCollider _groundCheck;
     static public bool isGrounded;
 
     //視線檢測所需變數
