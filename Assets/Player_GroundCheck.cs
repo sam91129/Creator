@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Player_GroundCheck : MonoBehaviour
 {
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Ground") PlayerController.isGrounded = true;
+        if(other.tag == "Ground"&&PlayerController.isGrounded == false) PlayerController.isGrounded = true;
     }
     void OnTriggerExit(Collider other)
     {

@@ -240,7 +240,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 255
+    m_Bits: 767
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -315,11 +315,15 @@ MonoBehaviour:
   mouseSensitivity: 10
   playerbody: {fileID: 1405878893426838489}
   _camera: {fileID: 1405878893042523464}
-  _maxDistance: 10
+  _maxGloveDistance: 30
+  _maxSwitchDistance: 5
   _vistionRadius: 0.4
-  _layerMask:
+  _GloveMask:
     serializedVersion: 2
     m_Bits: 128
+  _SwitchMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &1405878893426838482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +485,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 100cc742-30f3-47e5-ae8c-f63f1363295d
     m_ActionName: Player/HoldToCancel[/Mouse/rightButton,/SwitchProControllerHID/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1405878893426838483}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: onSwitch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f34a01af-2d0e-49fa-a357-996fb5303dd4
+    m_ActionName: Player/TriggerSwitch[/Keyboard/e,/XInputControllerWindows/buttonWest]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
