@@ -171,14 +171,14 @@ public class PlayerController : MonoBehaviour
             count();
             Destroy(other.gameObject);
         }
-        if (other.tag == "Switch")
+        if (other.tag == "SwitchRange")
         {
             inSwitch = true;
         }
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Switch")
+        if (other.tag == "SwitchRange")
         {
             inSwitch = false;
         }

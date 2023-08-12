@@ -6,20 +6,16 @@ public class Wall_Switch : MonoBehaviour
 {
    
     public GameObject Target;
-    public bool isTimer;
     [Header("持續時間")]
+    public bool isTimer;
     public float duration;
-
-
     public void useSwitch()
     {
         Target.GetComponent<Wall_System>().NormalChangeScale();
-        if (isTimer) Invoke("TimeLimit" ,5);
+        if (isTimer) Invoke("TimeLimit", 5);
     }
-
     void TimeLimit()
     {
         Target.GetComponent<Wall_System>().Revert();
     }
-    
 }
