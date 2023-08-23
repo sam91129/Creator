@@ -7,9 +7,10 @@ public class Wall_System : MonoBehaviour
     public float MaxScaleSize;
     Vector3 originalScale;
 
-    float normalScaleSpeed;
-    float quickScaleSpeed;
-    float x;
+    [Header("普通縮放")]
+    public float normalScaleSpeed;
+    [Header("快速縮放")]
+    public float quickScaleSpeed;
 
     bool isNormal = false;
     bool isQuick = false;
@@ -18,8 +19,6 @@ public class Wall_System : MonoBehaviour
 
     void Awake()
     {
-        normalScaleSpeed = MaxScaleSize / 3;
-        quickScaleSpeed = 2.0f * MaxScaleSize;
         originalScale = transform.localScale;
         if (transform.localScale.y < MaxScaleSize) isPositive = true;
         else if (transform.localScale.y > MaxScaleSize) isNegative = true;

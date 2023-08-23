@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     //移動所需變數
     [Header("移動設置")]
-    Rigidbody _playerRig;
+    CharacterController _characterController;
     public float walk;
     public float run;
     float speed;
@@ -55,15 +55,17 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         _gameObject = new GameObject[99];
-        _playerRig = GetComponent<Rigidbody>();
+        _characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;   //上下不超過90度 
         speed = walk;
     }
     void Update()
     {
+        Debug.Log(move);
         if (moveValue != Vector2.zero)
         {
-            this.transform.position += move * speed * Time.deltaTime;
+            move = transform.right * moveValue.x + transform.forward * moveValue.y;
+            _characterController.Move(move * speed * Time.deltaTime);
         }       //onMove
         if (mouseValue != Vector2.zero)
         {
@@ -81,8 +83,7 @@ public class PlayerController : MonoBehaviour
     }
     public void onMove(InputAction.CallbackContext ctx)    
     {
-            moveValue = ctx.ReadValue<Vector2>();
-            move = transform.right * moveValue.x + transform.forward * moveValue.y;
+        moveValue = ctx.ReadValue<Vector2>();
     }
     public void onRun(InputAction.CallbackContext ctx)
     {
@@ -91,7 +92,7 @@ public class PlayerController : MonoBehaviour
     }
     public void onJump(InputAction.CallbackContext ctx)
     {
-        if(isGrounded) if (ctx.started) _playerRig.AddForce(0, jump*100.0f , 0);
+        if(isGrounded) if (ctx.started) ;
     }
     public void onUse(InputAction.CallbackContext ctx)
     {
@@ -129,7 +130,7 @@ public class PlayerController : MonoBehaviour
             _direction = _camera.transform.forward;
             if (Physics.SphereCast(_origin, _vistionRadius, _direction, out _hits, _maxSwitchDistance, _SwitchMask) && inSwitch)
             {
-                _hits.collider.gameObject.GetComponent<Wall_Switch>().useSwitch();
+                _hits.collider.gameObject.GetComponent<Mech_Switch>().useSwitch();
             }
         }
     }
@@ -189,5 +190,4 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawRay(_origin, _direction);
         Gizmos.DrawWireSphere(_origin + _direction * _hits.distance, _vistionRadius);
     }
-    
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wall_Switch : MonoBehaviour
+public class Mech_Switch : MonoBehaviour
 {
    
     public GameObject Target;

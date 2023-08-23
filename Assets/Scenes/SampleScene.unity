@@ -839,6 +839,29 @@ MonoBehaviour:
   Target: {fileID: 1059076165}
   isTimer: 0
   duration: 0
+--- !u!1 &1915641609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1405878893426838491, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
+  m_PrefabInstance: {fileID: 1405878894614570907}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &1915641614
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915641609}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2043819545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -893,6 +916,14 @@ PrefabInstance:
     - target: {fileID: 3611412485654646533, guid: 95d043b8fb08763439c70611ef551dfe, type: 3}
       propertyPath: m_Name
       value: "\u6E2C\u8A66\u7528\u8B8A\u5F62\u7246(\u63A8\u51FA)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611412486481098006, guid: 95d043b8fb08763439c70611ef551dfe, type: 3}
+      propertyPath: quickScaleSpeed
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611412486481098006, guid: 95d043b8fb08763439c70611ef551dfe, type: 3}
+      propertyPath: normalScaleSpeed
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95d043b8fb08763439c70611ef551dfe, type: 3}
@@ -1005,6 +1036,10 @@ PrefabInstance:
       value: 767
       objectReference: {fileID: 0}
     - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
+      propertyPath: walk
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
       propertyPath: _GloveMask.m_Bits
       value: 128
       objectReference: {fileID: 0}
@@ -1060,7 +1095,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestPlayer
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1405878893426838481, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
 --- !u!1001 &2364684912542438543
 PrefabInstance:
