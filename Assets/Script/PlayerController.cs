@@ -14,8 +14,10 @@ public class PlayerController : MonoBehaviour
     public float run;
     float speed;
     public float jump;
+    float Gravity = 9.8f;
     Vector2 moveValue;
     Vector3 move;
+    Vector3 Velocity = Vector3.zero;
 
     //滑鼠鎖定%控制所需變數
     [Header("鏡頭轉動設置")]
@@ -47,7 +49,6 @@ public class PlayerController : MonoBehaviour
     int energy;
     int objectNumber;
     GameObject[] _gameObject;
-    string[] _saveObject;
     bool isQuick;
     bool isRepeat;
     bool inSwitch = false;
@@ -61,12 +62,15 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log(move);
+        Debug.Log(isGrounded);
         if (moveValue != Vector2.zero)
         {
             move = transform.right * moveValue.x + transform.forward * moveValue.y;
             _characterController.Move(move * speed * Time.deltaTime);
         }       //onMove
+        if (isGrounded == true && Velocity.y < 0) Velocity.y = 0;
+        Velocity.y -= Gravity * Time.deltaTime;
+        _characterController.Move(Velocity * Time.deltaTime);
         if (mouseValue != Vector2.zero)
         {
             xRotation -= mouseY;
@@ -92,7 +96,7 @@ public class PlayerController : MonoBehaviour
     }
     public void onJump(InputAction.CallbackContext ctx)
     {
-        if(isGrounded) if (ctx.started) ;
+        if(ctx.started && isGrounded == true) Velocity.y += Mathf.Sqrt(jump * -2 *Gravity);
     }
     public void onUse(InputAction.CallbackContext ctx)
     {
