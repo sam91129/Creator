@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class Health : MonoBehaviour
+public class gameManager : MonoBehaviour
 {
+    [Header("¦å¶q")]
     public int Hp;
 
     test_hurtplace test_Hurtplace;

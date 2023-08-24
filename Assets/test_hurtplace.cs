@@ -6,24 +6,17 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class test_hurtplace : MonoBehaviour
 {
-    
-    
-    public float intensity = 0;
+    public float maxIntensity;
+    public float DelayTime;
+    float intensity;
     PostProcessVolume hurtColor;
     Vignette vignette;
-    // Start is called before the first frame update
     void Start()
     {
-        
-
         hurtColor = GetComponent<PostProcessVolume>();
-
         hurtColor.profile.TryGetSettings<Vignette>(out vignette);
-        if (!vignette)
-        {
-            print("¿ù»~");
 
-        }
+        if (!vignette) print("¿ù»~");
         else
         {
             print("¥¿½T");
@@ -41,26 +34,20 @@ public class test_hurtplace : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
             StartCoroutine(TakeDamage());
     }
-
-    
-    
-    private IEnumerator TakeDamage()
+    IEnumerator TakeDamage()
     {
-        intensity = 0.6f;
+        intensity = maxIntensity;
 
         vignette.enabled.Override(true);
-        vignette.intensity.Override(0.6f);
+        vignette.intensity.Override(intensity);
 
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.25f);
 
         while (intensity > 0)
         {
             intensity -= 0.01f;
-
-            if (intensity < 0) intensity = 0;
             vignette.intensity.Override(intensity);
-
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(DelayTime);
         }
         vignette.enabled.Override(false);
         yield break;
