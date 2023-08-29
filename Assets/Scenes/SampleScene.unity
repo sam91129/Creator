@@ -732,11 +732,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611412486481098006, guid: 95d043b8fb08763439c70611ef551dfe, type: 3}
       propertyPath: quickScaleSpeed
-      value: 10000
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3611412486481098006, guid: 95d043b8fb08763439c70611ef551dfe, type: 3}
       propertyPath: normalScaleSpeed
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95d043b8fb08763439c70611ef551dfe, type: 3}
@@ -844,9 +844,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1915641614, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
+      propertyPath: jump
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
+      propertyPath: Gravity
+      value: 19.6
       objectReference: {fileID: 0}
     - target: {fileID: 1405878893426838489, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
       propertyPath: m_RootOrder
@@ -953,10 +957,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 500630966}
-    - target: {fileID: 2364684913263126775, guid: 59f8c43a2cd76ac42a0fb216294db000, type: 3}
-      propertyPath: m_VersionIndex
-      value: 1038
-      objectReference: {fileID: 0}
     - target: {fileID: 2364684913263126778, guid: 59f8c43a2cd76ac42a0fb216294db000, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -965,14 +965,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 500630966}
-    - target: {fileID: 2364684913263126779, guid: 59f8c43a2cd76ac42a0fb216294db000, type: 3}
-      propertyPath: m_Convex
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2364684913263126779, guid: 59f8c43a2cd76ac42a0fb216294db000, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2364684913263126780, guid: 59f8c43a2cd76ac42a0fb216294db000, type: 3}
       propertyPath: m_Name
       value: "\u6E2C\u8A66\u7528\u5730\u9762"
@@ -987,8 +979,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2566497991518067597, guid: 3eb562d77d6a276489faba47dd0d63bd, type: 3}
-      propertyPath: MaxScaleSize
-      value: 0.1
+      propertyPath: quickScaleSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2566497991518067597, guid: 3eb562d77d6a276489faba47dd0d63bd, type: 3}
+      propertyPath: normalScaleSpeed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2566497991975060148, guid: 3eb562d77d6a276489faba47dd0d63bd, type: 3}
       propertyPath: m_Name

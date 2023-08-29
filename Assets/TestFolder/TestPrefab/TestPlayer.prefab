@@ -123,11 +123,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1405878892967409980}
-  - component: {fileID: 1405878892967409971}
-  - component: {fileID: 5178092464448184161}
   m_Layer: 3
   m_Name: groundcheck
-  m_TagString: Untagged
+  m_TagString: GroundCheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,31 +145,6 @@ Transform:
   m_Father: {fileID: 1405878893426838489}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1405878892967409971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405878892967409981}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d682711362eaabb4987c91fb1b082056, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!135 &5178092464448184161
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405878892967409981}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1405878893042523465
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,17 +284,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walk: 5
   run: 10
-  jump: 3
-  mouseSensitivity: 10
-  playerbody: {fileID: 1405878893426838489}
-  _camera: {fileID: 1405878893042523464}
-  _maxGloveDistance: 30
-  _maxSwitchDistance: 5
-  _vistionRadius: 0.2
-  _GloveMask:
+  jump: 100
+  _groundMask:
     serializedVersion: 2
-    m_Bits: 128
-  _SwitchMask:
+    m_Bits: 64
+  Gravity: 9.8
+  MouseSensitivity: 10
+  _playerBody: {fileID: 1405878893426838489}
+  _camera: {fileID: 1405878893042523464}
+  maxGloveDistance: 10
+  maxSwitchDistance: 5
+  vistionRadius: 0.1
+  _switchMask:
     serializedVersion: 2
     m_Bits: 512
 --- !u!114 &1405878893426838482

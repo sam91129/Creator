@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Energy
   - SwitchRange
+  - Item
+  - GroundCheck
   layers:
   - Default
   - TransparentFX

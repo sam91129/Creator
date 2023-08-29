@@ -93,11 +93,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3a73d8bd1fe9f754380670340e324b5c, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3a73d8bd1fe9f754380670340e324b5c, type: 3}
       propertyPath: m_TagString
-      value: Ground
+      value: Item
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a73d8bd1fe9f754380670340e324b5c, type: 3}
@@ -137,5 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxScaleSize: 10
-  normalScaleSpeed: 0
-  quickScaleSpeed: 0
+  normalScaleSpeed: 100
+  quickScaleSpeed: 10000
