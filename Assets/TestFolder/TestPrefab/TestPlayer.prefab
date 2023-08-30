@@ -261,7 +261,7 @@ Transform:
   m_GameObject: {fileID: 1405878893426838491}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.47, y: 2.5823154, z: -7.0935765e-13}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1405878893042523470}
@@ -284,15 +284,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walk: 5
   run: 10
-  jump: 100
+  jump: 3
   _groundMask:
     serializedVersion: 2
     m_Bits: 64
-  Gravity: 9.8
+  Gravity: 19.6
   MouseSensitivity: 10
   _playerBody: {fileID: 1405878893426838489}
   _camera: {fileID: 1405878893042523464}
-  maxGloveDistance: 10
+  maxGloveDistance: 100
   maxSwitchDistance: 5
   vistionRadius: 0.1
   _switchMask:
@@ -492,7 +492,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2.32
-  m_Radius: 0.76
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.03
