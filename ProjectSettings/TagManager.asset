@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - Door
   - Gloves
+  - SceneManager
   layers:
   - Default
   - TransparentFX

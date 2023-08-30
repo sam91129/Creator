@@ -66,7 +66,6 @@ public class Player_Manager : MonoBehaviour
         _groundCheck = GameObject.FindGameObjectWithTag("GroundCheck");
         Cursor.lockState = CursorLockMode.Locked;   //上下不超過90度 
         speed = walk;
-
         test_Hurtplace = GameObject.FindWithTag("HurtEffect").GetComponent<test_hurtplace>();
     }
     void Update()
@@ -178,7 +177,7 @@ public class Player_Manager : MonoBehaviour
         Hp -= damage;
         if (Hp <= 0)
         {
-            Debug.Log("我死了");
+            GameObject.FindGameObjectWithTag("SceneManager").GetComponent<Scene_Manager>().ReSpawn();
         }
     }
     void groundCheck()
