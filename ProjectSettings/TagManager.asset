@@ -4,11 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ground
   - Energy
   - SwitchRange
   - Item
   - GroundCheck
+  - HurtEffect
+  - Ground
+  - Door
+  - Gloves
   layers:
   - Default
   - TransparentFX

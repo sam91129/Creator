@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Wall_System : MonoBehaviour
 {
+    public int ID;
+
+    [Header("持續時間")]
+    public bool isTimer;
+    public float duration;
+
     public float MaxScaleSize;
     Vector3 originalScale;
 
@@ -22,6 +28,10 @@ public class Wall_System : MonoBehaviour
         originalScale = transform.localScale;
         if (transform.localScale.y < MaxScaleSize) isPositive = true;
         else if (transform.localScale.y > MaxScaleSize) isNegative = true;
+    }
+    void Start()
+    {
+        Event_Manager.current.onSwitchUse += SwitchScale;
     }
     void Update()
     {
@@ -55,6 +65,11 @@ public class Wall_System : MonoBehaviour
     {
         isQuick = true;
         Debug.Log("QuickScale");
+    }
+    public void SwitchScale(int id)
+    {
+        if (id == this.ID) isNormal = true;
+        if (isTimer) Invoke("Revert", duration);
     }
     public void Revert()
     {

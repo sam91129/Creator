@@ -141,5 +141,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxScaleSize: 0.1
-  normalScaleSpeed: 10
-  quickScaleSpeed: 20
+  normalScaleSpeed: 1
+  quickScaleSpeed: 10
