@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     [Header("地面檢測")]
     static public bool isGrounded;
 
+    
+
     //視線檢測所需變數
     [Header("準心設置")]
     [SerializeField] float maxGloveDistance = 10.0f;
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour
         _groundCheck = GameObject.FindGameObjectWithTag("GroundCheck");
         Cursor.lockState = CursorLockMode.Locked;   //上下不超過90度 
         speed = walk;
+        
     }
     void Update()
     {
