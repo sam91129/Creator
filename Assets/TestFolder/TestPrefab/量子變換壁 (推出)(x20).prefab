@@ -110,6 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 557b350f7e5320049a3f50d605a16187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 0
+  isTimer: 0
+  duration: 0
   MaxScaleSize: 20
   normalScaleSpeed: 10
   quickScaleSpeed: 20
@@ -136,7 +139,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6488399964436612267}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 22.883171, y: 21.698942, z: -21.699707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -144,4 +147,4 @@ Transform:
   - {fileID: 6737899722647607632}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
