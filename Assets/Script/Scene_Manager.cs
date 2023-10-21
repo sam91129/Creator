@@ -5,19 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class Scene_Manager : MonoBehaviour
 {
-    public Scene NextScene;
+    public int NextScene;
     string scene;
     void Start()
     {
         scene = SceneManager.GetActiveScene().name;
     }
-    void ChangerScenes()
+    public void ChangerScenes()
     {
-        SceneManager.LoadScene("NextScene");
+        SceneManager.LoadSceneAsync(NextScene);
     }
     public void ReSpawn()
     {
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadSceneAsync(scene);
     }
 }
 
