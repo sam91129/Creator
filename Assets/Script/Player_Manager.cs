@@ -203,6 +203,7 @@ public class Player_Manager : MonoBehaviour
     {
         if (other.tag == "Energy")
         {
+           
             Energy++;
             count();
             Destroy(other.gameObject);

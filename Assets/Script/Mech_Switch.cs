@@ -7,6 +7,8 @@ public class Mech_Switch : MonoBehaviour
     public int ID;
     public void useSwitch()
     {
+        Event_SoundManager.PlayButtonClip();
+        Debug.Log("­µ®Ä");
         Event_Manager.current.SwitchUse(ID);
     }
 }

@@ -16,6 +16,12 @@ public class Mech_OpenDoor : MonoBehaviour
     }
     public void SwitchDoor(int ID)
     {
-        if (ID == this.ID) _doorAnimator.SetBool("SwitchON", true);
+        if (ID == this.ID)
+        {
+            Event_SoundManager.PlayOpenDoorClip();
+            Debug.Log("¶}ªù");
+            _doorAnimator.SetBool("SwitchON", true);
+
+        }
     }
 }
