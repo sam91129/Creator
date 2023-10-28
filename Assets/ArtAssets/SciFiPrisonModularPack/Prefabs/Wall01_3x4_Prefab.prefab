@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 96e4a75221cb83c458bee77ec3c1747a, type: 3}
       propertyPath: m_Name
-      value: Wall01_3x4_Prefab (1)
+      value: Wall01_3x4_Prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96e4a75221cb83c458bee77ec3c1747a, type: 3}
@@ -79,3 +79,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2275975, y: 3.0000002, z: 4.0025735}
   m_Center: {x: -0.11379875, y: 1.5000001, z: 1.9995414}
+--- !u!64 &-1650842826128945649
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5533903066491679117}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2370206847617130120, guid: 96e4a75221cb83c458bee77ec3c1747a, type: 3}

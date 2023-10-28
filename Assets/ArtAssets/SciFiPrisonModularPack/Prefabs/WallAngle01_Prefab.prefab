@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cd4aec026f2c5594e8b56c9742ee5fa3, type: 3}
       propertyPath: m_Name
-      value: WallAngle01_Prefab (4)
+      value: WallAngle01_Prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd4aec026f2c5594e8b56c9742ee5fa3, type: 3}
@@ -132,5 +132,19 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4871793938039066017, guid: cd4aec026f2c5594e8b56c9742ee5fa3, type: 3}
+--- !u!64 &-3882057011383218124
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6048861711882495324}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4871793938039066017, guid: cd4aec026f2c5594e8b56c9742ee5fa3, type: 3}

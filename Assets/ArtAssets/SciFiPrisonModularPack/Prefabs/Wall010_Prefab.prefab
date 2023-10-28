@@ -53,7 +53,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5449a4fc4d9b7754a8619aeecdc33e08, type: 3}
       propertyPath: m_Name
-      value: Wall010
+      value: Wall010_Prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5449a4fc4d9b7754a8619aeecdc33e08, type: 3}
+--- !u!1 &8763682421401737406 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5449a4fc4d9b7754a8619aeecdc33e08, type: 3}
+  m_PrefabInstance: {fileID: 8457675897769649647}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &-1808397677153620658
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763682421401737406}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9042291951599667977, guid: 5449a4fc4d9b7754a8619aeecdc33e08, type: 3}

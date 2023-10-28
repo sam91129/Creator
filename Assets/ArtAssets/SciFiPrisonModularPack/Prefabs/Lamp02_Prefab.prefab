@@ -53,7 +53,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a10d1e8d6b4a8fa40ab5334cbdd4d07c, type: 3}
       propertyPath: m_Name
-      value: Lamp02
+      value: Lamp02_Prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a10d1e8d6b4a8fa40ab5334cbdd4d07c, type: 3}
+--- !u!1 &6991352857146244361 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a10d1e8d6b4a8fa40ab5334cbdd4d07c, type: 3}
+  m_PrefabInstance: {fileID: 7910343704962924632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &-4569041120359066729
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6991352857146244361}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 706375861080993280, guid: a10d1e8d6b4a8fa40ab5334cbdd4d07c, type: 3}

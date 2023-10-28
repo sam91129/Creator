@@ -53,7 +53,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 012c4912d0cea7c41aea8f19853209b1, type: 3}
       propertyPath: m_Name
-      value: Ceiling03_2x2
+      value: Ceiling03_2x2_Prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 012c4912d0cea7c41aea8f19853209b1, type: 3}
+--- !u!1 &1362956098912844769 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 012c4912d0cea7c41aea8f19853209b1, type: 3}
+  m_PrefabInstance: {fileID: 2173928587016259248}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &4691071488294787945
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362956098912844769}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4187605737214418099, guid: 012c4912d0cea7c41aea8f19853209b1, type: 3}
