@@ -16,7 +16,7 @@ public class Event_Talk : MonoBehaviour
     bool textFinished;  //對話使否結束
     public int index;   //編號
 
-    private float time;
+    public float time;
     //float i;
 
     List<string> textList = new List<string>();
@@ -57,9 +57,9 @@ public class Event_Talk : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         panel.SetActive(true);
-        if (other.tag == "Player")
+        if (time<3f)
         {
-            
+            index++;
             Event_SoundManager.PlayButtonClip();
             Debug.Log("音效");
             
@@ -67,7 +67,7 @@ public class Event_Talk : MonoBehaviour
             if (textFinished=true )
             {
                 
-                index++;
+                //index++;
             }
             
 
