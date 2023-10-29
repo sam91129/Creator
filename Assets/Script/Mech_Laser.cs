@@ -5,16 +5,16 @@ using UnityEngine;
 public class Mech_Laser : MonoBehaviour
 {
     float maxLaserDistance = 100.0f;
-    float LaserRadius = 0.1f;
-    public LayerMask _playerMask;
     Vector3 LaserOrigin;
     Vector3 LaserDirection;
     RaycastHit _hit;
+    LineRenderer _laserLine;
 
     public int demage;
     Player_Manager health;
     void Awake()
     {
+        _laserLine = GetComponent<LineRenderer>();
         health = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Manager>();
     }
     void Start()
@@ -28,19 +28,14 @@ public class Mech_Laser : MonoBehaviour
     }
     void Laser()
     {
-        Physics.SphereCast(LaserOrigin, LaserRadius, LaserDirection, out _hit, maxLaserDistance);
+        Physics.Raycast(LaserOrigin, LaserDirection, out _hit, maxLaserDistance);
         {
+            _laserLine.SetPosition(0, LaserOrigin);
+            _laserLine.SetPosition(1,_hit.point);
             if (health != null && _hit.collider.tag == "Player")
             {
                 health.Damageplayer(demage);
             }
         }
     }
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawRay(LaserOrigin, LaserDirection);    
-        Gizmos.DrawWireSphere(LaserOrigin + LaserDirection * _hit.distance, LaserRadius);
-    }
-
 }
