@@ -16,9 +16,11 @@ public class Mech_Laser : MonoBehaviour
     [Header("機關ID")]
     public int ID;
     [Header("周期型")]
-    public bool LoopType;
+    public bool isLoopType;
     public float openTime;
     public float closeTime;
+    public bool startDelay;
+    public float delayTime;
     void Awake()
     {
         _laserLine = GetComponent<LineRenderer>();
@@ -26,7 +28,7 @@ public class Mech_Laser : MonoBehaviour
     }
     void Start()
     {
-        if (LoopType) StartCoroutine(TimerLaser());
+        if (isLoopType) StartCoroutine(TimerLaser());
         Event_Manager.current.onSwitchUse += switchLaser;
     }
     void FixedUpdate()
@@ -62,6 +64,11 @@ public class Mech_Laser : MonoBehaviour
     }
     IEnumerator TimerLaser()
     {
+        if (startDelay)
+        {
+            yield return new WaitForSeconds(delayTime);
+            startDelay = false;
+        }
         if (open) yield return new WaitForSeconds(openTime);
         else yield return new WaitForSeconds(closeTime);
         open = !open;
