@@ -20,8 +20,8 @@ public class Mech_OpenDoor : MonoBehaviour
         {
             Event_SoundManager.PlayOpenDoorClip();
             Debug.Log("¶}ªù");
-            _doorAnimator.SetBool("SwitchON", true);
-
+            if(_doorAnimator.GetBool("SwitchON") == false) _doorAnimator.SetBool("SwitchON", true);
+            else _doorAnimator.SetBool("SwitchON", false);
         }
     }
 }
