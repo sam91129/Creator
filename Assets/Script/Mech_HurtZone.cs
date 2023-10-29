@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-public class HurtZone_Damage : MonoBehaviour
+public class Mech_HurtZone : MonoBehaviour
 {
     public int demage;
     Player_Manager health;

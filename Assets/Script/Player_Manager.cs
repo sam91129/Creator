@@ -122,10 +122,10 @@ public class Player_Manager : MonoBehaviour
                 if (!isRepeat)
                 {
                     if (_gameObject[ObjectNumber] != null) _gameObject[ObjectNumber].GetComponent<Wall_System>().Revert();
-                    _gameObject[ObjectNumber] = _hits.collider.gameObject;
+                    if (_hits.collider.gameObject.GetComponent<Wall_System>().isPositive && isQuick) { } else _gameObject[ObjectNumber] = _hits.collider.gameObject;
                     if (isQuick)
                     {
-                        _gameObject[ObjectNumber].GetComponent<Wall_System>().QuickChangeScale();
+                        _hits.collider.gameObject.GetComponent<Wall_System>().QuickChangeScale();
                         isQuick = false;
                     }
                     else _gameObject[ObjectNumber].GetComponent<Wall_System>().NormalChangeScale();
@@ -202,8 +202,7 @@ public class Player_Manager : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Energy")
-        {
-           
+        {           
             Energy++;
             count();
             Destroy(other.gameObject);
@@ -211,6 +210,10 @@ public class Player_Manager : MonoBehaviour
         if (other.tag == "SwitchRange")
         {
             inSwitch = true;
+        }
+        if(other.tag == "SuperJump")
+        {
+            Velocity += new Vector3(0 , 30.0f , 0);
         }
     }
     void OnTriggerExit(Collider other)

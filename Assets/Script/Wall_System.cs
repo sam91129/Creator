@@ -9,6 +9,7 @@ public class Wall_System : MonoBehaviour
     [Header("持續時間")]
     public bool isTimer;
     public float duration;
+    public BoxCollider _superJump;
 
     public float MaxScaleSize;
     Vector3 originalScale;
@@ -20,7 +21,7 @@ public class Wall_System : MonoBehaviour
 
     bool isNormal = false;
     bool isQuick = false;
-    bool isPositive = false;
+    public bool isPositive = false;
     bool isNegative = false;
 
     void Awake()
@@ -31,6 +32,7 @@ public class Wall_System : MonoBehaviour
     }
     void Start()
     {
+        _superJump.enabled = false;
         Event_Manager.current.onSwitchUse += SwitchScale;
     }
     void Update()
@@ -47,8 +49,14 @@ public class Wall_System : MonoBehaviour
         }
         if (isQuick && isPositive)
         {
+            if(_superJump.enabled == false) _superJump.enabled = true;
             transform.localScale += new Vector3(0, quickScaleSpeed * Time.deltaTime, 0);
-            if (transform.localScale.y >= MaxScaleSize) isQuick = false;
+            if (transform.localScale.y >= MaxScaleSize)
+            {
+                isQuick = false;
+                Revert();
+                _superJump.enabled=false;
+            }
         }
         if (isQuick && isNegative)
         {

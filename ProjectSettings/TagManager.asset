@@ -13,6 +13,7 @@ TagManager:
   - Door
   - Gloves
   - SceneManager
+  - SuperJump
   layers:
   - Default
   - TransparentFX
