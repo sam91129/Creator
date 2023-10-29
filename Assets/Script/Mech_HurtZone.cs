@@ -18,7 +18,6 @@ public class Mech_HurtZone : MonoBehaviour
             if (health != null)
             {
                 health.Damageplayer(demage);
-                Debug.Log("¨ü¶Ë¤F");
             }
         }
     }

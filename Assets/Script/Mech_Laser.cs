@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class Mech_Laser : MonoBehaviour
 {
-    float maxLaserDistance = 100.0f;
+    public float maxLaserDistance;
     Vector3 LaserOrigin;
     Vector3 LaserDirection;
     RaycastHit _hit;
     LineRenderer _laserLine;
-
+    public bool open;
     public int demage;
     Player_Manager health;
+
+    [Header("機關ID")]
+    public int ID;
+    [Header("周期型")]
+    public bool LoopType;
+    public float openTime;
+    public float closeTime;
     void Awake()
     {
         _laserLine = GetComponent<LineRenderer>();
@@ -19,23 +26,45 @@ public class Mech_Laser : MonoBehaviour
     }
     void Start()
     {
-        LaserOrigin = transform.position;
-        LaserDirection = transform.forward;
+        if (LoopType) StartCoroutine(TimerLaser());
+        Event_Manager.current.onSwitchUse += switchLaser;
     }
     void FixedUpdate()
     {
-        Laser();
+        LaserOrigin = transform.position;
+        LaserDirection = transform.forward;
+        if(open)
+        {
+            _laserLine.enabled = true;
+            Laser();
+        }
+        else _laserLine.enabled = false;
     }
     void Laser()
     {
         Physics.Raycast(LaserOrigin, LaserDirection, out _hit, maxLaserDistance);
         {
             _laserLine.SetPosition(0, LaserOrigin);
-            _laserLine.SetPosition(1,_hit.point);
-            if (health != null && _hit.collider.tag == "Player")
+            if (_hit.collider != null)
             {
-                health.Damageplayer(demage);
+                _laserLine.SetPosition(1, _hit.point);
+                if (health != null && _hit.collider.tag == "Player")
+                {
+                    health.Damageplayer(demage);
+                }
             }
+            else _laserLine.SetPosition(1, LaserDirection*maxLaserDistance);
         }
+    }
+    public void switchLaser(int id)
+    {
+        if (id == this.ID) open = !open;
+    }
+    IEnumerator TimerLaser()
+    {
+        if (open) yield return new WaitForSeconds(openTime);
+        else yield return new WaitForSeconds(closeTime);
+        open = !open;
+        StartCoroutine(TimerLaser());
     }
 }
