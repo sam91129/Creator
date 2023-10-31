@@ -6,8 +6,11 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class test_hurtplace : MonoBehaviour
 {
+    [Header("效果強度")]
     public float maxIntensity;
+    [Header("多久後消退")]
     public float WaitTime;
+    [Header("消退速率")]
     public float DelayTime;
     float intensity;
     PostProcessVolume hurtColor;
@@ -21,16 +24,12 @@ public class test_hurtplace : MonoBehaviour
     {
         StartCoroutine(TakeDamage());
     }
-    // Update is called once per frame
     IEnumerator TakeDamage()
     {
         intensity = maxIntensity;
-
         vignette.enabled.Override(true);
         vignette.intensity.Override(intensity);
-
         yield return new WaitForSeconds(WaitTime);
-
         while (intensity > 0)
         {
             intensity -= 0.01f;

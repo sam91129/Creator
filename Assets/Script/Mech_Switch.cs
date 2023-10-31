@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Mech_Switch : MonoBehaviour
 {
+    [Header("¾÷ÃöID")]
     public int ID;
     public void useSwitch()
     {

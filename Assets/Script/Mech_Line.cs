@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Mech_Line : MonoBehaviour
 {
-    public int ID;
-    public Material A;
-    public Material B;
     Material myself;
     Renderer myselfRenderer;
+    [Header("纜線材質")]
+    public Material A;
+    public Material B;
+    [Header("機關ID")]
+    public int ID;
     void Start()
     {
         myselfRenderer = GetComponent<Renderer>();

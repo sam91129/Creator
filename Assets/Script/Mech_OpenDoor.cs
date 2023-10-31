@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Mech_OpenDoor : MonoBehaviour
 {
-    public int ID;
     Animator _doorAnimator;
-    bool _openDoor;
+    [Header("¾÷ÃöID")]
+    public int ID;
     void Awake()
     {
         _doorAnimator= GetComponent<Animator>();

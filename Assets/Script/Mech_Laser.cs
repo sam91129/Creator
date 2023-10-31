@@ -13,14 +13,14 @@ public class Mech_Laser : MonoBehaviour
     public int demage;
     Player_Manager health;
 
-    [Header("機關ID")]
-    public int ID;
     [Header("周期型")]
     public bool isLoopType;
     public float openTime;
     public float closeTime;
     public bool startDelay;
     public float delayTime;
+    [Header("機關ID")]
+    public int ID;
     void Awake()
     {
         _laserLine = GetComponent<LineRenderer>();

@@ -14,6 +14,7 @@ public class Player_Manager : MonoBehaviour
     public float run;
     float speed;
     public float jump;
+    public float superJump;
     GameObject _groundCheck;
     public LayerMask _groundMask;
     public float Gravity;
@@ -57,7 +58,6 @@ public class Player_Manager : MonoBehaviour
 
     [Header("¦å¶q")]
     public int Hp;
-
     test_hurtplace test_Hurtplace;
     void Awake()
     {
@@ -213,7 +213,7 @@ public class Player_Manager : MonoBehaviour
         }
         if(other.tag == "SuperJump")
         {
-            Velocity += new Vector3(0 , 30.0f , 0);
+            Velocity += new Vector3( 0, superJump, 0);
         }
     }
     void OnTriggerExit(Collider other)

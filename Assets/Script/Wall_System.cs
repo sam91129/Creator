@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class Wall_System : MonoBehaviour
 {
-    public int ID;
+    public float MaxScaleSize;
+    
 
     [Header("持續時間")]
     public bool isTimer;
     public float duration;
     public BoxCollider _superJump;
 
-    public float MaxScaleSize;
-    Vector3 originalScale;
 
     [Header("普通縮放")]
     public float normalScaleSpeed;
     [Header("快速縮放")]
     public float quickScaleSpeed;
+    public float superJumpHeight;
+    [Header("機關ID")]
+    public int ID;
 
+    [Header("程式控制")]
+    public bool isPositive = false;
+    Vector3 originalScale;
     bool isNormal = false;
     bool isQuick = false;
-    public bool isPositive = false;
     bool isNegative = false;
 
     void Awake()
@@ -67,12 +71,10 @@ public class Wall_System : MonoBehaviour
     public void NormalChangeScale()
     {
         isNormal = true;
-        Debug.Log("NormalScale");
     }
     public void QuickChangeScale()
     {
         isQuick = true;
-        Debug.Log("QuickScale");
     }
     public void SwitchScale(int id)
     {
@@ -84,6 +86,5 @@ public class Wall_System : MonoBehaviour
         this.transform.localScale = originalScale;
         isNormal = false;
         isQuick = false;
-        Debug.Log(this.gameObject.name+"/Revert");
     }
 }

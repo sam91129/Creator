@@ -5,6 +5,7 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class Mech_HurtZone : MonoBehaviour
 {
+    [Header("¾÷Ãö¶Ë®`")]
     public int demage;
     Player_Manager health;
     void Awake()
