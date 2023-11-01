@@ -791,7 +791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2788327412768710186, guid: e734b8ae4b93a004696437faa3bcb14a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33.15
+      value: 33.51
       objectReference: {fileID: 0}
     - target: {fileID: 2788327412768710186, guid: e734b8ae4b93a004696437faa3bcb14a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -799,7 +799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2788327412768710186, guid: e734b8ae4b93a004696437faa3bcb14a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.27
+      value: 4.38
       objectReference: {fileID: 0}
     - target: {fileID: 2788327412768710186, guid: e734b8ae4b93a004696437faa3bcb14a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1030,6 +1030,10 @@ PrefabInstance:
     - target: {fileID: 5957031110221285590, guid: b03f361921e07854c943f91ec1653a8e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957031110221285591, guid: b03f361921e07854c943f91ec1653a8e, type: 3}
+      propertyPath: NextScene
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b03f361921e07854c943f91ec1653a8e, type: 3}
@@ -1324,7 +1328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 593440802}
   m_Layer: 0
-  m_Name: "\u5834\u666F"
+  m_Name: "-\u5834\u666F-"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2428,7 +2432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1042742375}
   m_Layer: 0
-  m_Name: "\u6A5F\u95DC"
+  m_Name: "-\u6A5F\u95DC-"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2846,7 +2850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1334377405}
   m_Layer: 0
-  m_Name: "UI&\u7CFB\u7D71"
+  m_Name: "-UI&\u7CFB\u7D71-"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7817,6 +7821,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1820286041}
   - component: {fileID: 1820286040}
+  - component: {fileID: 1820286042}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -7901,6 +7906,26 @@ Transform:
   m_Father: {fileID: 1334377405}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1820286042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820286039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!4 &1828283437 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7926543534192694494, guid: ba55ecd17146cd6419fb5e5199486b16, type: 3}
