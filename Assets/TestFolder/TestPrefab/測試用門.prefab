@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5564115386272536580}
   - component: {fileID: 7432151610083208117}
   - component: {fileID: 5702671129722925643}
+  - component: {fileID: 8792639766862115961}
   m_Layer: 0
   m_Name: "\u6E2C\u8A66\u7528\u9580"
   m_TagString: Untagged
@@ -120,7 +121,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e691668df1f424cbc9a5f8a8c0f159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AutomaticDoor: 0
   ID: 0
+--- !u!65 &8792639766862115961
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6212514505237264849}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 2.6307697, y: 3.0000534, z: 4.0000114}
+  m_Center: {x: 0.047145844, y: 1.4999735, z: 0}
 --- !u!1001 &2936337883194660401
 PrefabInstance:
   m_ObjectHideFlags: 0

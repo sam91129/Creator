@@ -52,7 +52,6 @@ public class Player_Manager : MonoBehaviour
     int Energy;
     int ObjectNumber;
     GameObject[] _gameObject;
-    bool isQuick;
     bool isRepeat;
     bool inSwitch = false;
 
@@ -111,28 +110,34 @@ public class Player_Manager : MonoBehaviour
     }
     public void onUse(InputAction.CallbackContext ctx)
     {
-        if(ctx.performed && HadGloves) isQuick = true;
-        if(ctx.canceled && HadGloves)
+        if(ctx.started && HadGloves)
         {
             CrossOrigin = _camera.transform.position;
             CrossDirection = _camera.transform.forward;
-            if (Physics.SphereCast(CrossOrigin, vistionRadius, CrossDirection, out _hits, maxGloveDistance) && _hits.collider.tag == ("Item"))
+            if (Physics.SphereCast(CrossOrigin, vistionRadius, CrossDirection, out _hits, maxGloveDistance) && _hits.collider.tag == ("ScaleWall"))
             {
                 repeatCheck();
                 if (!isRepeat)
                 {
-                    if (_gameObject[ObjectNumber] != null) _gameObject[ObjectNumber].GetComponent<Wall_System>().Revert();
-                    if (_hits.collider.gameObject.GetComponent<Wall_System>().isPositive && isQuick) { } else _gameObject[ObjectNumber] = _hits.collider.gameObject;
-                    if (isQuick)
-                    {
-                        _hits.collider.gameObject.GetComponent<Wall_System>().QuickChangeScale();
-                        isQuick = false;
-                    }
-                    else _gameObject[ObjectNumber].GetComponent<Wall_System>().NormalChangeScale();
+                    if (_gameObject[ObjectNumber] != null) _gameObject[ObjectNumber].GetComponent<Mech_ScaleWall>().Revert();
+                    _gameObject[ObjectNumber] = _hits.collider.gameObject;
+                    _gameObject[ObjectNumber].GetComponent<Mech_ScaleWall>().WallChangeScale();
                     ObjectNumber++;
                     if (ObjectNumber >= limitObject) ObjectNumber = 0;
                 }
                 else isRepeat = false;
+            }
+        }
+    }
+    public void onCancel(InputAction.CallbackContext ctx)
+    {
+        if (ctx.started && HadGloves)
+        {
+            CrossOrigin = _camera.transform.position;
+            CrossDirection = _camera.transform.forward;
+            if (Physics.SphereCast(CrossOrigin, vistionRadius, CrossDirection, out _hits, maxGloveDistance) && _hits.collider.tag == ("JumpPad"))
+            {
+                _hits.collider.GetComponent<Mech_JumpPad>().WallChargeJump();
             }
         }
     }
@@ -154,21 +159,6 @@ public class Player_Manager : MonoBehaviour
                     _hits.collider.gameObject.SetActive(false);
                 }
             }
-        }
-    }
-    public void onCancel(InputAction.CallbackContext ctx)
-    {
-        if (ctx.performed)
-        {
-            for (int i = 0; i < limitObject; i++)
-            {
-                if (_gameObject[i] != null)
-                {
-                    _gameObject[i].GetComponent<Wall_System>().Revert();
-                    _gameObject[i] = null;
-                }
-            }
-            ObjectNumber = 0;
         }
     }
     public void Damageplayer(int damage)

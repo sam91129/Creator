@@ -89,10 +89,10 @@ GameObject:
   - component: {fileID: 5915962720465220794}
   - component: {fileID: 8502039125197095024}
   - component: {fileID: 7078772580483210486}
-  - component: {fileID: 7078772580483210487}
+  - component: {fileID: 4988223336504702388}
   m_Layer: 6
   m_Name: TestWall02
-  m_TagString: Item
+  m_TagString: JumpPad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,7 +176,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 0.5, z: 5}
   m_Center: {x: 0, y: 0.25, z: 0}
---- !u!114 &7078772580483210487
+--- !u!114 &4988223336504702388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,15 +185,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7997746398889451941}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 557b350f7e5320049a3f50d605a16187, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ac700d18bcce674ca0fa7d3a5e49f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MaxScaleSize: 2
-  isTimer: 0
-  duration: 0
   _superJump: {fileID: 7582362518184519518}
-  normalScaleSpeed: 10
-  quickScaleSpeed: 20
-  superJumpHeight: 0
-  ID: 0
-  isPositive: 1
+  ScaleSpeed: 20

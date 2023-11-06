@@ -1,24 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
 
 public class test_hurtplace : MonoBehaviour
 {
-    [Header("效果強度")]
-    public float maxIntensity;
     [Header("多久後消退")]
     public float WaitTime;
     [Header("消退速率")]
     public float DelayTime;
-    float intensity;
-    PostProcessVolume hurtColor;
-    Vignette vignette;
+
+    float maxWeight = 1;
+    Volume hurtColor;
     void Awake()
     {
-        hurtColor = GameObject.FindWithTag("HurtEffect").GetComponent<PostProcessVolume>();
-        hurtColor.profile.TryGetSettings<Vignette>(out vignette);
+        hurtColor = GameObject.FindWithTag("HurtEffect").GetComponent<Volume>();
+    }
+    void Start()
+    {
+        hurtColor.weight = 0;
     }
     public void FlashScreen()
     {
@@ -26,17 +26,13 @@ public class test_hurtplace : MonoBehaviour
     }
     IEnumerator TakeDamage()
     {
-        intensity = maxIntensity;
-        vignette.enabled.Override(true);
-        vignette.intensity.Override(intensity);
+        hurtColor.weight = maxWeight;
         yield return new WaitForSeconds(WaitTime);
-        while (intensity > 0)
+        while (hurtColor.weight > 0)
         {
-            intensity -= 0.01f;
-            vignette.intensity.Override(intensity);
+            hurtColor.weight -= 0.01f;
             yield return new WaitForSeconds(DelayTime);
         }
-        vignette.enabled.Override(false);
         yield break;
     }
 }

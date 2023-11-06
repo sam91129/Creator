@@ -6,7 +6,6 @@ TagManager:
   tags:
   - Energy
   - SwitchRange
-  - Item
   - GroundCheck
   - HurtEffect
   - Ground
@@ -14,6 +13,8 @@ TagManager:
   - Gloves
   - SceneManager
   - SuperJump
+  - JumpPad
+  - ScaleWall
   layers:
   - Default
   - TransparentFX
