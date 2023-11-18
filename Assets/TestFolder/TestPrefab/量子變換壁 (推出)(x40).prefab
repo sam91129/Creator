@@ -145,5 +145,5 @@ MonoBehaviour:
   MaxScaleSize: 40
   isTimer: 0
   duration: 3
-  ScaleSpeed: 1
+  ScaleSpeed: 10
   ID: 0
