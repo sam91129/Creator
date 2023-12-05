@@ -381,7 +381,7 @@ MonoBehaviour:
   walk: 5
   run: 10
   jump: 2
-  superJump: 0
+  superJump: 20
   _groundMask:
     serializedVersion: 2
     m_Bits: 64
