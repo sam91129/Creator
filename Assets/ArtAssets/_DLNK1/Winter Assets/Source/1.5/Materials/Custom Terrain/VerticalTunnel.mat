@@ -4,12 +4,13 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: VerticalTunnel
-  m_Shader: {fileID: 4800000, guid: 7815f578684d7f9439315024c84b796b, type: 3}
+  m_Shader: {fileID: 4800000, guid: 516e1d638296ed84a8111eeac2e687e3, type: 3}
   m_ShaderKeywords: _DETAIL_MULX2 _EMISSION _NORMALMAP _PARALLAXMAP _USELOCALNORMALS_ON
-  m_LightmapFlags: 1
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -18,8 +19,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlbedoTop:
+        m_Texture: {fileID: 2800000, guid: 35855a91f15f0084397d71ec97b7d90d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: 28ab6c1c2e6c78d45adf65e60c4c294c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMapTop:
+        m_Texture: {fileID: 2800000, guid: fec84a827e085b34cbb800d5b17da482, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -46,6 +55,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: c213319b34ed2c842b8e04546bc80489, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MetalnessTop:
+        m_Texture: {fileID: 2800000, guid: 39d360f41d5e14b478c5f414c4e5e515, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 2800000, guid: f749ef53e837cbc4daf777def4ae4028, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -70,32 +83,45 @@ Material:
         m_Texture: {fileID: 2800000, guid: fec84a827e085b34cbb800d5b17da482, type: 3}
         m_Scale: {x: 32, y: 32}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - Depth: -0.002
-    - _BumpScale: 1
+    - _AlphaCutoff: 0.5
+    - _Ammount: 1.06
+    - _BumpMix: 1
+    - _BumpScale: 0.99
+    - _BumpScaleTop: 1
     - _Cutoff: 0.5
     - _DetailMaskMult: 0.63
-    - _DetailNormalMapScale: 1.84
+    - _DetailNormalMapScale: 0.53
     - _DstBlend: 0
     - _EmissionScaleUI: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.31
+    - _GlossinessTop: 0.5
     - _GlossyReflections: 1
     - _HgtMapSmooth: 5
     - _InvertAxis: 0
     - _InvertDepth: 0
     - _Metallic: 0
+    - _MetallicTop: 0
     - _Mode: 0
     - _NormalSmooth: -0.55
     - _OcclusionStrenght: 1
     - _OcclusionStrength: 1
+    - _OcclusionTop: 0
     - _Parallax: 0.01
+    - _Smooth: 0.86
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _TopBottom: -0.68
     - _TopBottomMult: 3.64
     - _TopBottomSmooth: 4.82
+    - _TopTiling: 50
     - _UVMasterTiling: 1
     - _UVSec: 0
     - _UpAOMult: 0.48
@@ -107,7 +133,9 @@ Material:
     - _UseLocalNormals: 1
     - _ZWrite: 1
     m_Colors:
+    - _Clamp: {r: 0.3, g: 1, b: 0, a: 0}
     - _Color: {r: 0.73378026, g: 0.78391004, b: 0.85294116, a: 1}
+    - _ColorTop: {r: 0.8632076, g: 0.9129665, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
     - _UpColor: {r: 1, g: 1, b: 1, a: 1}

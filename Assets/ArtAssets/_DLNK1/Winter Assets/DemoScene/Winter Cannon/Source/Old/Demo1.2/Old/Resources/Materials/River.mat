@@ -4,10 +4,11 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: River
-  m_Shader: {fileID: 4800000, guid: 2b7c42ff27090d944a50fba5cf36b770, type: 3}
+  m_Shader: {fileID: 4800000, guid: f907491e337e68944ba57eba8c6e784e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -32,6 +33,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DiffuseUp:
         m_Texture: {fileID: 2800000, guid: 9a8034cfbd49c8549966870ff3ea5e90, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamMask:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -74,12 +79,18 @@ Material:
     - _1stVelocity: 1
     - _2ndVelocity: 2
     - _AffectDepth: 0
+    - _AlphaCutoff: 0.5
     - _BumpScale: 1
     - _BumpSmooth: 0
     - _Cutoff: 0.5
+    - _Depth: 0.9
     - _DepthFocus: 1.4
     - _DepthRange: 1
     - _DetailTiling: 2
+    - _Falloff: -3
+    - _FoamDepth: 0.9
+    - _FoamFalloff: -3
+    - _FoamTiling: 1
     - _FresnelPower: 0.35
     - _FresnelRim: 0.22
     - _Gloss: 2.38
@@ -88,6 +99,7 @@ Material:
     - _MapsSmooth: 0
     - _MasterTiling: 1
     - _MixPower: 1
+    - _NormalScale: 1
     - _Opacity: -1.26
     - _OpacityPower: -5.11
     - _Refraction: 0.04
@@ -95,6 +107,14 @@ Material:
     - _Specular: 1
     - _TimeSize: 1
     - _TopDownMask: 0.8270677
+    - _TransAmbient: 0.1
+    - _TransDirect: 0.9
+    - _TransNormal: 0.5
+    - _TransScattering: 2
+    - _TransShadow: 0.5
+    - _TransStrength: 1
+    - _Transparency: 0.5
+    - _UVScale: 1
     - _UpMoveRange: 0.97
     - _UpVelocity: -0.15
     - _UpmoveMix: 1.37
@@ -105,5 +125,9 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorA: {r: 0.7867647, g: 0.7867647, b: 0.7867647, a: 1}
     - _ColorB: {r: 0.1691176, g: 0.1691176, b: 0.1691176, a: 1}
+    - _ColorFoam: {r: 0.9386792, g: 0.96711284, b: 1, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainVXYDetVZW: {r: 1, g: 1, b: 0.5, a: 0.5}
     - _OpacPowerRMultGAddBDepthW: {r: 1, g: 1, b: 0, a: 0}
+    - _SpecXYSnsZW: {r: 0.1, g: 0, b: 0.5, a: 0.2}
+    - _VelocityXYFoamZ: {r: 0.03, g: -0.05, b: 0.04, a: 0}

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: WinterBridgeSnow
-  m_Shader: {fileID: 4800000, guid: e8fa979ae91370d4dbd1424a77aba15e, type: 3}
+  m_Shader: {fileID: 4800000, guid: 516e1d638296ed84a8111eeac2e687e3, type: 3}
   m_ShaderKeywords: _COLORDETAIL_ON _DETAIL_MULX2 _EMISSION _NORMALMAP _PARALLAXON_ON
     _RIMAO_ON _RIMON_ON _SPECULARAO_ON _USELOCALNORMALS_ON _USENORMALDETAIL_ON
   m_LightmapFlags: 1
@@ -20,12 +20,20 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlbedoTop:
+        m_Texture: {fileID: 2800000, guid: 35855a91f15f0084397d71ec97b7d90d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpDetail:
         m_Texture: {fileID: 2800000, guid: 6bd13ec8663b58547add76406b2a9963, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: 441b56765e270dc4581b10192c9e501b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMapTop:
+        m_Texture: {fileID: 2800000, guid: fec84a827e085b34cbb800d5b17da482, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -76,6 +84,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: f9f527e155a5c974d928729d077ed11c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MetalnessTop:
+        m_Texture: {fileID: 2800000, guid: 26648902339deac4287c570bca800ac2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 2800000, guid: 941f59ea53d5f894da264cf91aa2a4f5, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -116,13 +128,21 @@ Material:
         m_Texture: {fileID: 2800000, guid: fec84a827e085b34cbb800d5b17da482, type: 3}
         m_Scale: {x: 21, y: 21}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - Depth: 0.003
     - _AOBlendPower: -0.02
     - _AOPower: 1
     - _AffectAO: 0
+    - _AlphaCutoff: 0.5
+    - _Ammount: 1
     - _BumpDetailPower: 0
-    - _BumpScale: 1
+    - _BumpMix: 1
+    - _BumpScale: 0.99
+    - _BumpScaleTop: 1
     - _ColorDetail: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -134,6 +154,7 @@ Material:
     - _Gloss: 0
     - _GlossMapScale: 1
     - _Glossiness: 2
+    - _GlossinessTop: 0.6
     - _GlossyReflections: 1
     - _HeightPower: 0.01
     - _HgtMapSmooth: 4.47
@@ -142,10 +163,12 @@ Material:
     - _MainTiling: 1
     - _MasterTile: 1
     - _Metallic: 1.497
+    - _MetallicTop: 0
     - _Mode: 0
     - _NormalSmooth: 0
     - _OcclusionStrenght: 1
     - _OcclusionStrength: 1
+    - _OcclusionTop: 0
     - _OclussionFade: 2.6785715
     - _OclussionIntensity: 0
     - _OclussionPower: -5
@@ -156,6 +179,7 @@ Material:
     - _RimOn: 1
     - _RimPower: 0.2142857
     - _Shininess: 0.030000003
+    - _Smooth: 0.53
     - _SmoothnessTextureChannel: 0
     - _SpecularAO: 1
     - _SpecularHighlights: 1
@@ -168,6 +192,7 @@ Material:
     - _TopBottomSmooth: 1.57
     - _TopShininess: -0.21
     - _TopSpecularPower: 2
+    - _TopTiling: 30
     - _UVMasterTiling: 1
     - _UVSec: 0
     - _UpAOMult: 1
@@ -182,8 +207,10 @@ Material:
     - _UseSpecularMap: 0
     - _ZWrite: 1
     m_Colors:
+    - _Clamp: {r: 0.69, g: 1, b: 0, a: 0}
     - _Color: {r: 0.9485294, g: 0.95953345, b: 1, a: 1}
     - _ColorTint: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorTop: {r: 0.8490566, g: 0.8450516, b: 0.8450516, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 0.48356402, g: 0.51537406, b: 0.63235295, a: 1}
