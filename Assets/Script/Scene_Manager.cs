@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Scene_Manager : MonoBehaviour
 {
+    public static string scene;
     [Header("¤U¤@³õ´ºID")]
     public int NextScene;
-    string scene;
     void Start()
     {
         scene = SceneManager.GetActiveScene().name;
