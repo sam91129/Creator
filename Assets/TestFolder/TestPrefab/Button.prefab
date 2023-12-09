@@ -163,19 +163,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0866bb4a0b2f95544b8b057ca7b1c954, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -4.3297806e-17
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0866bb4a0b2f95544b8b057ca7b1c954, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -4.3297806e-17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0866bb4a0b2f95544b8b057ca7b1c954, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0866bb4a0b2f95544b8b057ca7b1c954, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0866bb4a0b2f95544b8b057ca7b1c954, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -193,10 +193,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fb86cf1c1280d8749a72571143efc8ae, type: 2}
+    - target: {fileID: -1439730007547781893, guid: 0866bb4a0b2f95544b8b057ca7b1c954, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8fa89aaefbf8e4c42bf1cfe14ebd2407, type: 2}
     - target: {fileID: 919132149155446097, guid: 0866bb4a0b2f95544b8b057ca7b1c954, type: 3}
       propertyPath: m_Name
       value: Mechanism_Button_Model
       objectReference: {fileID: 0}
+    - target: {fileID: 1129496810705857465, guid: 0866bb4a0b2f95544b8b057ca7b1c954, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8fa89aaefbf8e4c42bf1cfe14ebd2407, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0866bb4a0b2f95544b8b057ca7b1c954, type: 3}
 --- !u!4 &2510328560772723569 stripped
