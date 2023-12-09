@@ -15,7 +15,7 @@ public class Mech_Line : MonoBehaviour
     {
         myselfRenderer = GetComponent<Renderer>();
         myselfRenderer.sharedMaterial = A;
-        Event_Manager.current.onSwitchUse += ChangeMatel;
+        GameManager.current.onSwitchUse += ChangeMatel;
     }
     void ChangeMatel(int id)
     {

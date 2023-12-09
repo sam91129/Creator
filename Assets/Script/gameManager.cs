@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class gameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     //---------------------------------------------場景---------------------------------------------------------
     public static string scene;
@@ -15,7 +15,7 @@ public class gameManager : MonoBehaviour
     public static AudioClip Button;
     public static AudioClip OpenDoor;
     //---------------------------------------------事件---------------------------------------------------------
-    public static Event_Manager current;
+    public static GameManager current;
     //__________________________________________________________________________________________________________
     void Awake()
     {
@@ -24,7 +24,7 @@ public class gameManager : MonoBehaviour
         //------------------聲音------------------
 
         //------------------事件------------------
-        current = this;
+        current = this; 
     }
     void Start()
     {
@@ -35,6 +35,7 @@ public class gameManager : MonoBehaviour
         Button = Resources.Load<AudioClip>("button");
         OpenDoor = Resources.Load<AudioClip>("門1");
         //------------------事件------------------
+
     }
     //---------------------------------------------場景---------------------------------------------------------
     public void ChangerScenes()
@@ -62,7 +63,6 @@ public class gameManager : MonoBehaviour
     {
         SFXaudio.PlayOneShot(Button);
     }
-
     //---------------------------------------------事件---------------------------------------------------------
     public event UnityAction<int> onSwitchUse;
     public void SwitchUse(int ID)

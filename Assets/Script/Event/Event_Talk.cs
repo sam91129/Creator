@@ -60,11 +60,11 @@ public class Event_Talk : MonoBehaviour
         if (time<3f)
         {
             index++;
-            Event_SoundManager.PlayButtonClip();
+            GameManager.PlayButtonClip();
             Debug.Log("­µ®Ä");
             
             textLabel.text = textList[index];
-            if (textFinished=true )
+            if (textFinished==true )
             {
                 
                 //index++;

@@ -23,7 +23,7 @@ public class Event_SoundManager : MonoBehaviour
 
     public static void PlayOpenDoorClip()
     {
-        SFXaudio.PlayOneShot(OpenDoor);
+        SFXaudio.PlayOneShot(OpenDoor);     
     }
     public static void PlayButtonClip()
     {
