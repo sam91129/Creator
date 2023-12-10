@@ -11,10 +11,10 @@ TagManager:
   - Ground
   - Door
   - Gloves
-  - SceneManager
   - SuperJump
   - JumpPad
   - ScaleWall
+  - GameManager
   layers:
   - Default
   - TransparentFX

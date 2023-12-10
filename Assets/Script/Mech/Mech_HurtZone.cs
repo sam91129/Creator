@@ -7,10 +7,10 @@ public class Mech_HurtZone : MonoBehaviour
 {
     [Header("¾÷Ãö¶Ë®`")]
     public int demage;
-    Player_Manager health;
+    PlayerManager health;
     void Awake()
     {
-        health = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Manager>();
+        health = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
     }
     void OnTriggerEnter(Collider other)
     {

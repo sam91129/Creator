@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
     public static string scene;
     [Header("場景_下個場景")]
     public int NextScene;
+    //---------------------------------------------介面---------------------------------------------------------
+
     //---------------------------------------------聲音---------------------------------------------------------
     public static AudioSource SFXaudio;
     public static AudioClip Button;
@@ -21,6 +24,8 @@ public class GameManager : MonoBehaviour
     {
         //------------------場景------------------
 
+        //------------------介面------------------
+
         //------------------聲音------------------
 
         //------------------事件------------------
@@ -30,6 +35,8 @@ public class GameManager : MonoBehaviour
     {
         //------------------場景------------------
         scene = SceneManager.GetActiveScene().name;
+        //------------------介面------------------
+
         //------------------聲音------------------
         SFXaudio = GetComponent<AudioSource>();
         Button = Resources.Load<AudioClip>("button");
@@ -46,13 +53,29 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(scene);
     }
+    
+    //---------------------介面----------------------------
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        SceneManager.LoadScene("UI_Pause", LoadSceneMode.Additive);
+    }
+    public void UnpauseGame()
+    {
+        Time.timeScale = 1;
+        SceneManager.UnloadSceneAsync("UI_Pause");
+    }
     public void CloseCheck()
     {
         SceneManager.LoadScene("UI_CloseCheck", LoadSceneMode.Additive);
     }
-    public void CloseCheck_No()
+    public void CancelClose()
     {
         SceneManager.UnloadSceneAsync("UI_CloseCheck");
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
     }
     //---------------------------------------------聲音---------------------------------------------------------
     public static void PlayOpenDoorClip()

@@ -11,7 +11,7 @@ public class Mech_Laser : MonoBehaviour
     LineRenderer _laserLine;
     public bool open;
     public int demage;
-    Player_Manager health;
+    PlayerManager health;
 
     [Header("©P´Á«¬")]
     public bool isLoopType;
@@ -24,7 +24,7 @@ public class Mech_Laser : MonoBehaviour
     void Awake()
     {
         _laserLine = GetComponent<LineRenderer>();
-        health = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Manager>();
+        health = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
     }
     void Start()
     {

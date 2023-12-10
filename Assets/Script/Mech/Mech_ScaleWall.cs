@@ -29,7 +29,7 @@ public class Mech_ScaleWall : MonoBehaviour
     }
     void Start()
     {
-        GameManager.current.SwitchUse(ID);
+        GameManager.current.onSwitchUse += SwitchScale;
     }
     void Update()
     {
