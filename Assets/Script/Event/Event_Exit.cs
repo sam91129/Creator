@@ -7,13 +7,13 @@ public class Event_Exit : MonoBehaviour
     GameObject _sceneSystem;
     void Start()
     {
-        _sceneSystem = GameObject.FindGameObjectWithTag("SceneManager");
+        _sceneSystem = GameObject.FindGameObjectWithTag("GameManager");
     }
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            _sceneSystem.GetComponent<Scene_Manager>().ChangerScenes();
+            _sceneSystem.GetComponent<gameManager>().ChangerScenes();
         }
     }
 }

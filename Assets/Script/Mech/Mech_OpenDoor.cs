@@ -18,13 +18,13 @@ public class Mech_OpenDoor : MonoBehaviour
     {   
         if (AutomaticDoor)_autoSensing.enabled=true;
         else _autoSensing.enabled = false;
-        GameManager.current.onSwitchUse += SwitchDoor;
+        gameManager.current.onSwitchUse += SwitchDoor;
     }
     public void SwitchDoor(int ID)
     {
         if (ID == this.ID)
         {
-            GameManager.PlayOpenDoorClip();
+            gameManager.PlayOpenDoorClip();
             if(_doorAnimator.GetBool("SwitchON") == false) _doorAnimator.SetBool("SwitchON", true);
             else _doorAnimator.SetBool("SwitchON", false);
         }
@@ -33,7 +33,7 @@ public class Mech_OpenDoor : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            GameManager.PlayOpenDoorClip();
+            gameManager.PlayOpenDoorClip();
             _doorAnimator.SetBool("SwitchON", true);
         }
     }

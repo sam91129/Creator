@@ -48,6 +48,7 @@ public class PlayerManager : MonoBehaviour
 
     [Header("能力設置")]
     public bool HadGloves;
+    public GameObject _glovesModel;
     int limitObject = 1;
     int Energy;
     int ObjectNumber;
@@ -66,6 +67,11 @@ public class PlayerManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;   //上下不超過90度 
         speed = walk;
         Event_Hurtplace = GameObject.FindWithTag("HurtEffect").GetComponent<Event_Hurtplace>();
+    }
+    void Start()
+    {
+        if (HadGloves) _glovesModel.SetActive(true);
+        else _glovesModel.SetActive(false);
     }
     void Update()
     {
@@ -156,6 +162,7 @@ public class PlayerManager : MonoBehaviour
                 if (_hits.collider.tag == "Gloves")
                 {
                     HadGloves = true;
+                    _glovesModel.SetActive(true);
                     _hits.collider.gameObject.SetActive(false);
                 }
             }
@@ -167,7 +174,7 @@ public class PlayerManager : MonoBehaviour
         Hp -= damage;
         if (Hp <= 0)
         {
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().ReSpawn();
+            GameObject.FindGameObjectWithTag("GameManager").GetComponent<gameManager>().ReSpawn();
         }
     }
     void groundCheck()

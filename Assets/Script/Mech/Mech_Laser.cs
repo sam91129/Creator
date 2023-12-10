@@ -29,7 +29,7 @@ public class Mech_Laser : MonoBehaviour
     void Start()
     {
         if (isLoopType) StartCoroutine(TimerLaser());
-        GameManager.current.onSwitchUse += switchLaser;
+        gameManager.current.onSwitchUse += switchLaser;
     }
     void FixedUpdate()
     {

@@ -280,7 +280,7 @@ MonoBehaviour:
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
   m_Cameras: []
-  m_RendererIndex: 0
+  m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -363,7 +363,8 @@ MonoBehaviour:
   _switchMask:
     serializedVersion: 2
     m_Bits: 512
-  HadGloves: 1
+  HadGloves: 0
+  _glovesModel: {fileID: 1322586471859373207}
   Hp: 5
 --- !u!114 &1405878893426838482
 MonoBehaviour:
@@ -832,6 +833,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d944f6a91198a6b4b81b158e3acace19, type: 3}
+--- !u!1 &1322586471859373207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d944f6a91198a6b4b81b158e3acace19, type: 3}
+  m_PrefabInstance: {fileID: 2205546324708260294}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3618526309016276413
 PrefabInstance:
   m_ObjectHideFlags: 0

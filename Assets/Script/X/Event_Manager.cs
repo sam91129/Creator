@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Event_Manager : MonoBehaviour
-{
-    /*public static Event_Manager current;
+{/*
+    public static Event_Manager current;
     void Awake()
     {
         current = this;

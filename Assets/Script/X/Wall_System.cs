@@ -37,7 +37,7 @@ public class Wall_System : MonoBehaviour
     void Start()
     {
         _superJump.enabled = false;
-        GameManager.current.onSwitchUse += SwitchScale;
+        gameManager.current.onSwitchUse += SwitchScale;
     }
     void Update()
     {

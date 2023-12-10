@@ -5,20 +5,22 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class gameManager : MonoBehaviour
 {
+    static gameManager instance;
     //---------------------------------------------場景---------------------------------------------------------
     public static string scene;
     [Header("場景_下個場景")]
     public int NextScene;
     //---------------------------------------------介面---------------------------------------------------------
-
+    public GameObject sceneToLoad;
+    public Slider progressBar;
     //---------------------------------------------聲音---------------------------------------------------------
     public static AudioSource SFXaudio;
     public static AudioClip Button;
     public static AudioClip OpenDoor;
     //---------------------------------------------事件---------------------------------------------------------
-    public static GameManager current;
+    public static gameManager current;
     //__________________________________________________________________________________________________________
     void Awake()
     {
@@ -33,10 +35,17 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (this != instance) Destroy(gameObject);
         //------------------場景------------------
         scene = SceneManager.GetActiveScene().name;
         //------------------介面------------------
-
+        sceneToLoad.SetActive(false);
+        progressBar.value = 0;
         //------------------聲音------------------
         SFXaudio = GetComponent<AudioSource>();
         Button = Resources.Load<AudioClip>("button");
@@ -47,13 +56,43 @@ public class GameManager : MonoBehaviour
     //---------------------------------------------場景---------------------------------------------------------
     public void ChangerScenes()
     {
-        SceneManager.LoadSceneAsync(NextScene);
+        StartCoroutine(LoadScene());
     }
     public void ReSpawn()
     {
         SceneManager.LoadSceneAsync(scene);
     }
-    
+    IEnumerator LoadScene()
+    {
+        Time.timeScale = 0;
+        sceneToLoad.SetActive(true);
+        yield return StartCoroutine(TransitionScene());
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(NextScene);
+        if(asyncLoad.isDone)
+        {
+            sceneToLoad.SetActive(false);
+            progressBar.value = 0;
+        }
+        Time.timeScale = 1;
+    }
+    IEnumerator TransitionScene()
+    {
+        /*while (!nextScene.isDone)
+        {
+            float progress = Mathf.Clamp01(nextScene.progress / 0.9f);
+            progressBar.value = progress;
+            yield return null; // 等待一幀
+        }*/
+        for(float x =0; x<=0.7f; x=progressBar.value)
+        {
+            progressBar.value += 0.1f;
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+        yield return new WaitForSecondsRealtime(1f);
+        progressBar.value = 1;
+        yield return new WaitForSecondsRealtime(2f);
+        print("1000");
+    }
     //---------------------介面----------------------------
     public void PauseGame()
     {
