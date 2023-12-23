@@ -70,3 +70,5 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/ArtAssets/_DLNK/發電區/電池組.prefab.meta
+Assets/ArtAssets/_DLNK/發電區/電池組頭.prefab.meta
