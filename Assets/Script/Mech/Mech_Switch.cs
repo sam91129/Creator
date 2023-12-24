@@ -8,7 +8,7 @@ public class Mech_Switch : MonoBehaviour
     public int ID;
     public void useSwitch()
     {
-        gameManager.PlayButtonClip();
+        //gameManager.PlayButtonClip();
         Debug.Log("­µ®Ä");
         gameManager.current.SwitchUse(ID);
     }
