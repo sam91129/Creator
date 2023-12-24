@@ -14,10 +14,13 @@ public class Mech_HurtZone : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
+        
         if (other.tag == "Player")
         {
+            gameManager.CauteryClip();
             if (health != null)
             {
+                
                 health.Damageplayer(demage);
             }
         }

@@ -19,6 +19,9 @@ public class gameManager : MonoBehaviour
     public static AudioSource SFXaudio;
     public static AudioClip Button;
     public static AudioClip OpenDoor;
+    public static AudioClip walk;
+    public static AudioClip hurt;
+    public static AudioClip cautery;
     //---------------------------------------------事件---------------------------------------------------------
     public static gameManager current;
     //__________________________________________________________________________________________________________
@@ -50,9 +53,14 @@ public class gameManager : MonoBehaviour
         SFXaudio = GetComponent<AudioSource>();
         Button = Resources.Load<AudioClip>("button");
         OpenDoor = Resources.Load<AudioClip>("門1");
+        walk = Resources.Load<AudioClip>("Event_walk");
+        hurt = Resources.Load<AudioClip>("Evemt_hurt");
+        cautery = Resources.Load<AudioClip>("Event_cautery");
+        
         //------------------事件------------------
 
     }
+
     //---------------------------------------------場景---------------------------------------------------------
     public void ChangerScenes()
     {
@@ -119,10 +127,30 @@ public class gameManager : MonoBehaviour
     {
         SFXaudio.PlayOneShot(Button);
     }
+    public static void CauteryClip()
+    {
+        SFXaudio.PlayOneShot(cautery);
+    }
+    /*public static void walkClip()
+    {
+        if (!SFXaudio.isPlaying)
+        {
+            SFXaudio.clip = walk;
+            SFXaudio.Play();
+        }
+        else
+        {
+            SFXaudio.Stop();
+        }
+    }*/
     //---------------------------------------------事件---------------------------------------------------------
     public event UnityAction<int> onSwitchUse;
     public void SwitchUse(int ID)
     {
         if (onSwitchUse != null) onSwitchUse(ID);
+    }
+    private void Update()
+    {
+        Debug.Log(cautery);
     }
 }

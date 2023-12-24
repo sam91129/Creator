@@ -70,6 +70,7 @@ public class PlayerManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;   //上下不超過90度 
         speed = walk;
         Event_Hurtplace = GameObject.FindWithTag("HurtEffect").GetComponent<Event_Hurtplace>();
+
     }
     void Start()
     {
@@ -95,6 +96,7 @@ public class PlayerManager : MonoBehaviour
             _camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);          //
             _playerBody.Rotate(Vector3.up * MouseX);
         }      //onVision
+
     }
     public void onVision(InputAction.CallbackContext ctx)
     {
@@ -105,11 +107,23 @@ public class PlayerManager : MonoBehaviour
     public void onMove(InputAction.CallbackContext ctx)    
     {
         MoveValue = ctx.ReadValue<Vector2>();
+        Debug.Log("走");
+        if (!gameManager.SFXaudio.isPlaying)
+        {
+            
+            
+        }
+        else if(MoveValue == Vector2.zero)
+        {
+
+        }
     }
     public void onRun(InputAction.CallbackContext ctx)
     {
         if (ctx.started) speed = run;
         if (ctx.canceled) speed = walk;
+        Debug.Log("跑");
+        
     }
     public void onJump(InputAction.CallbackContext ctx)
     {
