@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     CharacterController _characterController;
     public float walk;
     public float run;
+    bool isRun;
     float speed;
     public float jump;
     public float superJump;
@@ -23,6 +24,7 @@ public class PlayerManager : MonoBehaviour
     Vector2 MoveValue;
     Vector3 Move;
     Vector3 Velocity = Vector3.zero;
+    public static AudioSource MoveAudio;
 
     //滑鼠鎖定%控制所需變數
     [Header("鏡頭轉動設置")]
@@ -71,12 +73,13 @@ public class PlayerManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;   //上下不超過90度 
         speed = walk;
         Event_Hurtplace = GameObject.FindWithTag("HurtEffect").GetComponent<Event_Hurtplace>();
-
     }
     void Start()
     {
         if (HadGloves) _glovesModel.SetActive(true);
         else _glovesModel.SetActive(false);
+        isRun = false;
+        MoveAudio = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -84,7 +87,12 @@ public class PlayerManager : MonoBehaviour
         topCheck();
         if (MoveValue != Vector2.zero)
         {
-            Move = transform.right * MoveValue.x + transform.forward * MoveValue.y;
+            if (!MoveAudio.isPlaying && isGrounded)
+            {
+                if (isRun) MoveAudio.PlayOneShot(gameManager.RunAudio);
+                else MoveAudio.PlayOneShot(gameManager.WalkAudio);
+            }
+                Move = transform.right * MoveValue.x + transform.forward * MoveValue.y;
             _characterController.Move(Move * speed * Time.deltaTime);
         }       //onMove
         if (isGrounded == true && Velocity.y < 0) Velocity.y = 0;
@@ -97,27 +105,6 @@ public class PlayerManager : MonoBehaviour
             _camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);          //
             _playerBody.Rotate(Vector3.up * MouseX);
         }      //onVision
-        if (!gameManager.SFXaudio.isPlaying)
-        {
-            gameManager.SFXaudio.clip = gameManager.walk;
-            gameManager.SFXaudio.Play();
-
-
-        }
-        /*else if(speed == run && gameManager.SFXaudio.isPlaying)
-        {
-
-            
-                gameManager.SFXaudio.clip = gameManager.laser;
-                gameManager.SFXaudio.Play();
-           
-        }*/
-        else if (MoveValue == Vector2.zero)
-        {
-            gameManager.SFXaudio.Stop();
-        }
-        
-
     }
     public void onVision(InputAction.CallbackContext ctx)
     {
@@ -128,24 +115,29 @@ public class PlayerManager : MonoBehaviour
     public void onMove(InputAction.CallbackContext ctx)    
     {
         MoveValue = ctx.ReadValue<Vector2>();
-        Debug.Log("走");
-        
+        if (ctx.canceled) MoveAudio.Stop();
     }
     public void onRun(InputAction.CallbackContext ctx)
     {
-        if (ctx.started) speed = run;
-        if (ctx.canceled) speed = walk;
-        Debug.Log("跑");
-        
-        
+        if (ctx.started)
+        {
+            speed = run;
+            isRun = true;
+            MoveAudio.Stop();
+        }
+        if (ctx.canceled)
+        {
+            speed = walk;
+            isRun = false;
+            MoveAudio.Stop();
+        }
     }
     public void onJump(InputAction.CallbackContext ctx)
     {
         if (ctx.started && isGrounded == true)
         {
-            
+            MoveAudio.PlayOneShot(gameManager.jump);
             Velocity.y += Mathf.Sqrt(jump * 2 * Gravity);
-            
         }
     }
     public void onUse(InputAction.CallbackContext ctx)

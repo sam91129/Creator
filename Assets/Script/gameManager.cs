@@ -19,7 +19,8 @@ public class gameManager : MonoBehaviour
     public static AudioSource SFXaudio;
     public static AudioClip Button;
     public static AudioClip OpenDoor;
-    public static AudioClip walk;
+    public static AudioClip WalkAudio;
+    public static AudioClip RunAudio;
     public static AudioClip hurt;
     public static AudioClip cautery;
     public static AudioClip laser;
@@ -55,7 +56,7 @@ public class gameManager : MonoBehaviour
         SFXaudio = GetComponent<AudioSource>();
         Button = Resources.Load<AudioClip>("button");
         OpenDoor = Resources.Load<AudioClip>("門1");
-        walk = Resources.Load<AudioClip>("Event_walk");
+        WalkAudio = Resources.Load<AudioClip>("Event_walk");
         hurt = Resources.Load<AudioClip>("Evemt_hurt");
         cautery = Resources.Load<AudioClip>("Event_cautery");
         laser = Resources.Load<AudioClip>("Event_laser");
@@ -123,18 +124,7 @@ public class gameManager : MonoBehaviour
         Application.Quit();
     }
     //---------------------------------------------聲音---------------------------------------------------------
-    public static void PlayButtonClip()
-    {
-        SFXaudio.PlayOneShot(Button);
-    }
-    public static void CauteryClip()
-    {
-        SFXaudio.PlayOneShot(cautery);
-    }
-    public static void JumpClip()
-    {
-        SFXaudio.PlayOneShot(jump);
-    }
+    
     //---------------------------------------------事件---------------------------------------------------------
     public event UnityAction<int> onSwitchUse;
     public void SwitchUse(int ID)
