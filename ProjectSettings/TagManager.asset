@@ -15,6 +15,7 @@ TagManager:
   - JumpPad
   - ScaleWall
   - GameManager
+  - TopCheck
   layers:
   - Default
   - TransparentFX

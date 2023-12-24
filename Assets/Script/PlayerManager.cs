@@ -16,7 +16,9 @@ public class PlayerManager : MonoBehaviour
     public float jump;
     public float superJump;
     GameObject _groundCheck;
+    GameObject _topCheck;
     public LayerMask _groundMask;
+    public LayerMask _topMask;
     public float Gravity;
     Vector2 MoveValue;
     Vector3 Move;
@@ -64,6 +66,7 @@ public class PlayerManager : MonoBehaviour
         _gameObject = new GameObject[99];
         _characterController = GetComponent<CharacterController>();
         _groundCheck = GameObject.FindGameObjectWithTag("GroundCheck");
+        _topCheck = GameObject.FindGameObjectWithTag("TopCheck");
         Cursor.lockState = CursorLockMode.Locked;   //上下不超過90度 
         speed = walk;
         Event_Hurtplace = GameObject.FindWithTag("HurtEffect").GetComponent<Event_Hurtplace>();
@@ -76,6 +79,7 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         groundCheck();
+        topCheck();
         if (MoveValue != Vector2.zero)
         {
             Move = transform.right * MoveValue.x + transform.forward * MoveValue.y;
@@ -179,7 +183,14 @@ public class PlayerManager : MonoBehaviour
     }
     void groundCheck()
     {
-        isGrounded = Physics.CheckSphere(_groundCheck.transform.position, 0.1f, _groundMask);
+        isGrounded = Physics.CheckSphere(_groundCheck.transform.position, 0.2f, _groundMask);
+    }
+    void topCheck()
+    {
+        if (Physics.CheckSphere(_topCheck.transform.position, 0.1f, _topMask))
+        {
+            if(Velocity.y>0) Velocity.y = 0;
+        }
     }
     void repeatCheck()
     {

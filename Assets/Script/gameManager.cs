@@ -77,12 +77,6 @@ public class gameManager : MonoBehaviour
     }
     IEnumerator TransitionScene()
     {
-        /*while (!nextScene.isDone)
-        {
-            float progress = Mathf.Clamp01(nextScene.progress / 0.9f);
-            progressBar.value = progress;
-            yield return null; // µ¥«Ý¤@´V
-        }*/
         for(float x =0; x<=0.7f; x=progressBar.value)
         {
             progressBar.value += 0.1f;
