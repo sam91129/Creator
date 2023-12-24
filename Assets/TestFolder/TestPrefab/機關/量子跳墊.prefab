@@ -128,6 +128,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7981789208013427499, guid: 3f90085f53f833749bb01aa7bde61d6b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db16c4d67cc631647bc02e4528b98732, type: 2}
     - target: {fileID: -7640558969779515294, guid: 3f90085f53f833749bb01aa7bde61d6b, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -136,10 +140,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: JumpPad
       objectReference: {fileID: 0}
+    - target: {fileID: -6093592463355912122, guid: 3f90085f53f833749bb01aa7bde61d6b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db16c4d67cc631647bc02e4528b98732, type: 2}
     - target: {fileID: 919132149155446097, guid: 3f90085f53f833749bb01aa7bde61d6b, type: 3}
       propertyPath: m_Name
       value: Mechanism_Spring_test_Model
       objectReference: {fileID: 0}
+    - target: {fileID: 2255559784526829549, guid: 3f90085f53f833749bb01aa7bde61d6b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: db16c4d67cc631647bc02e4528b98732, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f90085f53f833749bb01aa7bde61d6b, type: 3}
 --- !u!1 &145061508608374258 stripped
