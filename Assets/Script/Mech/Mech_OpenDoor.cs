@@ -5,17 +5,19 @@ public class Mech_OpenDoor : MonoBehaviour
 {
     Animator _doorAnimator;
     BoxCollider _autoSensing;
+    public static AudioSource DoorAudio;
     [Header("自動門")]
     public bool AutomaticDoor;
     [Header("機關ID")]
     public int ID;
     void Awake()
     {
+        DoorAudio = GetComponent<AudioSource>();
         _doorAnimator= GetComponent<Animator>();
         _autoSensing= this.GetComponent<BoxCollider>();
     }
     void Start()
-    {   
+    {
         if (AutomaticDoor)_autoSensing.enabled=true;
         else _autoSensing.enabled = false;
         gameManager.current.onSwitchUse += SwitchDoor;
@@ -24,7 +26,7 @@ public class Mech_OpenDoor : MonoBehaviour
     {
         if (ID == this.ID)
         {
-            gameManager.PlayOpenDoorClip();
+            DoorAudio.PlayOneShot(gameManager.OpenDoor);
             if(_doorAnimator.GetBool("SwitchON") == false) _doorAnimator.SetBool("SwitchON", true);
             else _doorAnimator.SetBool("SwitchON", false);
         }
@@ -33,7 +35,7 @@ public class Mech_OpenDoor : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            gameManager.PlayOpenDoorClip();
+            DoorAudio.PlayOneShot(gameManager.OpenDoor);
             _doorAnimator.SetBool("SwitchON", true);
         }
     }

@@ -119,10 +119,6 @@ public class gameManager : MonoBehaviour
         Application.Quit();
     }
     //---------------------------------------------Án­µ---------------------------------------------------------
-    public static void PlayOpenDoorClip()
-    {
-        SFXaudio.PlayOneShot(OpenDoor);
-    }
     public static void PlayButtonClip()
     {
         SFXaudio.PlayOneShot(Button);
