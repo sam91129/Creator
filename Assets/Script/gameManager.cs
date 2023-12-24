@@ -22,6 +22,8 @@ public class gameManager : MonoBehaviour
     public static AudioClip walk;
     public static AudioClip hurt;
     public static AudioClip cautery;
+    public static AudioClip laser;
+    public static AudioClip jump;
     //---------------------------------------------事件---------------------------------------------------------
     public static gameManager current;
     //__________________________________________________________________________________________________________
@@ -56,7 +58,9 @@ public class gameManager : MonoBehaviour
         walk = Resources.Load<AudioClip>("Event_walk");
         hurt = Resources.Load<AudioClip>("Evemt_hurt");
         cautery = Resources.Load<AudioClip>("Event_cautery");
-        
+        laser = Resources.Load<AudioClip>("Event_laser");
+        jump = Resources.Load<AudioClip>("Event_jump");
+
         //------------------事件------------------
 
     }
@@ -127,26 +131,15 @@ public class gameManager : MonoBehaviour
     {
         SFXaudio.PlayOneShot(cautery);
     }
-    /*public static void walkClip()
+    public static void JumpClip()
     {
-        if (!SFXaudio.isPlaying)
-        {
-            SFXaudio.clip = walk;
-            SFXaudio.Play();
-        }
-        else
-        {
-            SFXaudio.Stop();
-        }
-    }*/
+        SFXaudio.PlayOneShot(jump);
+    }
     //---------------------------------------------事件---------------------------------------------------------
     public event UnityAction<int> onSwitchUse;
     public void SwitchUse(int ID)
     {
         if (onSwitchUse != null) onSwitchUse(ID);
     }
-    private void Update()
-    {
-        Debug.Log(cautery);
-    }
+
 }

@@ -5,11 +5,13 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class Mech_HurtZone : MonoBehaviour
 {
+    public static AudioSource CauteryAudio;
     [Header("¾÷Ãö¶Ë®`")]
     public int demage;
     PlayerManager health;
     void Awake()
     {
+        CauteryAudio = GetComponent<AudioSource>();
         health = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
     }
     void OnTriggerEnter(Collider other)
@@ -17,7 +19,7 @@ public class Mech_HurtZone : MonoBehaviour
         
         if (other.tag == "Player")
         {
-            gameManager.CauteryClip();
+            CauteryAudio.PlayOneShot(gameManager.cautery);
             if (health != null)
             {
                 

@@ -61,6 +61,7 @@ public class PlayerManager : MonoBehaviour
     [Header("¦å¶q")]
     public int Hp;
     Event_Hurtplace Event_Hurtplace;
+
     void Awake()
     {
         _gameObject = new GameObject[99];
@@ -96,6 +97,26 @@ public class PlayerManager : MonoBehaviour
             _camera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);          //
             _playerBody.Rotate(Vector3.up * MouseX);
         }      //onVision
+        if (!gameManager.SFXaudio.isPlaying)
+        {
+            gameManager.SFXaudio.clip = gameManager.walk;
+            gameManager.SFXaudio.Play();
+
+
+        }
+        /*else if(speed == run && gameManager.SFXaudio.isPlaying)
+        {
+
+            
+                gameManager.SFXaudio.clip = gameManager.laser;
+                gameManager.SFXaudio.Play();
+           
+        }*/
+        else if (MoveValue == Vector2.zero)
+        {
+            gameManager.SFXaudio.Stop();
+        }
+        
 
     }
     public void onVision(InputAction.CallbackContext ctx)
@@ -108,15 +129,7 @@ public class PlayerManager : MonoBehaviour
     {
         MoveValue = ctx.ReadValue<Vector2>();
         Debug.Log("¨«");
-        if (!gameManager.SFXaudio.isPlaying)
-        {
-            
-            
-        }
-        else if(MoveValue == Vector2.zero)
-        {
-
-        }
+        
     }
     public void onRun(InputAction.CallbackContext ctx)
     {
@@ -124,12 +137,15 @@ public class PlayerManager : MonoBehaviour
         if (ctx.canceled) speed = walk;
         Debug.Log("¶]");
         
+        
     }
     public void onJump(InputAction.CallbackContext ctx)
     {
         if (ctx.started && isGrounded == true)
         {
+            
             Velocity.y += Mathf.Sqrt(jump * 2 * Gravity);
+            
         }
     }
     public void onUse(InputAction.CallbackContext ctx)
