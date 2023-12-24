@@ -26,7 +26,7 @@ public class Mech_OpenDoor : MonoBehaviour
     {
         if (ID == this.ID)
         {
-            DoorAudio.PlayOneShot(gameManager.OpenDoor);
+            DoorAudio.PlayOneShot(gameManager._OpenDoorAudio);
             if(_doorAnimator.GetBool("SwitchON") == false) _doorAnimator.SetBool("SwitchON", true);
             else _doorAnimator.SetBool("SwitchON", false);
         }
@@ -35,7 +35,7 @@ public class Mech_OpenDoor : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            DoorAudio.PlayOneShot(gameManager.OpenDoor);
+            DoorAudio.PlayOneShot(gameManager._OpenDoorAudio);
             _doorAnimator.SetBool("SwitchON", true);
         }
     }

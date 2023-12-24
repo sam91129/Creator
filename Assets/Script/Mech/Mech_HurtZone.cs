@@ -19,7 +19,7 @@ public class Mech_HurtZone : MonoBehaviour
         
         if (other.tag == "Player")
         {
-            CauteryAudio.PlayOneShot(gameManager.cautery);
+            CauteryAudio.PlayOneShot(gameManager._CauteryAudio);
             if (health != null)
             {
                 

@@ -89,8 +89,8 @@ public class PlayerManager : MonoBehaviour
         {
             if (!MoveAudio.isPlaying && isGrounded)
             {
-                if (isRun) MoveAudio.PlayOneShot(gameManager.RunAudio);
-                else MoveAudio.PlayOneShot(gameManager.WalkAudio);
+                if (isRun) MoveAudio.PlayOneShot(gameManager._RunAudio);
+                else MoveAudio.PlayOneShot(gameManager._WalkAudio);
             }
                 Move = transform.right * MoveValue.x + transform.forward * MoveValue.y;
             _characterController.Move(Move * speed * Time.deltaTime);
@@ -136,7 +136,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (ctx.started && isGrounded == true)
         {
-            MoveAudio.PlayOneShot(gameManager.jump);
+            MoveAudio.PlayOneShot(gameManager._JumpAudio);
             Velocity.y += Mathf.Sqrt(jump * 2 * Gravity);
         }
     }
@@ -196,6 +196,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void Damageplayer(int damage)
     {
+        MoveAudio.PlayOneShot(gameManager._HurtAudio);
         Event_Hurtplace.FlashScreen();
         Hp -= damage;
         if (Hp <= 0)

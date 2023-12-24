@@ -21,10 +21,12 @@ public class Mech_Laser : MonoBehaviour
     public float delayTime;
     [Header("¾÷ÃöID")]
     public int ID;
+    public static AudioSource LaserAudio;
     void Awake()
     {
         _laserLine = GetComponent<LineRenderer>();
         health = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        LaserAudio = GetComponent<AudioSource>();
     }
     void Start()
     {
@@ -53,6 +55,7 @@ public class Mech_Laser : MonoBehaviour
                 if (health != null && _hit.collider.tag == "Player")
                 {
                     health.Damageplayer(demage);
+                    LaserAudio.PlayOneShot(gameManager._LaserAudio);
                 }
             }
             else _laserLine.SetPosition(1, LaserDirection*maxLaserDistance);

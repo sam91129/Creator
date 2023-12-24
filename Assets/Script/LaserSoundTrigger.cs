@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class Lasersoundtrigger : MonoBehaviour
 {
-    public static AudioSource laserAudio;
+    public static AudioSource LaserAudio;
     // Start is called before the first frame update
     void Start()
     {
-        laserAudio = GetComponent<AudioSource>();
+        LaserAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
-    /*private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            if (!laserAudio.isPlaying)
-            {laserAudio.Play();
-            Debug.Log("123");
-            }
+            
+            LaserAudio.Play();
+
             
            
         }
-    }*/
+    }
 }
