@@ -247,8 +247,16 @@ public class PlayerManager : MonoBehaviour
     }
     void ReSet()
     {
+        Time.timeScale = 0;
+        _characterController.enabled = false;
+        this.gameObject.transform.position = ReSpawnPoint;
         Hp = MaxHp;
-        this.transform.position = ReSpawnPoint;
+        for (int i = 0; i < limitObject; i++)
+        {
+            _gameObject[i] = null;
+        }
+        _characterController.enabled = true;
+        Time.timeScale = 1;
     }
     void OnTriggerEnter(Collider other)
     {
