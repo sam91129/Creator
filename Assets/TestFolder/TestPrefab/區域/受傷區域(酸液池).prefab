@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b755f4db09f4040b4f0683417d9363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CauteryAudio: {fileID: 3909046006711328180}
   demage: 5
 --- !u!82 &3909046006711328180
 AudioSource:

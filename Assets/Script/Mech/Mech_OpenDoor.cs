@@ -5,14 +5,13 @@ public class Mech_OpenDoor : MonoBehaviour
 {
     Animator _doorAnimator;
     BoxCollider _autoSensing;
-    public static AudioSource DoorAudio;
+    public AudioSource DoorAudio;
     [Header("自動門")]
     public bool AutomaticDoor;
     [Header("機關ID")]
     public int ID;
     void Awake()
     {
-        DoorAudio = GetComponent<AudioSource>();
         _doorAnimator= GetComponent<Animator>();
         _autoSensing= this.GetComponent<BoxCollider>();
     }

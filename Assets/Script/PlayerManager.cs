@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
     Vector2 MoveValue;
     Vector3 Move;
     Vector3 Velocity = Vector3.zero;
-    public static AudioSource MoveAudio;
+    public AudioSource MoveAudio;
 
     //滑鼠鎖定%控制所需變數
     [Header("鏡頭轉動設置")]
@@ -52,6 +52,7 @@ public class PlayerManager : MonoBehaviour
 
     [Header("能力設置")]
     public bool HadGloves;
+    public GameObject _rArmModel;
     public GameObject _glovesModel;
     int limitObject = 1;
     int Energy;
@@ -76,10 +77,17 @@ public class PlayerManager : MonoBehaviour
     }
     void Start()
     {
-        if (HadGloves) _glovesModel.SetActive(true);
-        else _glovesModel.SetActive(false);
+        if (!HadGloves)
+        {
+            _rArmModel.SetActive(true);
+            _glovesModel.SetActive(false);
+        }
+        else
+        {
+            _glovesModel.SetActive(true);
+            _rArmModel.SetActive(false);
+        }
         isRun = false;
-        MoveAudio = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -189,6 +197,7 @@ public class PlayerManager : MonoBehaviour
                 {
                     HadGloves = true;
                     _glovesModel.SetActive(true);
+                    _rArmModel.SetActive(false);
                     _hits.collider.gameObject.SetActive(false);
                 }
             }

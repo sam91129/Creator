@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e691668df1f424cbc9a5f8a8c0f159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorAudio: {fileID: 3435292532005370612}
   AutomaticDoor: 0
   ID: 0
 --- !u!65 &8792639766862115961
