@@ -16,9 +16,15 @@ public class gameManager : MonoBehaviour
     public GameObject sceneToLoad;
     public Slider progressBar;
     //---------------------------------------------聲音---------------------------------------------------------
-    public static AudioSource SFXaudio;
-    public static AudioClip Button;
-    public static AudioClip OpenDoor;
+    public static AudioSource SFXAudio;
+    public static AudioClip _ButtonAudio;
+    public static AudioClip _OpenDoorAudio;
+    public static AudioClip _WalkAudio;
+    public static AudioClip _RunAudio;
+    public static AudioClip _HurtAudio;
+    public static AudioClip _CauteryAudio;
+    public static AudioClip _LaserAudio;
+    public static AudioClip _JumpAudio;
     //---------------------------------------------事件---------------------------------------------------------
     public static gameManager current;
     //__________________________________________________________________________________________________________
@@ -47,12 +53,20 @@ public class gameManager : MonoBehaviour
         sceneToLoad.SetActive(false);
         progressBar.value = 0;
         //------------------聲音------------------
-        SFXaudio = GetComponent<AudioSource>();
-        Button = Resources.Load<AudioClip>("button");
-        OpenDoor = Resources.Load<AudioClip>("門1");
+        SFXAudio = GetComponent<AudioSource>();
+        _ButtonAudio = Resources.Load<AudioClip>("Event_button");
+        _OpenDoorAudio = Resources.Load<AudioClip>("Event_door");
+        _WalkAudio = Resources.Load<AudioClip>("Event_walk");
+        _RunAudio = Resources.Load<AudioClip>("Event_run");
+        _HurtAudio = Resources.Load<AudioClip>("Evemt_hurt");
+        _CauteryAudio = Resources.Load<AudioClip>("Event_cautery");
+        _LaserAudio = Resources.Load<AudioClip>("Event_laser");
+        _JumpAudio = Resources.Load<AudioClip>("Event_jump");
+
         //------------------事件------------------
 
     }
+
     //---------------------------------------------場景---------------------------------------------------------
     public void ChangerScenes()
     {
@@ -111,18 +125,12 @@ public class gameManager : MonoBehaviour
         Application.Quit();
     }
     //---------------------------------------------聲音---------------------------------------------------------
-    public static void PlayOpenDoorClip()
-    {
-        SFXaudio.PlayOneShot(OpenDoor);
-    }
-    public static void PlayButtonClip()
-    {
-        SFXaudio.PlayOneShot(Button);
-    }
+    
     //---------------------------------------------事件---------------------------------------------------------
     public event UnityAction<int> onSwitchUse;
     public void SwitchUse(int ID)
     {
         if (onSwitchUse != null) onSwitchUse(ID);
     }
+
 }

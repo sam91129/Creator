@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     CharacterController _characterController;
     public float walk;
     public float run;
+    bool isRun;
     float speed;
     public float jump;
     public float superJump;
@@ -23,6 +24,7 @@ public class PlayerManager : MonoBehaviour
     Vector2 MoveValue;
     Vector3 Move;
     Vector3 Velocity = Vector3.zero;
+    public static AudioSource MoveAudio;
 
     //滑鼠鎖定%控制所需變數
     [Header("鏡頭轉動設置")]
@@ -61,6 +63,7 @@ public class PlayerManager : MonoBehaviour
     [Header("血量")]
     public int Hp;
     Event_Hurtplace Event_Hurtplace;
+
     void Awake()
     {
         _gameObject = new GameObject[99];
@@ -75,6 +78,8 @@ public class PlayerManager : MonoBehaviour
     {
         if (HadGloves) _glovesModel.SetActive(true);
         else _glovesModel.SetActive(false);
+        isRun = false;
+        MoveAudio = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -82,7 +87,12 @@ public class PlayerManager : MonoBehaviour
         topCheck();
         if (MoveValue != Vector2.zero)
         {
-            Move = transform.right * MoveValue.x + transform.forward * MoveValue.y;
+            if (!MoveAudio.isPlaying && isGrounded)
+            {
+                if (isRun) MoveAudio.PlayOneShot(gameManager._RunAudio);
+                else MoveAudio.PlayOneShot(gameManager._WalkAudio);
+            }
+                Move = transform.right * MoveValue.x + transform.forward * MoveValue.y;
             _characterController.Move(Move * speed * Time.deltaTime);
         }       //onMove
         if (isGrounded == true && Velocity.y < 0) Velocity.y = 0;
@@ -105,16 +115,28 @@ public class PlayerManager : MonoBehaviour
     public void onMove(InputAction.CallbackContext ctx)    
     {
         MoveValue = ctx.ReadValue<Vector2>();
+        if (ctx.canceled) MoveAudio.Stop();
     }
     public void onRun(InputAction.CallbackContext ctx)
     {
-        if (ctx.started) speed = run;
-        if (ctx.canceled) speed = walk;
+        if (ctx.started)
+        {
+            speed = run;
+            isRun = true;
+            MoveAudio.Stop();
+        }
+        if (ctx.canceled)
+        {
+            speed = walk;
+            isRun = false;
+            MoveAudio.Stop();
+        }
     }
     public void onJump(InputAction.CallbackContext ctx)
     {
         if (ctx.started && isGrounded == true)
         {
+            MoveAudio.PlayOneShot(gameManager._JumpAudio);
             Velocity.y += Mathf.Sqrt(jump * 2 * Gravity);
         }
     }
@@ -174,6 +196,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void Damageplayer(int damage)
     {
+        MoveAudio.PlayOneShot(gameManager._HurtAudio);
         Event_Hurtplace.FlashScreen();
         Hp -= damage;
         if (Hp <= 0)
