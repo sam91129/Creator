@@ -92,6 +92,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -6093592463355912122, guid: 5acd3a02ab1ac6a4987146760f2ea1d9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 592c63feadd552d4a8a9f31074111da2, type: 2}
+    - target: {fileID: -1120989108687609925, guid: 5acd3a02ab1ac6a4987146760f2ea1d9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 592c63feadd552d4a8a9f31074111da2, type: 2}
     - target: {fileID: -466329591000292508, guid: 5acd3a02ab1ac6a4987146760f2ea1d9, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -112,6 +120,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6745302439343835087, guid: 5acd3a02ab1ac6a4987146760f2ea1d9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 592c63feadd552d4a8a9f31074111da2, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5acd3a02ab1ac6a4987146760f2ea1d9, type: 3}
 --- !u!1 &88484509864306843 stripped
@@ -265,6 +277,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8dabaa0c7406d464ba8f585c45907a4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 592c63feadd552d4a8a9f31074111da2, type: 2}
     - target: {fileID: 919132149155446097, guid: 8dabaa0c7406d464ba8f585c45907a4e, type: 3}
       propertyPath: m_Name
       value: Mechanism_BridgeMain_Model

@@ -371,7 +371,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   HadGloves: 0
-  _rArmModel: {fileID: 7361212801406823644}
+  _rArmModel: {fileID: 5857043839188231937}
   _glovesModel: {fileID: 1322586471859373207}
   Hp: 5
 --- !u!114 &1405878893426838482
@@ -1544,6 +1544,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d3e17145f8e2ff49955f2559cb0ca1e, type: 3}
+--- !u!1 &5857043839188231937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1d3e17145f8e2ff49955f2559cb0ca1e, type: 3}
+  m_PrefabInstance: {fileID: 6739935390246459984}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7703725864154059149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1625,11 +1630,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06d72c0aa34e2cf4fb71a603e76cccf4, type: 3}
---- !u!1 &7361212801406823644 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 06d72c0aa34e2cf4fb71a603e76cccf4, type: 3}
-  m_PrefabInstance: {fileID: 7703725864154059149}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7882311611650225766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 06d72c0aa34e2cf4fb71a603e76cccf4, type: 3}
