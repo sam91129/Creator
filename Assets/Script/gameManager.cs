@@ -11,7 +11,7 @@ public class gameManager : MonoBehaviour
     //---------------------------------------------場景---------------------------------------------------------
     public static string scene;
     [Header("場景_下個場景")]
-    public int NextScene;
+    public int Next;
     //---------------------------------------------介面---------------------------------------------------------
     public GameObject sceneToLoad;
     public Slider progressBar;
@@ -74,14 +74,14 @@ public class gameManager : MonoBehaviour
     }
     public void ReSpawn()
     {
-        SceneManager.LoadSceneAsync(scene);
+        whenRespawn();
     }
     IEnumerator LoadScene()
     {
         Time.timeScale = 0;
         sceneToLoad.SetActive(true);
         yield return StartCoroutine(TransitionScene());
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(NextScene);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(Next);
         if(asyncLoad.isDone)
         {
             sceneToLoad.SetActive(false);
@@ -128,9 +128,9 @@ public class gameManager : MonoBehaviour
     
     //---------------------------------------------事件---------------------------------------------------------
     public event UnityAction<int> onSwitchUse;
+    public event UnityAction whenRespawn;
     public void SwitchUse(int ID)
     {
         if (onSwitchUse != null) onSwitchUse(ID);
     }
-
 }

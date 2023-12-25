@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mech_Line : MonoBehaviour
 {
-    Material myself;
+    Material originaMaterial;
     Renderer myselfRenderer;
     [Header("Æl½u§÷½è")]
     public Material A;
@@ -16,6 +16,8 @@ public class Mech_Line : MonoBehaviour
         myselfRenderer = GetComponent<Renderer>();
         myselfRenderer.sharedMaterial = A;
         gameManager.current.onSwitchUse += ChangeMatel;
+        gameManager.current.whenRespawn += ReSet;
+        originaMaterial = myselfRenderer.sharedMaterial;
     }
     void ChangeMatel(int id)
     {
@@ -24,5 +26,9 @@ public class Mech_Line : MonoBehaviour
             if (myselfRenderer.sharedMaterial == A) myselfRenderer.sharedMaterial = B;
             else myselfRenderer.sharedMaterial = A;
         }
+    }
+    void ReSet()
+    {
+        myselfRenderer.sharedMaterial = originaMaterial;
     }
 }

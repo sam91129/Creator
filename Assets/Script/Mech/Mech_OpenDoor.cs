@@ -5,6 +5,7 @@ public class Mech_OpenDoor : MonoBehaviour
 {
     Animator _doorAnimator;
     BoxCollider _autoSensing;
+    bool respawn;
     public AudioSource DoorAudio;
     [Header("¦Û°Êªù")]
     public bool AutomaticDoor;
@@ -20,6 +21,8 @@ public class Mech_OpenDoor : MonoBehaviour
         if (AutomaticDoor)_autoSensing.enabled=true;
         else _autoSensing.enabled = false;
         gameManager.current.onSwitchUse += SwitchDoor;
+        gameManager.current.whenRespawn += ReSet;
+        respawn = _doorAnimator.GetBool("SwitchOn");
     }
     public void SwitchDoor(int ID)
     {
@@ -29,6 +32,10 @@ public class Mech_OpenDoor : MonoBehaviour
             if(_doorAnimator.GetBool("SwitchON") == false) _doorAnimator.SetBool("SwitchON", true);
             else _doorAnimator.SetBool("SwitchON", false);
         }
+    }
+    void ReSet()
+    {
+        _doorAnimator.SetBool("SwitchON", respawn);
     }
     void OnTriggerEnter(Collider other)
     {

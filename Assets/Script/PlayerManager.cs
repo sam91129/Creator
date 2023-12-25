@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
+    gameManager gameManager;
     //移動所需變數
     [Header("移動設置")]
     CharacterController _characterController;
@@ -62,8 +63,10 @@ public class PlayerManager : MonoBehaviour
     bool inSwitch = false;
 
     [Header("血量")]
-    public int Hp;
+    public int MaxHp;
+    int Hp;
     Event_Hurtplace Event_Hurtplace;
+    public Vector3 ReSpawnPoint;
 
     void Awake()
     {
@@ -74,9 +77,11 @@ public class PlayerManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;   //上下不超過90度 
         speed = walk;
         Event_Hurtplace = GameObject.FindWithTag("HurtEffect").GetComponent<Event_Hurtplace>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<gameManager>();
     }
     void Start()
     {
+        gameManager.current.whenRespawn += ReSet;
         if (!HadGloves)
         {
             _rArmModel.SetActive(true);
@@ -88,6 +93,7 @@ public class PlayerManager : MonoBehaviour
             _rArmModel.SetActive(false);
         }
         isRun = false;
+        Hp = MaxHp;
     }
     void Update()
     {
@@ -159,7 +165,7 @@ public class PlayerManager : MonoBehaviour
                 repeatCheck();
                 if (!isRepeat)
                 {
-                    if (_gameObject[ObjectNumber] != null) _gameObject[ObjectNumber].GetComponent<Mech_ScaleWall>().Revert();
+                    if (_gameObject[ObjectNumber] != null) _gameObject[ObjectNumber].GetComponent<Mech_ScaleWall>().ReSet();
                     _gameObject[ObjectNumber] = _hits.collider.gameObject;
                     _gameObject[ObjectNumber].GetComponent<Mech_ScaleWall>().WallChangeScale();
                     ObjectNumber++;
@@ -210,7 +216,7 @@ public class PlayerManager : MonoBehaviour
         Hp -= damage;
         if (Hp <= 0)
         {
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<gameManager>().ReSpawn();
+            gameManager.ReSpawn();
         }
     }
     void groundCheck()
@@ -238,6 +244,11 @@ public class PlayerManager : MonoBehaviour
     {
         limitObject = 1 + Energy;
         if (_gameObject[ObjectNumber] != null) ObjectNumber++;
+    }
+    void ReSet()
+    {
+        Hp = MaxHp;
+        this.transform.position = ReSpawnPoint;
     }
     void OnTriggerEnter(Collider other)
     {

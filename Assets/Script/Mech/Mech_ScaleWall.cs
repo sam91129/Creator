@@ -30,6 +30,7 @@ public class Mech_ScaleWall : MonoBehaviour
     void Start()
     {
         gameManager.current.onSwitchUse += SwitchScale;
+        gameManager.current.whenRespawn += ReSet;
     }
     void Update()
     {
@@ -53,7 +54,7 @@ public class Mech_ScaleWall : MonoBehaviour
     {
         isScale = true;
     }
-    public void Revert()
+    public void ReSet()
     {
         this.transform.localScale = originalScale;
         isScale = false;

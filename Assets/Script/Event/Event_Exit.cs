@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Event_Exit : MonoBehaviour
 {
-    GameObject _sceneSystem;
+    public int NextScene;
+    gameManager gameManager;
     void Start()
     {
-        _sceneSystem = GameObject.FindGameObjectWithTag("GameManager");
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<gameManager>();
     }
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            _sceneSystem.GetComponent<gameManager>().ChangerScenes();
+            gameManager.Next = NextScene;
+            gameManager.ChangerScenes();
         }
     }
 }
