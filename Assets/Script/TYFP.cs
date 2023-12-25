@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class TYFP : MonoBehaviour
 {
     int A = 0;
-    float T = 10f;
+    float T = 5f;
     void Update()
     {
         T -= Time.deltaTime;
