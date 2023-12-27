@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Cancel",
+                    "name": "GlovesAbility2",
                     "type": "Button",
                     "id": "100cc742-30f3-47e5-ae8c-f63f1363295d",
                     "expectedControlType": "Button",
@@ -86,7 +86,7 @@
                     "id": "08ddf8ee-2486-455d-b69a-58b3d687dd85",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "ScaleVector2(x=30,y=30)",
+                    "processors": "ScaleVector2(x=20,y=20)",
                     "groups": "Gamepad",
                     "action": "Look",
                     "isComposite": false,
@@ -216,7 +216,7 @@
                 {
                     "name": "",
                     "id": "13bf554d-759d-4d73-abb8-4056acb5d069",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -253,7 +253,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Cancel",
+                    "action": "GlovesAbility2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -264,7 +264,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Cancel",
+                    "action": "GlovesAbility2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

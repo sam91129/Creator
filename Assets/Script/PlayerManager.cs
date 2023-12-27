@@ -174,8 +174,18 @@ public class PlayerManager : MonoBehaviour
                 else isRepeat = false;
             }
         }
+        if (ctx.performed && HadGloves)
+        {
+            for (int i = 0; i < limitObject; i++)
+            {
+                if (_gameObject[i] != null)
+                {
+                    _gameObject[i].GetComponent<Mech_ScaleWall>().ReSet();
+                }
+            }
+        }
     }
-    public void onCancel(InputAction.CallbackContext ctx)
+    public void onJumpPad(InputAction.CallbackContext ctx)
     {
         if (ctx.started && HadGloves)
         {
