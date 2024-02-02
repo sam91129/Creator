@@ -181,6 +181,7 @@ public class PlayerManager : MonoBehaviour
                 if (_gameObject[i] != null)
                 {
                     _gameObject[i].GetComponent<Mech_ScaleWall>().ReSet();
+                    _gameObject[i] = null;
                 }
             }
         }
