@@ -8,18 +8,11 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LightFx00
-  m_Shader: {fileID: 4800000, guid: b7839dad95683814aa64166edc107ae2, type: 3}
+  m_Shader: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
   m_ValidKeywords:
-  - _DISTORTION_ON
-  - _EMISSION
-  - _FADING_ON
-  - _NORMALMAP
-  - _SOFTPARTICLES_ON
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords:
-  - EFFECT_BUMP
-  - _ALPHABLEND_ON
-  - _FLIPBOOKBLENDING_OFF
+  - _EMISSION
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
@@ -45,7 +38,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
-        m_Texture: {fileID: 2800000, guid: 48cda19b2f56503498eb8fc7f69be410, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
@@ -84,6 +77,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _WaterAGloss:
         m_Texture: {fileID: 2800000, guid: d3b8a284ea15ee74cb670d65acf037bb, type: 3}
         m_Scale: {x: 5, y: 5}
@@ -95,6 +92,18 @@ Material:
     - _WaterTextureB:
         m_Texture: {fileID: 2800000, guid: 2246e378b5e5d8745bedf1b9035346c5, type: 3}
         m_Scale: {x: 3, y: 3}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
@@ -122,6 +131,7 @@ Material:
     - _Gloss: 0.75
     - _GlossMapScale: 0.613
     - _Glossiness: 0.728
+    - _GlossinessSource: 0
     - _GlossyReflections: 1
     - _InvFade: 0.37
     - _InvertMask: 0
@@ -135,12 +145,16 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Refraction: 1
+    - _SampleGI: 0
     - _SecondaryGloss: 0.46
+    - _Shininess: 0
     - _Smoothness: 0.728
+    - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
     - _SoftParticlesEnabled: 1
     - _SoftParticlesFarFadeDistance: 1
     - _SoftParticlesNearFadeDistance: 0
+    - _SpecSource: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 5
     - _Surface: 1
@@ -160,6 +174,7 @@ Material:
     - _EmissionColor: {r: 0.03203987, g: 0.03203987, b: 1.3584906, a: 1}
     - _MainColor: {r: 0.5147059, g: 0.63853925, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 1, b: 0, a: 0}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _TintColor: {r: 0.514151, g: 0.5572503, b: 1, a: 0.5}
   m_BuildTextureStacks: []
 --- !u!114 &8349505516335617654
