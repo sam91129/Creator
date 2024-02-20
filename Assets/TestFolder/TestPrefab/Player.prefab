@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 1405878893042523471}
   - component: {fileID: 197283040}
   - component: {fileID: 1475546299}
+  - component: {fileID: 6925477346426898837}
   m_Layer: 3
   m_Name: PlayerCam
   m_TagString: Untagged
@@ -299,6 +300,19 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &6925477346426898837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405878893042523465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &1405878893426838491
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +325,8 @@ GameObject:
   - component: {fileID: 1405878893426838483}
   - component: {fileID: 1405878893426838482}
   - component: {fileID: 1915641614}
-  - component: {fileID: 1335720037}
+  - component: {fileID: 1457222043928827974}
+  - component: {fileID: 2697186491867692807}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -361,7 +376,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1783
   Gravity: 19.6
-  MoveAudio: {fileID: 1335720037}
+  MoveAudio: {fileID: 2697186491867692807}
   MouseSensitivity: 10
   _playerBody: {fileID: 1405878893426838489}
   _camera: {fileID: 1405878893042523464}
@@ -374,7 +389,7 @@ MonoBehaviour:
   HadGloves: 0
   _rArmModel: {fileID: 5857043839188231937}
   _glovesModel: {fileID: 1322586471859373207}
-  MaxHp: 0
+  MaxHp: 5
   ReSpawnPoint: {x: 0, y: 0, z: 0}
 --- !u!114 &1405878893426838482
 MonoBehaviour:
@@ -576,7 +591,38 @@ CharacterController:
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!82 &1335720037
+--- !u!114 &1457222043928827974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405878893426838491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 191712756
+      Data2: 1331202893
+      Data3: 2011814057
+      Data4: 1682997169
+    Path: event:/Player/Event_run
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 0
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!82 &2697186491867692807
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -587,8 +633,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 0.15
+  m_PlayOnAwake: 1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

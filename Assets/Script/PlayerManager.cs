@@ -4,6 +4,8 @@ using System.Security.Cryptography;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMODUnity;
+
 
 public class PlayerManager : MonoBehaviour
 {
@@ -97,18 +99,20 @@ public class PlayerManager : MonoBehaviour
     }
     void Update()
     {
+        
         groundCheck();
         topCheck();
         if (MoveValue != Vector2.zero)
         {
-            if (!MoveAudio.isPlaying && isGrounded)
-            {
+           if (!MoveAudio.isPlaying  && isGrounded)
+            { 
                 if (isRun) MoveAudio.PlayOneShot(gameManager._RunAudio);
                 else MoveAudio.PlayOneShot(gameManager._WalkAudio);
             }
                 Move = transform.right * MoveValue.x + transform.forward * MoveValue.y;
             _characterController.Move(Move * speed * Time.deltaTime);
         }       //onMove
+      
         if (isGrounded == true && Velocity.y < 0) Velocity.y = 0;
         Velocity.y -= Gravity * Time.deltaTime;
         _characterController.Move(Velocity * Time.deltaTime);
@@ -128,16 +132,20 @@ public class PlayerManager : MonoBehaviour
     }
     public void onMove(InputAction.CallbackContext ctx)    
     {
+        
         MoveValue = ctx.ReadValue<Vector2>();
+        
         if (ctx.canceled) MoveAudio.Stop();
     }
     public void onRun(InputAction.CallbackContext ctx)
     {
         if (ctx.started)
         {
+            
             speed = run;
             isRun = true;
             MoveAudio.Stop();
+
         }
         if (ctx.canceled)
         {
@@ -150,7 +158,8 @@ public class PlayerManager : MonoBehaviour
     {
         if (ctx.started && isGrounded == true)
         {
-            MoveAudio.PlayOneShot(gameManager._JumpAudio);
+            //MoveAudio.PlayOneShot(gameManager._JumpAudio);
+            RuntimeManager.PlayOneShot("event:/Player/Event_jump");
             Velocity.y += Mathf.Sqrt(jump * 2 * Gravity);
         }
     }
@@ -222,7 +231,8 @@ public class PlayerManager : MonoBehaviour
     }
     public void Damageplayer(int damage)
     {
-        MoveAudio.PlayOneShot(gameManager._HurtAudio);
+        //MoveAudio.PlayOneShot(gameManager._HurtAudio);
+        RuntimeManager.PlayOneShot("event:/Player/Event_hurt1");
         Event_Hurtplace.FlashScreen();
         Hp -= damage;
         if (Hp <= 0)
