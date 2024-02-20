@@ -243,11 +243,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8dabaa0c7406d464ba8f585c45907a4e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.55546224
+      value: 0.63
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8dabaa0c7406d464ba8f585c45907a4e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00000013269793
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8dabaa0c7406d464ba8f585c45907a4e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -281,6 +281,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 592c63feadd552d4a8a9f31074111da2, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 8dabaa0c7406d464ba8f585c45907a4e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4389018981989445858, guid: 8dabaa0c7406d464ba8f585c45907a4e, type: 3}
     - target: {fileID: 919132149155446097, guid: 8dabaa0c7406d464ba8f585c45907a4e, type: 3}
       propertyPath: m_Name
       value: Mechanism_BridgeMain_Model
