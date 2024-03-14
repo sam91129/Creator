@@ -242,7 +242,7 @@ public class PlayerManager : MonoBehaviour
     }
     void groundCheck()
     {
-        isGrounded = Physics.CheckSphere(_groundCheck.transform.position, 0.2f, _groundMask);
+        isGrounded = Physics.CheckSphere(_groundCheck.transform.position, 0.15f, _groundMask);
     }
     void topCheck()
     {
