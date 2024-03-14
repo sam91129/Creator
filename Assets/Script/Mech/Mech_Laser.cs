@@ -12,6 +12,7 @@ public class Mech_Laser : MonoBehaviour
     public bool open;
     public int demage;
     PlayerManager health;
+    bool respawn;
 
     [Header("©P´Á«¬")]
     public bool isLoopType;
@@ -30,6 +31,12 @@ public class Mech_Laser : MonoBehaviour
     {
         if (isLoopType) StartCoroutine(TimerLaser());
         gameManager.current.onSwitchUse += switchLaser;
+        gameManager.current.whenRespawn += ReSet;
+        respawn = open;
+    }
+    void ReSet()
+    {
+        open = respawn;
     }
     void FixedUpdate()
     {

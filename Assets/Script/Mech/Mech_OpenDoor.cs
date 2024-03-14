@@ -22,7 +22,7 @@ public class Mech_OpenDoor : MonoBehaviour
         else _autoSensing.enabled = false;
         gameManager.current.onSwitchUse += SwitchDoor;
         gameManager.current.whenRespawn += ReSet;
-        respawn = _doorAnimator.GetBool("SwitchOn");
+        respawn = _doorAnimator.GetBool("SwitchON");
     }
     public void SwitchDoor(int ID)
     {

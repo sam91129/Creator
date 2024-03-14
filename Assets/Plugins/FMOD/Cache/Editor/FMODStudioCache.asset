@@ -78,7 +78,7 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/Player.bank
   Name: Player
   StudioPath: bank:/Player
-  lastModified: 638440638761865022
+  lastModified: 638460371470267545
   FileSizes: []
   Exists: 1
 --- !u!114 &-4291697864982716194
@@ -168,7 +168,7 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 638440638762201312
+  lastModified: 638460371470267545
   FileSizes: []
   Exists: 1
 --- !u!114 &-1589787288884128723
@@ -204,7 +204,7 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/Mechanism.bank
   Name: Mechanism
   StudioPath: bank:/Mechanism
-  lastModified: 638440638762151447
+  lastModified: 638460371470249145
   FileSizes: []
   Exists: 1
 --- !u!114 &-1506560538265182568
@@ -321,7 +321,7 @@ MonoBehaviour:
   - {fileID: 5783138063374894602}
   StringsBanks:
   - {fileID: 4691477641210480658}
-  cacheTime: 638440638762201312
+  cacheTime: 638460371470267545
   cacheVersion: 131609
 --- !u!114 &88999839237074619
 MonoBehaviour:
@@ -392,7 +392,7 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638440589470764914
+  lastModified: 638460371470212345
   FileSizes: []
   Exists: 1
 --- !u!114 &1703086331357140823
@@ -484,7 +484,7 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638440590491909796
+  lastModified: 638460371470221546
   FileSizes:
   - Name: 
     Value: 1236
@@ -531,7 +531,7 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638440590491884488
+  lastModified: 638460371470221546
   FileSizes: []
   Exists: 1
 --- !u!114 &5798696751948700346
