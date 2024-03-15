@@ -325,8 +325,7 @@ GameObject:
   - component: {fileID: 1405878893426838483}
   - component: {fileID: 1405878893426838482}
   - component: {fileID: 1915641614}
-  - component: {fileID: 1457222043928827974}
-  - component: {fileID: 2697186491867692807}
+  - component: {fileID: 2388037123278426788}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -376,7 +375,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1783
   Gravity: 19.6
-  MoveAudio: {fileID: 2697186491867692807}
+  MoveAudio: {fileID: 2388037123278426788}
   MouseSensitivity: 10
   _playerBody: {fileID: 1405878893426838489}
   _camera: {fileID: 1405878893042523464}
@@ -591,38 +590,7 @@ CharacterController:
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1457222043928827974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1405878893426838491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 191712756
-      Data2: 1331202893
-      Data3: 2011814057
-      Data4: 1682997169
-    Path: event:/Player/Event_run
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 0
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!82 &2697186491867692807
+--- !u!82 &2388037123278426788
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

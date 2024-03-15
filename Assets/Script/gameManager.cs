@@ -54,14 +54,14 @@ public class gameManager : MonoBehaviour
         progressBar.value = 0;
         //------------------聲音------------------
         SFXAudio = GetComponent<AudioSource>();
-        _ButtonAudio = Resources.Load<AudioClip>("Event_button");
-        _OpenDoorAudio = Resources.Load<AudioClip>("Event_door");
+        //_ButtonAudio = Resources.Load<AudioClip>("Event_button");
+        //_OpenDoorAudio = Resources.Load<AudioClip>("Event_door");
         _WalkAudio = Resources.Load<AudioClip>("Event_walk");
         _RunAudio = Resources.Load<AudioClip>("Event_run");
-        _HurtAudio = Resources.Load<AudioClip>("Evemt_hurt");
-        _CauteryAudio = Resources.Load<AudioClip>("Event_cautery");
-        _LaserAudio = Resources.Load<AudioClip>("Event_laser");
-        _JumpAudio = Resources.Load<AudioClip>("Event_jump");
+        //_HurtAudio = Resources.Load<AudioClip>("Evemt_hurt");
+        //_CauteryAudio = Resources.Load<AudioClip>("Event_cautery");
+        //_LaserAudio = Resources.Load<AudioClip>("Event_laser");
+        //_JumpAudio = Resources.Load<AudioClip>("Event_jump");
 
         //------------------事件------------------
 

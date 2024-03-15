@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 public class Mech_OpenDoor : MonoBehaviour
 {
     Animator _doorAnimator;
@@ -28,8 +29,9 @@ public class Mech_OpenDoor : MonoBehaviour
     {
         if (ID == this.ID)
         {
-            DoorAudio.PlayOneShot(gameManager._OpenDoorAudio);
-            if(_doorAnimator.GetBool("SwitchON") == false) _doorAnimator.SetBool("SwitchON", true);
+            //DoorAudio.PlayOneShot(gameManager._OpenDoorAudio);
+            RuntimeManager.PlayOneShot("event:/Mech/Event_door");
+            if (_doorAnimator.GetBool("SwitchON") == false) _doorAnimator.SetBool("SwitchON", true);
             else _doorAnimator.SetBool("SwitchON", false);
         }
     }
@@ -41,7 +43,8 @@ public class Mech_OpenDoor : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            DoorAudio.PlayOneShot(gameManager._OpenDoorAudio);
+            //DoorAudio.PlayOneShot(gameManager._OpenDoorAudio);
+            RuntimeManager.PlayOneShot("event:/Mech/Event_door");
             _doorAnimator.SetBool("SwitchON", true);
         }
     }

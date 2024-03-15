@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class Mech_Switch : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Mech_Switch : MonoBehaviour
     public int ID;
     public void useSwitch()
     {
-        ButtonAudio.PlayOneShot(gameManager._ButtonAudio);
+        RuntimeManager.PlayOneShot("event:/Mech/Event_button");
         gameManager.current.SwitchUse(ID);
     }
 }
