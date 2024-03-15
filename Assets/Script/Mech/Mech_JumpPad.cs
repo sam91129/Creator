@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class Mech_JumpPad : MonoBehaviour
 {
@@ -27,8 +28,12 @@ public class Mech_JumpPad : MonoBehaviour
     {
         if (isJump)
         {
-            if (_superJump.enabled == false) _superJump.enabled = true;
-            transform.localScale += new Vector3(0, ScaleSpeed * Time.deltaTime, 0);
+            if (_superJump.enabled == false)
+            {
+                _superJump.enabled = true;
+                RuntimeManager.PlayOneShot("event:/Player/Event_jumping mat");
+            }
+                transform.localScale += new Vector3(0, ScaleSpeed * Time.deltaTime, 0);
             if (transform.localScale.y >= MaxScaleSize)
             {
                 isJump = false;
@@ -40,6 +45,7 @@ public class Mech_JumpPad : MonoBehaviour
     public void WallChargeJump()
     {
         isJump = true;
+       
     }
     public void Revert()
     {

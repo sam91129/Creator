@@ -106,8 +106,8 @@ public class PlayerManager : MonoBehaviour
         {
            if (!MoveAudio.isPlaying  && isGrounded)
             { 
-                if (isRun) MoveAudio.PlayOneShot(gameManager._RunAudio);
-                else MoveAudio.PlayOneShot(gameManager._WalkAudio);
+                //if (isRun) RuntimeManager.PlayOneShot("event:/Player/Event_run"); 
+                //else RuntimeManager.PlayOneShot("event:/Player/Event_walk");
             }
                 Move = transform.right * MoveValue.x + transform.forward * MoveValue.y;
             _characterController.Move(Move * speed * Time.deltaTime);

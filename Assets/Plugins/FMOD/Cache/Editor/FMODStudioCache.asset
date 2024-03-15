@@ -78,7 +78,7 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/Player.bank
   Name: Player
   StudioPath: bank:/Player
-  lastModified: 638460371470267545
+  lastModified: 638461357580238332
   FileSizes: []
   Exists: 1
 --- !u!114 &-4291697864982716194
@@ -99,33 +99,6 @@ MonoBehaviour:
   lastModified: 638440583405728182
   FileSizes: []
   Exists: 1
---- !u!114 &-4042984704327358288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Mechanism/Event_laser
-  m_EditorClassIdentifier: 
-  Path: event:/Mechanism/Event_laser
-  Guid:
-    Data1: -608894144
-    Data2: 1313198444
-    Data3: 1284189614
-    Data4: -1302772656
-  Banks:
-  - {fileID: -1537934471956013747}
-  IsStream: 0
-  Is3D: 1
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 25600
 --- !u!114 &-2973115655944461504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,11 +121,11 @@ MonoBehaviour:
   - {fileID: -6108817754048889707}
   IsStream: 0
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 720
+  Length: 530
 --- !u!114 &-2436286613764944502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +141,7 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 638460371470267545
+  lastModified: 638461161865371708
   FileSizes: []
   Exists: 1
 --- !u!114 &-1589787288884128723
@@ -187,24 +160,6 @@ MonoBehaviour:
   Name: Mechanism
   StudioPath: bank:/Mechanism
   lastModified: 638440581683018846
-  FileSizes: []
-  Exists: 1
---- !u!114 &-1537934471956013747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Mechanism.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Resources/Desktop/Mechanism.bank
-  Name: Mechanism
-  StudioPath: bank:/Mechanism
-  lastModified: 638460371470249145
   FileSizes: []
   Exists: 1
 --- !u!114 &-1506560538265182568
@@ -261,6 +216,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 720
+--- !u!114 &-137085480940737065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Event_jumping mat
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Event_jumping mat
+  Guid:
+    Data1: -482981263
+    Data2: 1247836454
+    Data3: -1762525298
+    Data4: -778259146
+  Banks:
+  - {fileID: -6108817754048889707}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 754
 --- !u!114 &-55868696990643316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +269,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 3528
+  Length: 2200
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,23 +287,27 @@ MonoBehaviour:
   - {fileID: 5783138063374894602}
   - {fileID: -6108817754048889707}
   - {fileID: 1074324853460248267}
-  - {fileID: -1537934471956013747}
   - {fileID: -2436286613764944502}
+  - {fileID: 2311219034756941629}
   EditorEvents:
   - {fileID: -55868696990643316}
   - {fileID: -250778438757727828}
   - {fileID: 1703086331357140823}
   - {fileID: -2973115655944461504}
   - {fileID: 5798696751948700346}
-  - {fileID: -4042984704327358288}
-  - {fileID: 247236158643172947}
-  - {fileID: 5462599277483992274}
+  - {fileID: 3402755759773292745}
+  - {fileID: -137085480940737065}
+  - {fileID: 7237873029673958208}
+  - {fileID: 546223812317377629}
+  - {fileID: 7759082625062528300}
+  - {fileID: 200918837935191054}
+  - {fileID: 4808905385434346564}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5783138063374894602}
   StringsBanks:
   - {fileID: 4691477641210480658}
-  cacheTime: 638460371470267545
+  cacheTime: 638461357580428394
   cacheVersion: 131609
 --- !u!114 &88999839237074619
 MonoBehaviour:
@@ -350,7 +336,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2736
---- !u!114 &247236158643172947
+--- !u!114 &200918837935191054
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -360,18 +346,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Mechanism/Event_button
+  m_Name: event:/Mech/Event_laser
   m_EditorClassIdentifier: 
-  Path: event:/Mechanism/Event_button
+  Path: event:/Mech/Event_laser
   Guid:
-    Data1: -892189545
-    Data2: 1116810328
-    Data3: 889215382
-    Data4: -1695705740
+    Data1: -658078156
+    Data2: 1223843476
+    Data3: 133994387
+    Data4: -1476169647
   Banks:
-  - {fileID: -1537934471956013747}
+  - {fileID: 2311219034756941629}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &546223812317377629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UI_Sure
+  m_EditorClassIdentifier: 
+  Path: event:/UI/UI_Sure
+  Guid:
+    Data1: 317952301
+    Data2: 1131766782
+    Data3: 15088045
+    Data4: 636255598
+  Banks:
+  - {fileID: -2436286613764944502}
+  IsStream: 0
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -392,7 +405,7 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 638460371470212345
+  lastModified: 638461161864741708
   FileSizes: []
   Exists: 1
 --- !u!114 &1703086331357140823
@@ -422,6 +435,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 776
+--- !u!114 &2311219034756941629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Mech.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Resources/Desktop/Mech.bank
+  Name: Mech
+  StudioPath: bank:/Mech
+  lastModified: 638461357580428394
+  FileSizes: []
+  Exists: 1
 --- !u!114 &2770429732186094406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,6 +473,33 @@ MonoBehaviour:
   - Name: 
     Value: 1236
   Exists: 1
+--- !u!114 &3402755759773292745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Event_Death
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Event_Death
+  Guid:
+    Data1: -1280117492
+    Data2: 1191533895
+    Data3: -2015111544
+    Data4: -393116293
+  Banks:
+  - {fileID: -6108817754048889707}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3523
 --- !u!114 &3643589709224691868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,12 +542,12 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638460371470221546
+  lastModified: 638461357579988332
   FileSizes:
   - Name: 
-    Value: 1236
+    Value: 1392
   Exists: 1
---- !u!114 &5462599277483992274
+--- !u!114 &4808905385434346564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -499,18 +557,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Mechanism/Event_door
+  m_Name: event:/Mech/Event_door
   m_EditorClassIdentifier: 
-  Path: event:/Mechanism/Event_door
+  Path: event:/Mech/Event_door
   Guid:
-    Data1: 1491358915
-    Data2: 1256768751
-    Data3: -1777790550
-    Data4: -400212032
+    Data1: 1983422290
+    Data2: 1147967725
+    Data3: 1616080560
+    Data4: -1480399293
   Banks:
-  - {fileID: -1537934471956013747}
+  - {fileID: 2311219034756941629}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -531,7 +589,7 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638460371470221546
+  lastModified: 638461357579968335
   FileSizes: []
   Exists: 1
 --- !u!114 &5798696751948700346
@@ -588,6 +646,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 720
+--- !u!114 &7237873029673958208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/Event_UseGlove
+  m_EditorClassIdentifier: 
+  Path: event:/Player/Event_UseGlove
+  Guid:
+    Data1: -1746158865
+    Data2: 1182177287
+    Data3: -1678218837
+    Data4: -1655882508
+  Banks:
+  - {fileID: -6108817754048889707}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 864
 --- !u!114 &7623372490674905739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,6 +700,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 936
+--- !u!114 &7759082625062528300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Mech/Event_button
+  m_EditorClassIdentifier: 
+  Path: event:/Mech/Event_button
+  Guid:
+    Data1: -1277333884
+    Data2: 1311189336
+    Data3: 2142594740
+    Data4: -823259016
+  Banks:
+  - {fileID: 2311219034756941629}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
 --- !u!114 &7910742735745713587
 MonoBehaviour:
   m_ObjectHideFlags: 0
