@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class Mech_ScaleWall : MonoBehaviour
 {
@@ -21,11 +22,16 @@ public class Mech_ScaleWall : MonoBehaviour
     bool isScale = false;
     bool isPositive = false;
     bool isNegative = false;
+
+    private FMOD.Studio.EventInstance instance;
+    public FMODUnity.EventReference Event;
     void Awake()
     {
         originalScale = transform.localScale;
         if (transform.localScale.y < MaxScaleSize) isPositive = true;
         else if (transform.localScale.y > MaxScaleSize) isNegative = true;
+        instance = FMODUnity.RuntimeManager.CreateInstance(Event);
+        
     }
     void Start()
     {
@@ -37,7 +43,14 @@ public class Mech_ScaleWall : MonoBehaviour
         if (isScale && isPositive)
         {
             transform.localScale += new Vector3(0, ScaleSpeed * Time.deltaTime, 0);
-            if (transform.localScale.y >= MaxScaleSize) isScale = false;
+            if (transform.localScale.y >= MaxScaleSize)
+            {
+                isScale = false;
+                instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+                RuntimeManager.PlayOneShot("event:/Mech/electronic bridge to the end");
+            }
+
+
         }
         else if (isScale && isNegative)
         {
@@ -47,12 +60,19 @@ public class Mech_ScaleWall : MonoBehaviour
     }
     public void SwitchScale(int id)
     {
-        if (id == this.ID) isScale = true;
-        if (isTimer) Invoke("Revert", duration);
+        if (id == this.ID)
+        {
+            isScale = true;
+            Debug.Log("инк°");
+            instance.start();
+            
+        }
+            if (isTimer) Invoke("Revert", duration);
     }
     public void WallChangeScale()
     {
         isScale = true;
+        
     }
     public void ReSet()
     {

@@ -60,7 +60,7 @@ public class gameManager : MonoBehaviour
         _RunAudio = Resources.Load<AudioClip>("Event_run");
         //_HurtAudio = Resources.Load<AudioClip>("Evemt_hurt");
         //_CauteryAudio = Resources.Load<AudioClip>("Event_cautery");
-        //_LaserAudio = Resources.Load<AudioClip>("Event_laser");
+        _LaserAudio = Resources.Load<AudioClip>("Event_laser");
         //_JumpAudio = Resources.Load<AudioClip>("Event_jump");
 
         //------------------¨Æ¥ó------------------

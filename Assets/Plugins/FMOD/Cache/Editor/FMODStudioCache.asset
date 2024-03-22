@@ -45,6 +45,33 @@ MonoBehaviour:
   lastModified: 638440581682753271
   FileSizes: []
   Exists: 1
+--- !u!114 &-7622192678983867300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Mech/event_door
+  m_EditorClassIdentifier: 
+  Path: event:/Mech/event_door
+  Guid:
+    Data1: 1983422290
+    Data2: 1147967725
+    Data3: 1616080560
+    Data4: -1480399293
+  Banks:
+  - {fileID: 2311219034756941629}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2736
 --- !u!114 &-7600894508467209980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +90,33 @@ MonoBehaviour:
   lastModified: 638440581683088734
   FileSizes: []
   Exists: 1
+--- !u!114 &-6393575414531931419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Mech/electronic bridge to the end
+  m_EditorClassIdentifier: 
+  Path: event:/Mech/electronic bridge to the end
+  Guid:
+    Data1: 1141346693
+    Data2: 1295645854
+    Data3: 928726156
+    Data4: -774103982
+  Banks:
+  - {fileID: 2311219034756941629}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1848
 --- !u!114 &-6108817754048889707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,7 +132,7 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/Player.bank
   Name: Player
   StudioPath: bank:/Player
-  lastModified: 638461357580238332
+  lastModified: 638467456253713216
   FileSizes: []
   Exists: 1
 --- !u!114 &-4291697864982716194
@@ -126,6 +180,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 530
+--- !u!114 &-2795367635296992032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UI_Select
+  m_EditorClassIdentifier: 
+  Path: event:/UI/UI_Select
+  Guid:
+    Data1: 139507431
+    Data2: 1104615013
+    Data3: 194870453
+    Data4: 1332183302
+  Banks:
+  - {fileID: -2436286613764944502}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
 --- !u!114 &-2436286613764944502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +222,7 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 638461161865371708
+  lastModified: 638466501119152596
   FileSizes: []
   Exists: 1
 --- !u!114 &-1589787288884128723
@@ -299,15 +380,19 @@ MonoBehaviour:
   - {fileID: -137085480940737065}
   - {fileID: 7237873029673958208}
   - {fileID: 546223812317377629}
-  - {fileID: 7759082625062528300}
-  - {fileID: 200918837935191054}
-  - {fileID: 4808905385434346564}
+  - {fileID: 6968414625662636151}
+  - {fileID: 8135865372355995454}
+  - {fileID: -7622192678983867300}
+  - {fileID: 1590526794823344040}
+  - {fileID: -6393575414531931419}
+  - {fileID: -2795367635296992032}
+  - {fileID: 8791145844843716862}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5783138063374894602}
   StringsBanks:
   - {fileID: 4691477641210480658}
-  cacheTime: 638461357580428394
+  cacheTime: 638467456253713216
   cacheVersion: 131609
 --- !u!114 &88999839237074619
 MonoBehaviour:
@@ -336,33 +421,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2736
---- !u!114 &200918837935191054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Mech/Event_laser
-  m_EditorClassIdentifier: 
-  Path: event:/Mech/Event_laser
-  Guid:
-    Data1: -658078156
-    Data2: 1223843476
-    Data3: 133994387
-    Data4: -1476169647
-  Banks:
-  - {fileID: 2311219034756941629}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &546223812317377629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,7 +447,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 500
+  Length: 850
 --- !u!114 &1074324853460248267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +466,33 @@ MonoBehaviour:
   lastModified: 638461161864741708
   FileSizes: []
   Exists: 1
+--- !u!114 &1590526794823344040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Mech/event_button
+  m_EditorClassIdentifier: 
+  Path: event:/Mech/event_button
+  Guid:
+    Data1: -1277333884
+    Data2: 1311189336
+    Data3: 2142594740
+    Data4: -823259016
+  Banks:
+  - {fileID: 2311219034756941629}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 548
 --- !u!114 &1703086331357140823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,7 +535,7 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/Mech.bank
   Name: Mech
   StudioPath: bank:/Mech
-  lastModified: 638461357580428394
+  lastModified: 638467456252987890
   FileSizes: []
   Exists: 1
 --- !u!114 &2770429732186094406
@@ -542,38 +627,11 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638461357579988332
+  lastModified: 638467456252366798
   FileSizes:
   - Name: 
-    Value: 1392
+    Value: 1608
   Exists: 1
---- !u!114 &4808905385434346564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Mech/Event_door
-  m_EditorClassIdentifier: 
-  Path: event:/Mech/Event_door
-  Guid:
-    Data1: 1983422290
-    Data2: 1147967725
-    Data3: 1616080560
-    Data4: -1480399293
-  Banks:
-  - {fileID: 2311219034756941629}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 2736
 --- !u!114 &5783138063374894602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,7 +647,7 @@ MonoBehaviour:
   Path: Assets/Resources/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638461357579968335
+  lastModified: 638467456252346802
   FileSizes: []
   Exists: 1
 --- !u!114 &5798696751948700346
@@ -646,6 +704,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 720
+--- !u!114 &6968414625662636151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Mech/electronic bridge
+  m_EditorClassIdentifier: 
+  Path: event:/Mech/electronic bridge
+  Guid:
+    Data1: -820282874
+    Data2: 1222422541
+    Data3: -121028213
+    Data4: -2070436888
+  Banks:
+  - {fileID: 2311219034756941629}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8448
 --- !u!114 &7237873029673958208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,33 +785,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 936
---- !u!114 &7759082625062528300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Mech/Event_button
-  m_EditorClassIdentifier: 
-  Path: event:/Mech/Event_button
-  Guid:
-    Data1: -1277333884
-    Data2: 1311189336
-    Data3: 2142594740
-    Data4: -823259016
-  Banks:
-  - {fileID: 2311219034756941629}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 500
 --- !u!114 &7910742735745713587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -772,6 +830,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 3528
+--- !u!114 &8135865372355995454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Mech/event_laser
+  m_EditorClassIdentifier: 
+  Path: event:/Mech/event_laser
+  Guid:
+    Data1: -658078156
+    Data2: 1223843476
+    Data3: 133994387
+    Data4: -1476169647
+  Banks:
+  - {fileID: 2311219034756941629}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 19000
 --- !u!114 &8501434547869065739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -799,3 +884,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 720
+--- !u!114 &8791145844843716862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/pick up energy
+  m_EditorClassIdentifier: 
+  Path: event:/Player/pick up energy
+  Guid:
+    Data1: 1640105455
+    Data2: 1274532312
+    Data3: 493181072
+    Data4: 1974343554
+  Banks:
+  - {fileID: -6108817754048889707}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 245
