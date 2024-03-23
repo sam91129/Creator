@@ -13,18 +13,12 @@ public class gameManager : MonoBehaviour
     [Header("場景_下個場景")]
     public int Next;
     //---------------------------------------------介面---------------------------------------------------------
-    public GameObject sceneToLoad;
+    public GameObject _sceneToLoad;
+    public GameObject _pause;
+    public GameObject _setting;
     public Slider progressBar;
     //---------------------------------------------聲音---------------------------------------------------------
-    public static AudioSource SFXAudio;
-    public static AudioClip _ButtonAudio;
-    public static AudioClip _OpenDoorAudio;
-    public static AudioClip _WalkAudio;
-    public static AudioClip _RunAudio;
-    public static AudioClip _HurtAudio;
-    public static AudioClip _CauteryAudio;
-    public static AudioClip _LaserAudio;
-    public static AudioClip _JumpAudio;
+    
     //---------------------------------------------事件---------------------------------------------------------
     public static gameManager current;
     //__________________________________________________________________________________________________________
@@ -50,19 +44,10 @@ public class gameManager : MonoBehaviour
         //------------------場景------------------
         scene = SceneManager.GetActiveScene().name;
         //------------------介面------------------
-        sceneToLoad.SetActive(false);
+        _sceneToLoad.SetActive(false);
         progressBar.value = 0;
         //------------------聲音------------------
-        SFXAudio = GetComponent<AudioSource>();
-        //_ButtonAudio = Resources.Load<AudioClip>("Event_button");
-        //_OpenDoorAudio = Resources.Load<AudioClip>("Event_door");
-        _WalkAudio = Resources.Load<AudioClip>("Event_walk");
-        _RunAudio = Resources.Load<AudioClip>("Event_run");
-        //_HurtAudio = Resources.Load<AudioClip>("Evemt_hurt");
-        //_CauteryAudio = Resources.Load<AudioClip>("Event_cautery");
-        //_LaserAudio = Resources.Load<AudioClip>("Event_laser");
-        //_JumpAudio = Resources.Load<AudioClip>("Event_jump");
-
+        
         //------------------事件------------------
 
     }
@@ -79,12 +64,12 @@ public class gameManager : MonoBehaviour
     IEnumerator LoadScene()
     {
         Time.timeScale = 0;
-        sceneToLoad.SetActive(true);
+        _sceneToLoad.SetActive(true);
         yield return StartCoroutine(TransitionScene());
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(Next);
         if(asyncLoad.isDone)
         {
-            sceneToLoad.SetActive(false);
+            _sceneToLoad.SetActive(false);
             progressBar.value = 0;
         }
         Time.timeScale = 1;
@@ -102,23 +87,24 @@ public class gameManager : MonoBehaviour
         print("1000");
     }
     //---------------------介面----------------------------
-    public void PauseGame()
+    public void CancelPause()
     {
-        Time.timeScale = 0;
-        SceneManager.LoadScene("UI_Pause", LoadSceneMode.Additive);
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<PlayerManager>().onPause();
     }
-    public void UnpauseGame()
+    public void Setting()
     {
-        Time.timeScale = 1;
-        SceneManager.UnloadSceneAsync("UI_Pause");
+        _setting.SetActive(true);
+        _pause.SetActive(false);
     }
-    public void CloseCheck()
+    public void SaveSetting()
     {
-        SceneManager.LoadScene("UI_CloseCheck", LoadSceneMode.Additive);
+        _pause.SetActive(true);
+        _setting.SetActive(false);
     }
-    public void CancelClose()
+    public void Menu()
     {
-        SceneManager.UnloadSceneAsync("UI_CloseCheck");
+        //SceneManager.LoadScene("StartUI");
     }
     public void ExitGame()
     {
