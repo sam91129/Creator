@@ -33,9 +33,9 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Hand_Idle_Animation
-      takeName: Hand_Animation_v21
-      internalID: 6225355777345763738
+      name: Hand_Idle
+      takeName: Take 001
+      internalID: 1827226128182048838
       firstFrame: 0
       lastFrame: 48
       wrapMode: 0
@@ -62,9 +62,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Hand_Switch_Animation
-      takeName: Hand_Animation_v21
-      internalID: -2122484773564240774
+      name: Hand_Switch
+      takeName: Take 001
+      internalID: -998496362607748373
       firstFrame: 50
       lastFrame: 126
       wrapMode: 0
@@ -91,9 +91,9 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Grove_Idle_Animation
-      takeName: Hand_Animation_v21
-      internalID: 2143505706644011010
+      name: Grove_Idle
+      takeName: Take 001
+      internalID: 3060872287085348379
       firstFrame: 128
       lastFrame: 176
       wrapMode: 0

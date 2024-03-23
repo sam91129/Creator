@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
     Vector2 MoveValue;
     Vector3 Move;
     Vector3 Velocity = Vector3.zero;
-    public AudioSource MoveAudio;
+    //public AudioSource MoveAudio;
 
     //滑鼠鎖定%控制所需變數
     [Header("鏡頭轉動設置")]
@@ -55,8 +55,9 @@ public class PlayerManager : MonoBehaviour
 
     [Header("能力設置")]
     public bool HadGloves;
+    Animator _animator;
     public GameObject _rArmModel;
-    public GameObject _glovesModel;
+    //public GameObject _glovesModel;
     int limitObject = 1;
     int Energy;
     int ObjectNumber;
@@ -72,6 +73,7 @@ public class PlayerManager : MonoBehaviour
 
     void Awake()
     {
+        _animator = _rArmModel.GetComponent<Animator>();
         _gameObject = new GameObject[99];
         _characterController = GetComponent<CharacterController>();
         _groundCheck = GameObject.FindGameObjectWithTag("GroundCheck");
@@ -86,13 +88,15 @@ public class PlayerManager : MonoBehaviour
         gameManager.current.whenRespawn += ReSet;
         if (!HadGloves)
         {
-            _rArmModel.SetActive(true);
-            _glovesModel.SetActive(false);
+            _animator.SetBool("HadGrove", false);
+            //_rArmModel.SetActive(true);
+            //_glovesModel.SetActive(false);
         }
         else
         {
-            _glovesModel.SetActive(true);
-            _rArmModel.SetActive(false);
+            _animator.SetBool("HadGrove", true);
+            //_glovesModel.SetActive(true);
+            //_rArmModel.SetActive(false);
         }
         isRun = false;
         Hp = MaxHp;
@@ -104,11 +108,11 @@ public class PlayerManager : MonoBehaviour
         topCheck();
         if (MoveValue != Vector2.zero)
         {
-           if (!MoveAudio.isPlaying  && isGrounded)
+           /*if (!MoveAudio.isPlaying  && isGrounded)
             { 
                 //if (isRun) RuntimeManager.PlayOneShot("event:/Player/Event_run"); 
                 //else RuntimeManager.PlayOneShot("event:/Player/Event_walk");
-            }
+            }*/
                 Move = transform.right * MoveValue.x + transform.forward * MoveValue.y;
             _characterController.Move(Move * speed * Time.deltaTime);
         }       //onMove
@@ -135,7 +139,7 @@ public class PlayerManager : MonoBehaviour
         
         MoveValue = ctx.ReadValue<Vector2>();
         
-        if (ctx.canceled) MoveAudio.Stop();
+       // if (ctx.canceled) MoveAudio.Stop();
     }
     public void onRun(InputAction.CallbackContext ctx)
     {
@@ -144,14 +148,14 @@ public class PlayerManager : MonoBehaviour
             
             speed = run;
             isRun = true;
-            MoveAudio.Stop();
+            //MoveAudio.Stop();
 
         }
         if (ctx.canceled)
         {
             speed = walk;
             isRun = false;
-            MoveAudio.Stop();
+           // MoveAudio.Stop();
         }
     }
     public void onJump(InputAction.CallbackContext ctx)
@@ -222,8 +226,9 @@ public class PlayerManager : MonoBehaviour
                 if (_hits.collider.tag == "Gloves")
                 {
                     HadGloves = true;
-                    _glovesModel.SetActive(true);
-                    _rArmModel.SetActive(false);
+                    _animator.SetBool("HadGrove", true);
+                    //_glovesModel.SetActive(true);
+                    //_rArmModel.SetActive(false);
                     _hits.collider.gameObject.SetActive(false);
                 }
             }
