@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class Mech_Laser : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class Mech_Laser : MonoBehaviour
     }
     void Laser()
     {
+        //RuntimeManager.PlayOneShot("event:/Mech/event_laser");
         Physics.Raycast(LaserOrigin, LaserDirection, out _hit, maxLaserDistance);
         {
             _laserLine.SetPosition(0, LaserOrigin);

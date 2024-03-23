@@ -45,9 +45,7 @@ public class Mech_ScaleWall : MonoBehaviour
             transform.localScale += new Vector3(0, ScaleSpeed * Time.deltaTime, 0);
             if (transform.localScale.y >= MaxScaleSize)
             {
-                isScale = false;
-                instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-                RuntimeManager.PlayOneShot("event:/Mech/electronic bridge to the end");
+                StopScale();
             }
 
 
@@ -63,7 +61,7 @@ public class Mech_ScaleWall : MonoBehaviour
         if (id == this.ID)
         {
             isScale = true;
-            Debug.Log("身長");
+            //Debug.Log("身長");
             instance.start();
             
         }
@@ -72,11 +70,17 @@ public class Mech_ScaleWall : MonoBehaviour
     public void WallChangeScale()
     {
         isScale = true;
-        
+        instance.start();
     }
     public void ReSet()
     {
         this.transform.localScale = originalScale;
         isScale = false;
+    }
+    void StopScale()
+    {
+        isScale = false;
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        RuntimeManager.PlayOneShot("event:/Mech/electronic bridge to the end");
     }
 }
