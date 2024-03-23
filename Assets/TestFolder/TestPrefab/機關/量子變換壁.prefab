@@ -334,6 +334,13 @@ MonoBehaviour:
   duration: 3
   ScaleSpeed: 10
   ID: 0
+  Event:
+    Guid:
+      Data1: -820282874
+      Data2: 1222422541
+      Data3: -121028213
+      Data4: -2070436888
+    Path: event:/Mech/electronic bridge
 --- !u!4 &8069423918511803535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8dabaa0c7406d464ba8f585c45907a4e, type: 3}

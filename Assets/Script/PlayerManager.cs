@@ -304,6 +304,7 @@ public class PlayerManager : MonoBehaviour
         if (other.tag == "Energy")
         {           
             Energy++;
+            RuntimeManager.PlayOneShot("event:/Player/pick up energy");
             count();
             Destroy(other.gameObject);
         }
