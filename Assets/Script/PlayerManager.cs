@@ -10,6 +10,7 @@ using FMODUnity;
 public class PlayerManager : MonoBehaviour
 {
     gameManager gameManager;
+    bool isPause;
     //移動所需變數
     [Header("移動設置")]
     CharacterController _characterController;
@@ -232,6 +233,20 @@ public class PlayerManager : MonoBehaviour
                     _hits.collider.gameObject.SetActive(false);
                 }
             }
+        }
+    }
+    public void onPause()
+    {
+        isPause=!isPause;
+        if(isPause)
+        {
+            Time.timeScale = 0f;
+            gameManager._pause.SetActive(true);
+        }
+        else
+        {
+            gameManager._pause.SetActive(false);
+            Time.timeScale = 1.0f;
         }
     }
     public void Damageplayer(int damage)
