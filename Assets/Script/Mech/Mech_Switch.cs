@@ -5,7 +5,6 @@ using FMODUnity;
 
 public class Mech_Switch : MonoBehaviour
 {
-    public AudioSource ButtonAudio;
     [Header("¾÷ÃöID")]
     public int ID;
     public void useSwitch()
