@@ -2166,14 +2166,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1156042370740138173}
     m_Modifications:
-    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
-      propertyPath: MoveAudio
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
-      propertyPath: _rArmModel
-      value: 
-      objectReference: {fileID: 8269029958335522814}
     - target: {fileID: 1405878893426838489, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2232,11 +2224,6 @@ Camera:
 --- !u!4 &254938326459094207 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1405878893426838489, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
-  m_PrefabInstance: {fileID: 1156042369642471270}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8269029958335522814 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7118617088237893784, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
   m_PrefabInstance: {fileID: 1156042369642471270}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4291059236250583244
