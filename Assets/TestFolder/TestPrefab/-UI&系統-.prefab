@@ -2166,6 +2166,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1156042370740138173}
     m_Modifications:
+    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
+      propertyPath: MaxHp
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
+      propertyPath: Run.Path
+      value: event:/Player/Event_run
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
+      propertyPath: Walk.Path
+      value: event:/Player/Event_walk
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
+      propertyPath: Run.Guid.Data1
+      value: 191712756
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
+      propertyPath: Run.Guid.Data2
+      value: 1331202893
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
+      propertyPath: Run.Guid.Data3
+      value: 2011814057
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
+      propertyPath: Run.Guid.Data4
+      value: 1682997169
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
+      propertyPath: Walk.Guid.Data1
+      value: -3814606
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
+      propertyPath: Walk.Guid.Data2
+      value: 1318849425
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
+      propertyPath: Walk.Guid.Data3
+      value: 961593735
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405878893426838483, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
+      propertyPath: Walk.Guid.Data4
+      value: 842129
+      objectReference: {fileID: 0}
     - target: {fileID: 1405878893426838489, guid: fa9efc8297fbf8942be2f55024306357, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -28,6 +28,10 @@ public class PlayerManager : MonoBehaviour
     Vector2 MoveValue;
     Vector3 Move;
     Vector3 Velocity = Vector3.zero;
+    private FMOD.Studio.EventInstance WalkAudio;
+    public FMODUnity.EventReference Walk;
+    private FMOD.Studio.EventInstance RunAudio;
+    public FMODUnity.EventReference Run;
     //public AudioSource MoveAudio;
 
     //滑鼠鎖定%控制所需變數
@@ -83,6 +87,8 @@ public class PlayerManager : MonoBehaviour
         speed = walk;
         Event_Hurtplace = GameObject.FindWithTag("HurtEffect").GetComponent<Event_Hurtplace>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<gameManager>();
+        WalkAudio = FMODUnity.RuntimeManager.CreateInstance(Walk);
+        RunAudio = FMODUnity.RuntimeManager.CreateInstance(Run);
     }
     void Start()
     {
@@ -90,14 +96,10 @@ public class PlayerManager : MonoBehaviour
         if (!HadGloves)
         {
             _animator.SetBool("HadGrove", false);
-            //_rArmModel.SetActive(true);
-            //_glovesModel.SetActive(false);
         }
         else
         {
             _animator.SetBool("HadGrove", true);
-            //_glovesModel.SetActive(true);
-            //_rArmModel.SetActive(false);
         }
         isRun = false;
         Hp = MaxHp;
@@ -109,11 +111,6 @@ public class PlayerManager : MonoBehaviour
         topCheck();
         if (MoveValue != Vector2.zero)
         {
-           /*if (!MoveAudio.isPlaying  && isGrounded)
-            { 
-                //if (isRun) RuntimeManager.PlayOneShot("event:/Player/Event_run"); 
-                //else RuntimeManager.PlayOneShot("event:/Player/Event_walk");
-            }*/
                 Move = transform.right * MoveValue.x + transform.forward * MoveValue.y;
             _characterController.Move(Move * speed * Time.deltaTime);
         }       //onMove
@@ -139,8 +136,8 @@ public class PlayerManager : MonoBehaviour
     {
         
         MoveValue = ctx.ReadValue<Vector2>();
-        
-       // if (ctx.canceled) MoveAudio.Stop();
+        WalkAudio.start();
+        if (ctx.canceled) WalkAudio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
     public void onRun(InputAction.CallbackContext ctx)
     {
@@ -149,21 +146,22 @@ public class PlayerManager : MonoBehaviour
             
             speed = run;
             isRun = true;
-            //MoveAudio.Stop();
+            WalkAudio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            RunAudio.start();
 
         }
         if (ctx.canceled)
         {
             speed = walk;
             isRun = false;
-           // MoveAudio.Stop();
+            WalkAudio.start();
+            RunAudio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
     public void onJump(InputAction.CallbackContext ctx)
     {
         if (ctx.started && isGrounded == true)
         {
-            //MoveAudio.PlayOneShot(gameManager._JumpAudio);
             RuntimeManager.PlayOneShot("event:/Player/Event_jump");
             Velocity.y += Mathf.Sqrt(jump * 2 * Gravity);
         }
