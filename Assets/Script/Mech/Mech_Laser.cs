@@ -14,6 +14,8 @@ public class Mech_Laser : MonoBehaviour
     public int demage;
     PlayerManager health;
     bool respawn;
+    private FMOD.Studio.EventInstance LaserAudio;
+    public FMODUnity.EventReference laser;
 
     [Header("©P´Á«¬")]
     public bool isLoopType;
@@ -27,6 +29,7 @@ public class Mech_Laser : MonoBehaviour
     {
         _laserLine = GetComponent<LineRenderer>();
         health = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        LaserAudio = FMODUnity.RuntimeManager.CreateInstance(laser);
     }
     void Start()
     {
@@ -43,15 +46,20 @@ public class Mech_Laser : MonoBehaviour
     {
         LaserOrigin = transform.position;
         LaserDirection = transform.forward;
-        if(open)
+        if (open)
         {
             _laserLine.enabled = true;
             Laser();
         }
-        else _laserLine.enabled = false;
+        else
+        {
+            _laserLine.enabled = false;
+            LaserOff();
+        }
     }
     void Laser()
     {
+        //LaserAudio.start();
         //RuntimeManager.PlayOneShot("event:/Mech/event_laser");
         Physics.Raycast(LaserOrigin, LaserDirection, out _hit, maxLaserDistance);
         {
@@ -66,6 +74,10 @@ public class Mech_Laser : MonoBehaviour
             }
             else _laserLine.SetPosition(1, LaserDirection*maxLaserDistance);
         }
+    }
+    void LaserOff()
+    {
+        //LaserAudio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
     public void switchLaser(int id)
     {

@@ -147,6 +147,13 @@ MonoBehaviour:
   maxLaserDistance: 50
   open: 1
   demage: 1
+  laser:
+    Guid:
+      Data1: -658078156
+      Data2: 1223843476
+      Data3: 133994387
+      Data4: -1476169647
+    Path: event:/Mech/event_laser
   isLoopType: 0
   openTime: 0.5
   closeTime: 0.5

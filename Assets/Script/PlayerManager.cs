@@ -114,7 +114,8 @@ public class PlayerManager : MonoBehaviour
                 Move = transform.right * MoveValue.x + transform.forward * MoveValue.y;
             _characterController.Move(Move * speed * Time.deltaTime);
         }       //onMove
-      
+        else RunAudio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
         if (isGrounded == true && Velocity.y < 0) Velocity.y = 0;
         Velocity.y -= Gravity * Time.deltaTime;
         _characterController.Move(Velocity * Time.deltaTime);
@@ -136,25 +137,28 @@ public class PlayerManager : MonoBehaviour
     {
         
         MoveValue = ctx.ReadValue<Vector2>();
-        WalkAudio.start();
+        if(!isRun) WalkAudio.start();
+        else RunAudio.start();
         if (ctx.canceled) WalkAudio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
     public void onRun(InputAction.CallbackContext ctx)
     {
         if (ctx.started)
-        {
-            
+        { 
             speed = run;
             isRun = true;
             WalkAudio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            RunAudio.start();
-
+            if (MoveValue != Vector2.zero) RunAudio.start();
         }
         if (ctx.canceled)
         {
             speed = walk;
             isRun = false;
-            WalkAudio.start();
+            if (MoveValue != Vector2.zero)
+            {
+                WalkAudio.start();
+                RunAudio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            }
             RunAudio.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
     }
@@ -260,7 +264,7 @@ public class PlayerManager : MonoBehaviour
     }
     void groundCheck()
     {
-        isGrounded = Physics.CheckSphere(_groundCheck.transform.position, 0.3f, _groundMask);
+        isGrounded = Physics.CheckSphere(_groundCheck.transform.position, 0.2f, _groundMask);
     }
     void topCheck()
     {
@@ -322,10 +326,10 @@ public class PlayerManager : MonoBehaviour
             inSwitch = false;
         }
     }
-    /*void OnDrawGizmos()
+    void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(CrossOrigin, CrossDirection);
         Gizmos.DrawWireSphere(CrossOrigin + CrossDirection * _hits.distance, vistionRadius);
-    }*/
+    }
 }
