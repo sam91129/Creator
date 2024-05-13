@@ -29,7 +29,7 @@ public class Mech_Laser : MonoBehaviour
     {
         _laserLine = GetComponent<LineRenderer>();
         health = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-        LaserAudio = FMODUnity.RuntimeManager.CreateInstance(laser);
+       // LaserAudio = FMODUnity.RuntimeManager.CreateInstance(laser);
     }
     void Start()
     {
