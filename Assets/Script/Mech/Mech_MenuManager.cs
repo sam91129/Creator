@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Mech_MenuManager : MonoBehaviour
 {
@@ -10,11 +11,12 @@ public class Mech_MenuManager : MonoBehaviour
     public GameObject _About;
     public GameObject _Setting;
     [Header("(¼È®É)³õ´º")]
-    public string ContinueScnen;
+    public int ContinueScnen;
+    public GameObject _sceneToLoad;
+    public Slider progressBar;
     public void Continue()
     {
-        _Menu.SetActive(false);
-        SceneManager.LoadSceneAsync(ContinueScnen);
+        StartCoroutine(LoadScene());
     }
     public void NewGame()
     {
@@ -51,5 +53,16 @@ public class Mech_MenuManager : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+    }
+    IEnumerator LoadScene()
+    {
+        _sceneToLoad.SetActive(true);
+        for (float x = 0; x <= 0.7f; x = progressBar.value)
+        {
+            progressBar.value += 0.1f;
+            yield return new WaitForSecondsRealtime(0.1f);
+        }
+        progressBar.value = 1;
+        SceneManager.LoadSceneAsync(ContinueScnen);
     }
 }

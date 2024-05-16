@@ -79,6 +79,8 @@ public class PlayerManager : MonoBehaviour
     void Awake()
     {
         _animator = _rArmModel.GetComponent<Animator>();
+        if (!HadGloves) _animator.SetBool("HadGrove", false);
+        else _animator.SetBool("HadGrove", true);
         _gameObject = new GameObject[99];
         _characterController = GetComponent<CharacterController>();
         _groundCheck = GameObject.FindGameObjectWithTag("GroundCheck");
@@ -93,14 +95,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         gameManager.current.whenRespawn += ReSet;
-        if (!HadGloves)
-        {
-            _animator.SetBool("HadGrove", false);
-        }
-        else
-        {
-            _animator.SetBool("HadGrove", true);
-        }
+        
         isRun = false;
         Hp = MaxHp;
     }
@@ -325,6 +320,10 @@ public class PlayerManager : MonoBehaviour
         {
             inSwitch = false;
         }
+    }
+    public void pass()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
     }
     void OnDrawGizmos()
     {

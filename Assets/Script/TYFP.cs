@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TYFP : MonoBehaviour
 {
-    int A = 0;
+    //int A = 0;
     float T = 5f;
     void Update()
     {

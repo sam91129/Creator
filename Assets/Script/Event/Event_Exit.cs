@@ -15,7 +15,7 @@ public class Event_Exit : MonoBehaviour
         if(other.tag == "Player")
         {
             gameManager.Next = NextScene;
-            gameManager.ChangerScenes();
+            gameManager.Pass();
         }
     }
 }
