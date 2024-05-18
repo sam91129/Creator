@@ -51,6 +51,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] float maxGloveDistance = 10.0f;
     [SerializeField] float maxSwitchDistance = 5.0f;
     [SerializeField] float vistionRadius = 0.1f;
+    [SerializeField] LayerMask _glovesMask;
     [SerializeField] LayerMask _switchMask;
     float MouseX;
     float MouseY;
@@ -64,11 +65,11 @@ public class PlayerManager : MonoBehaviour
     public GameObject _rArmModel;
     //public GameObject _glovesModel;
     int limitObject = 1;
-    int Energy;
     int ObjectNumber;
     GameObject[] _gameObject;
     bool isRepeat;
     bool inSwitch = false;
+    int bridgeRemain;
 
     [Header("¦å¶q")]
     public int MaxHp;
@@ -94,8 +95,10 @@ public class PlayerManager : MonoBehaviour
     }
     void Start()
     {
+        bridgeRemain = limitObject;
+        brigheCount();
         gameManager.current.whenRespawn += ReSet;
-        
+        Physics.IgnoreLayerCollision(3, 3, true);
         isRun = false;
         Hp = MaxHp;
     }
@@ -171,11 +174,14 @@ public class PlayerManager : MonoBehaviour
         {
             CrossOrigin = _camera.transform.position;
             CrossDirection = _camera.transform.forward;
-            if (Physics.SphereCast(CrossOrigin, vistionRadius, CrossDirection, out _hits, maxGloveDistance) && _hits.collider.tag == ("ScaleWall"))
+            Physics.SphereCast(CrossOrigin, vistionRadius, CrossDirection, out _hits, maxGloveDistance, _glovesMask);
+            if (_hits.collider.tag == ("ScaleWall"))
             {
                 repeatCheck();
                 if (!isRepeat)
                 {
+                    if(bridgeRemain > 0) bridgeRemain--;
+                    brigheCount();
                     if (_gameObject[ObjectNumber] != null) _gameObject[ObjectNumber].GetComponent<Mech_ScaleWall>().ReSet();
                     _gameObject[ObjectNumber] = _hits.collider.gameObject;
                     _gameObject[ObjectNumber].GetComponent<Mech_ScaleWall>().WallChangeScale();
@@ -195,6 +201,8 @@ public class PlayerManager : MonoBehaviour
                     _gameObject[i] = null;
                 }
             }
+            bridgeRemain = limitObject;
+            brigheCount();
         }
     }
     public void onJumpPad(InputAction.CallbackContext ctx)
@@ -203,7 +211,8 @@ public class PlayerManager : MonoBehaviour
         {
             CrossOrigin = _camera.transform.position;
             CrossDirection = _camera.transform.forward;
-            if (Physics.SphereCast(CrossOrigin, vistionRadius, CrossDirection, out _hits, maxGloveDistance) && _hits.collider.tag == ("JumpPad"))
+            Physics.SphereCast(CrossOrigin, vistionRadius, CrossDirection, out _hits, maxGloveDistance, _glovesMask);
+            if (_hits.collider.tag == ("JumpPad"))
             {
                 _hits.collider.GetComponent<Mech_JumpPad>().WallChargeJump();
             }
@@ -278,9 +287,14 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
+    void brigheCount()
+    {
+        gameManager._bridge.text = bridgeRemain.ToString() + "/" + limitObject.ToString();
+    }
     void count()
     {
-        limitObject = 1 + Energy;
+        limitObject++;
+        bridgeRemain++;
         if (_gameObject[ObjectNumber] != null) ObjectNumber++;
     }
     void ReSet()
@@ -299,10 +313,10 @@ public class PlayerManager : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Energy")
-        {           
-            Energy++;
+        {
             RuntimeManager.PlayOneShot("event:/Player/pick up energy");
             count();
+            brigheCount();
             Destroy(other.gameObject);
         }
         if (other.tag == "SwitchRange")

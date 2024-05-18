@@ -9634,6 +9634,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1156042371490201704, guid: ac40d218c81535948a5163f63e0db452, type: 3}
+      propertyPath: m_Height
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156042371490201704, guid: ac40d218c81535948a5163f63e0db452, type: 3}
+      propertyPath: m_SkinWidth
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156042371490201704, guid: ac40d218c81535948a5163f63e0db452, type: 3}
+      propertyPath: m_SlopeLimit
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156042371490201704, guid: ac40d218c81535948a5163f63e0db452, type: 3}
+      propertyPath: m_MinMoveDistance
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1156042371640297024, guid: ac40d218c81535948a5163f63e0db452, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -10214,7 +10230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b755f4db09f4040b4f0683417d9363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CauteryAudio: {fileID: 0}
   demage: 5
 --- !u!65 &657720018
 BoxCollider:
@@ -20816,7 +20831,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b755f4db09f4040b4f0683417d9363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CauteryAudio: {fileID: 0}
   demage: 5
 --- !u!65 &1234522122
 BoxCollider:
@@ -29809,7 +29823,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b755f4db09f4040b4f0683417d9363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CauteryAudio: {fileID: 0}
   demage: 5
 --- !u!65 &1720614758
 BoxCollider:
@@ -77919,7 +77932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b755f4db09f4040b4f0683417d9363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CauteryAudio: {fileID: 0}
   demage: 5
 --- !u!120 &5413185667851340227
 LineRenderer:

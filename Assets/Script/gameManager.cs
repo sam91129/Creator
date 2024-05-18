@@ -23,6 +23,7 @@ public class gameManager : MonoBehaviour
     public GameObject _pass;
     public Slider progressBar;
     public TextMeshProUGUI _timer;
+    public TextMeshProUGUI _bridge;
     bool Timing;
     float T;
     //---------------------------------------------Án­µ---------------------------------------------------------
@@ -117,8 +118,8 @@ public class gameManager : MonoBehaviour
         Timing = false;
         _timer.text = "00:00:00";
         _fakeLoadPanel.SetActive(true);
+        yield return new WaitForSecondsRealtime(2f);
         _playerPanel.SetActive(true);
-        yield return new WaitForSecondsRealtime(1f);
         _fakeLoadPanel.SetActive(false);
         Timing = true;
     }

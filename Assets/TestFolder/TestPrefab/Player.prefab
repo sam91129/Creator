@@ -367,17 +367,34 @@ MonoBehaviour:
   superJump: 20
   _groundMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 16118
   _topMask:
     serializedVersion: 2
     m_Bits: 3831
   Gravity: 19.6
+  Walk:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Run:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   MouseSensitivity: 10
   _playerBody: {fileID: 1405878893426838489}
   _camera: {fileID: 1405878893042523464}
   maxGloveDistance: 100
   maxSwitchDistance: 5
   vistionRadius: 0.1
+  _glovesMask:
+    serializedVersion: 2
+    m_Bits: 16119
   _switchMask:
     serializedVersion: 2
     m_Bits: 512
@@ -584,7 +601,7 @@ CharacterController:
   m_StepOffset: 0.5
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.94, z: 0}
+  m_Center: {x: 0, y: 0.92, z: 0}
 --- !u!1 &1405878893645626308
 GameObject:
   m_ObjectHideFlags: 0

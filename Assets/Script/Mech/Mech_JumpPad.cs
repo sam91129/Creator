@@ -44,6 +44,7 @@ public class Mech_JumpPad : MonoBehaviour
     }
     public void WallChargeJump()
     {
+        print("ASD");
         isJump = true;
        
     }

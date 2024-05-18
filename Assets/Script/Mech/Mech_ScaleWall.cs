@@ -74,6 +74,7 @@ public class Mech_ScaleWall : MonoBehaviour
     }
     public void ReSet()
     {
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         this.transform.localScale = originalScale;
         isScale = false;
     }

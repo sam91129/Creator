@@ -5352,6 +5352,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5441194830244941266}
     - target: {fileID: 3136741517542131377, guid: cf04223bc9e4fd745ac9eb2e8bd05c82, type: 3}
+      propertyPath: _bridge
+      value: 
+      objectReference: {fileID: 1776714057900705400}
+    - target: {fileID: 3136741517542131377, guid: cf04223bc9e4fd745ac9eb2e8bd05c82, type: 3}
       propertyPath: cautery
       value: 
       objectReference: {fileID: 8300000, guid: 6598e752686e51b47a0ec5388e1d7e65, type: 3}
