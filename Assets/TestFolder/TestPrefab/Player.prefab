@@ -386,7 +386,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  MouseSensitivity: 10
+  MouseSensitivity: 1
   _playerBody: {fileID: 1405878893426838489}
   _camera: {fileID: 1405878893042523464}
   maxGloveDistance: 100
@@ -579,6 +579,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f34a01af-2d0e-49fa-a357-996fb5303dd4
     m_ActionName: Player/TriggerSwitch[/Keyboard/e,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ebaec05d-26f8-443a-bd2f-7d3d42e2b9f0
+    m_ActionName: Player/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

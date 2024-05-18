@@ -9584,7 +9584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 731587499143408611, guid: ac40d218c81535948a5163f63e0db452, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1156042370740138172, guid: ac40d218c81535948a5163f63e0db452, type: 3}
       propertyPath: m_Name
@@ -9656,7 +9656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3535352818349514299, guid: ac40d218c81535948a5163f63e0db452, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4291059234815919457, guid: ac40d218c81535948a5163f63e0db452, type: 3}
       propertyPath: m_IsActive
@@ -9664,11 +9664,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8097856314590362818, guid: ac40d218c81535948a5163f63e0db452, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8807166221313529286, guid: ac40d218c81535948a5163f63e0db452, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8939103068854238394, guid: ac40d218c81535948a5163f63e0db452, type: 3}
       propertyPath: m_IsActive
@@ -42556,7 +42556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ddd6cb6b398a9408f0b78508e7df2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextScene: 2
+  NextScene: 3
 --- !u!33 &580061325907093006
 MeshFilter:
   m_ObjectHideFlags: 0

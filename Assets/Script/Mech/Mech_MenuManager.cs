@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using FMODUnity;
+using FMOD.Studio;
+using UnityEngine.InputSystem;
 
 public class Mech_MenuManager : MonoBehaviour
 {
@@ -14,6 +17,19 @@ public class Mech_MenuManager : MonoBehaviour
     public int ContinueScnen;
     public GameObject _sceneToLoad;
     public Slider progressBar;
+    Bus _masterBus;
+    public Slider _music;
+
+    void Start()
+    {
+        _Menu.SetActive(true);
+        _Level.SetActive(false);
+        _About.SetActive(false);
+        _Setting.SetActive(false);
+        _sceneToLoad.SetActive(false);
+
+        _masterBus = RuntimeManager.GetBus("bus:/");
+    }
     public void Continue()
     {
         StartCoroutine(LoadScene());
@@ -35,6 +51,7 @@ public class Mech_MenuManager : MonoBehaviour
     }
     public void SaveSetting()
     {
+        SetMasterVolume();
         _Setting.SetActive(false);
         _Menu.SetActive(true);
     }
@@ -49,6 +66,10 @@ public class Mech_MenuManager : MonoBehaviour
         _Setting.SetActive(false);
         _About.SetActive(false);
         _Menu.SetActive(true);
+    }
+    public void SetMasterVolume()
+    {
+        _masterBus.setVolume(_music.value);
     }
     public void Exit()
     {

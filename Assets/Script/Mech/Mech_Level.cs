@@ -7,16 +7,21 @@ using System.IO;
 public class Mech_Level : MonoBehaviour
 {
     string sceneName;
+    public string _bestTime;
     public void L1()
     {
         sceneName = GetSceneNameByIndex(1);
         string fileName = sceneName;
-        string loadedTimer = ReadTimer(fileName);
-        Debug.Log("Loaded string: " + loadedTimer);
+        _bestTime = ReadTimer(fileName);
+        Debug.Log("Loaded string: " + _bestTime);
         GameObject.Find("MenuObject").GetComponent<Mech_MenuManager>().ContinueScnen = 1;
     }
     public void L2()
     {
+        sceneName = GetSceneNameByIndex(2);
+        string fileName = sceneName;
+        _bestTime = ReadTimer(fileName);
+        Debug.Log("Loaded string: " + _bestTime);
         GameObject.Find("MenuObject").GetComponent<Mech_MenuManager>().ContinueScnen = 2;
     }
     string GetSceneNameByIndex(int index)

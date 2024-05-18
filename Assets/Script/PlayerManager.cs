@@ -128,8 +128,8 @@ public class PlayerManager : MonoBehaviour
     public void onVision(InputAction.CallbackContext ctx)
     {
         MouseValue = ctx.ReadValue<Vector2>();
-        MouseX = MouseValue.x * MouseSensitivity * Time.deltaTime; ;  //Â¶X¶b±ÛÂà
-        MouseY = MouseValue.y * MouseSensitivity * Time.deltaTime; ;  //Â¶Y¶b±ÛÂà
+        MouseX = MouseValue.x * MouseSensitivity * 10 * Time.deltaTime; ;  //Â¶X¶b±ÛÂà
+        MouseY = MouseValue.y * MouseSensitivity * 10 * Time.deltaTime; ;  //Â¶Y¶b±ÛÂà
     }
     public void onMove(InputAction.CallbackContext ctx)    
     {
@@ -233,6 +233,7 @@ public class PlayerManager : MonoBehaviour
                 if (_hits.collider.tag == "Gloves")
                 {
                     HadGloves = true;
+                    GameObject.FindGameObjectWithTag("GameManager").GetComponent<gameManager>()._bridge.enabled = true;
                     _animator.SetBool("HadGrove", true);
                     //_glovesModel.SetActive(true);
                     //_rArmModel.SetActive(false);
@@ -247,11 +248,14 @@ public class PlayerManager : MonoBehaviour
         if(isPause)
         {
             Time.timeScale = 0f;
+            Cursor.lockState = CursorLockMode.Confined;
             gameManager._pause.SetActive(true);
         }
         else
         {
+            gameManager._setting.SetActive(false);
             gameManager._pause.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1.0f;
         }
     }
