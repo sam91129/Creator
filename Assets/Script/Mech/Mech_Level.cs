@@ -2,55 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.IO;
+using TMPro;
 
 public class Mech_Level : MonoBehaviour
 {
+    public TextMeshProUGUI _level;
+    public TextMeshProUGUI _timer;
+
     string sceneName;
     public string _bestTime;
     public void L1()
     {
         sceneName = GetSceneNameByIndex(1);
-        string fileName = sceneName;
-        _bestTime = ReadTimer(fileName);
-        Debug.Log("Loaded string: " + _bestTime);
+        _level.text = "L1";
+        _timer.text = PlayerPrefs.GetString(sceneName + "Timer", "00:00:00");
         GameObject.Find("MenuObject").GetComponent<Mech_MenuManager>().ContinueScnen = 1;
     }
     public void L2()
     {
         sceneName = GetSceneNameByIndex(2);
-        string fileName = sceneName;
-        _bestTime = ReadTimer(fileName);
-        Debug.Log("Loaded string: " + _bestTime);
+        _level.text = "L2";
+        _timer.text = PlayerPrefs.GetString(sceneName + "Timer", "00:00:00");
         GameObject.Find("MenuObject").GetComponent<Mech_MenuManager>().ContinueScnen = 2;
     }
     string GetSceneNameByIndex(int index)
     {
-        
-        Scene scene = SceneManager.GetSceneByBuildIndex(index);     // 獲取指定場景編號的場景名稱
-        if (scene.IsValid())                                        // 如果場景有效，返回場景名稱；否則返回空字符串
-        {
-            return scene.name;
-        }
-        else
-        {
-            return "";
-        }
-    }
-    string ReadTimer(string fileName)
-    {
-        string filePath = Path.Combine(Application.persistentDataPath, fileName);
-        if (File.Exists(filePath))
-        {
-            using (StreamReader reader = new StreamReader(filePath))
-            {
-                string loadedString = reader.ReadLine();
-                return loadedString;
-            }
-        }
-        else
-        {
-            return "";
-        }
+        string scenePath = SceneUtility.GetScenePathByBuildIndex(index);     
+        string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePath);
+        return sceneName;
     }
 }

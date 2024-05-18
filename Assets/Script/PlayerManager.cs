@@ -92,6 +92,8 @@ public class PlayerManager : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<gameManager>();
         WalkAudio = FMODUnity.RuntimeManager.CreateInstance(Walk);
         RunAudio = FMODUnity.RuntimeManager.CreateInstance(Run);
+
+        setSensitivity();
     }
     void Start()
     {
@@ -244,20 +246,26 @@ public class PlayerManager : MonoBehaviour
     }
     public void onPause()
     {
-        isPause=!isPause;
-        if(isPause)
+        if(gameManager.canPause)
         {
-            Time.timeScale = 0f;
-            Cursor.lockState = CursorLockMode.Confined;
-            gameManager._pause.SetActive(true);
+            isPause = !isPause;
+            if (isPause)
+            {
+                Time.timeScale = 0f;
+                Cursor.lockState = CursorLockMode.Confined;
+                gameManager._pause.SetActive(true);
+            }
+            else
+            {
+                gameManager._pause.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+                Time.timeScale = 1.0f;
+            }
         }
-        else
-        {
-            gameManager._setting.SetActive(false);
-            gameManager._pause.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            Time.timeScale = 1.0f;
-        }
+    }
+    public void setSensitivity()
+    {
+        MouseSensitivity = PlayerPrefs.GetFloat("Sensitivity", 1.0f);
     }
     public void Damageplayer(int damage)
     {
@@ -338,10 +346,6 @@ public class PlayerManager : MonoBehaviour
         {
             inSwitch = false;
         }
-    }
-    public void pass()
-    {
-        Cursor.lockState = CursorLockMode.Confined;
     }
     void OnDrawGizmos()
     {

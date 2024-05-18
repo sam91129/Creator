@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using FMODUnity;
 using FMOD.Studio;
-using UnityEngine.InputSystem;
+using TMPro;
 
 public class Mech_MenuManager : MonoBehaviour
 {
@@ -18,8 +18,15 @@ public class Mech_MenuManager : MonoBehaviour
     public GameObject _sceneToLoad;
     public Slider progressBar;
     Bus _masterBus;
-    public Slider _music;
-
+    public Slider _musicBar;
+    public Slider _sensitivityBar;
+    public TextMeshProUGUI _music;
+    public TextMeshProUGUI _sensitivity;
+    void Awake()
+    {
+        _masterBus = RuntimeManager.GetBus("bus:/");
+        _masterBus.setVolume(PlayerPrefs.GetFloat("MusicVolume", 1.0f));
+    }
     void Start()
     {
         _Menu.SetActive(true);
@@ -27,8 +34,6 @@ public class Mech_MenuManager : MonoBehaviour
         _About.SetActive(false);
         _Setting.SetActive(false);
         _sceneToLoad.SetActive(false);
-
-        _masterBus = RuntimeManager.GetBus("bus:/");
     }
     public void Continue()
     {
@@ -47,11 +52,26 @@ public class Mech_MenuManager : MonoBehaviour
     public void Setting()
     {
         _Menu.SetActive(false);
+        _musicBar.value = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
+        MusicBarVolume();
+        _sensitivityBar.value = PlayerPrefs.GetFloat("Sensitivity", 1.0f);
+        SensitivityBarVolume();
         _Setting.SetActive(true);
+    }
+    public void MusicBarVolume()
+    {
+        _music.text = _musicBar.value.ToString("F2");
+    }
+    public void SensitivityBarVolume()
+    {
+        _sensitivity.text = _sensitivityBar.value.ToString("F2");
     }
     public void SaveSetting()
     {
-        SetMasterVolume();
+        _masterBus.setVolume(_musicBar.value);
+        PlayerPrefs.SetFloat("Sensitivity", _sensitivityBar.value);
+        PlayerPrefs.SetFloat("MusicVolume", _musicBar.value);
+        PlayerPrefs.Save();
         _Setting.SetActive(false);
         _Menu.SetActive(true);
     }
@@ -66,10 +86,6 @@ public class Mech_MenuManager : MonoBehaviour
         _Setting.SetActive(false);
         _About.SetActive(false);
         _Menu.SetActive(true);
-    }
-    public void SetMasterVolume()
-    {
-        _masterBus.setVolume(_music.value);
     }
     public void Exit()
     {

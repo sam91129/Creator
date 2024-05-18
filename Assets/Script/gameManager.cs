@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using System.IO;
 using TMPro;
 using FMODUnity;
 using FMOD.Studio;
@@ -28,24 +27,28 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI _bridge;
     public TextMeshProUGUI _thisTiming;
     public TextMeshProUGUI _bestTiming;
+    public bool canPause;
     bool Timing;
-    float T;
+    float nowTimimg;
     //---------------------------------------------聲音---------------------------------------------------------
 
     //---------------------------------------------事件---------------------------------------------------------
     public static gameManager current;
     Bus _masterBus;
-    public Slider _music;
-    public Slider _sensitivity;
+    public Slider _musicBar;
+    public Slider _sensitivityBar;
+    public TextMeshProUGUI _music;
+    public TextMeshProUGUI _sensitivity;
     //__________________________________________________________________________________________________________
     void Awake()
     {
         //------------------場景------------------
 
         //------------------介面------------------
-
+        canPause = false;
         //------------------聲音------------------
-
+        _masterBus = RuntimeManager.GetBus("bus:/");
+        _masterBus.setVolume(PlayerPrefs.GetFloat("MusicVolume", 1.0f));
         //------------------事件------------------
         current = this; 
     }
@@ -67,7 +70,7 @@ public class gameManager : MonoBehaviour
         _sceneToLoad.SetActive(false);
         progressBar.value = 0;
         //------------------聲音------------------
-        _masterBus = RuntimeManager.GetBus("bus:/");
+        Debug.Log(scene + "Timer");
         //------------------事件------------------
 
     }
@@ -75,8 +78,8 @@ public class gameManager : MonoBehaviour
     {
         if (Timing)
         {
-            T += Time.deltaTime;
-            _timer.text = FormatTime(T);
+            nowTimimg += Time.deltaTime;
+            _timer.text = FormatTime(nowTimimg);
         }
     }
     //---------------------------------------------場景---------------------------------------------------------
@@ -132,6 +135,7 @@ public class gameManager : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().HadGloves == false) _bridge.enabled = false;
         else _bridge.enabled = true;
         _fakeLoadPanel.SetActive(false);
+        canPause = true;
         Timing = true;
     }
     public void CancelPause()
@@ -142,16 +146,22 @@ public class gameManager : MonoBehaviour
     }
     public void Setting()
     {
-        _setting.SetActive(true);
-        _masterBus.getVolume(out float nowVolume);
-        _music.value = nowVolume;
-        _sensitivity.value = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().MouseSensitivity;
+        canPause = false;
         _pause.SetActive(false);
+        _musicBar.value = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
+        _sensitivityBar.value = PlayerPrefs.GetFloat("Sensitivity", 1.0f);
+        _setting.SetActive(true);
     }
     public void SaveSetting()
     {
-        SetMasterVolume();
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().MouseSensitivity = _sensitivity.value;
+        _masterBus.setVolume(_musicBar.value); 
+        _musicBar.value = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
+        MusicBarVolume();
+        _sensitivityBar.value = PlayerPrefs.GetFloat("Sensitivity", 1.0f);
+        SensitivityBarVolume();
+        PlayerPrefs.Save();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().setSensitivity();
+        canPause = true;
         _pause.SetActive(true);
         _setting.SetActive(false);
     }
@@ -161,21 +171,23 @@ public class gameManager : MonoBehaviour
     }
     public void Pass()
     {
-        Time.timeScale = 0;
         Timing = false;
-        _thisTiming.text = FormatTime(T);
-        float savedTiming = ReadTiming(scene);
-        if (T <= savedTiming)
+        canPause = false;
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.Confined;
+        _playerPanel.SetActive(false);
+        _thisTiming.text = _timer.text;
+        if (nowTimimg < PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + "Timing", 0f))
         {
-            SaveTime(scene, _timer.text, T);
-            _bestTiming.text = FormatTime(T);
+            _bestTiming.text = _timer.text;
+            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "Timing", nowTimimg);
+            PlayerPrefs.SetString(SceneManager.GetActiveScene().name + "Timer", _timer.text);
+            PlayerPrefs.Save();
         }
         else
         {
-            _bestTiming.text = ReadTimer(scene);
+            _bestTiming.text = PlayerPrefs.GetString(SceneManager.GetActiveScene().name + "Timer", "00:00:00");
         }
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().pass();
-        _playerPanel.SetActive(false);
         _pass.SetActive(true);
     }
     public void ExitGame()
@@ -183,9 +195,13 @@ public class gameManager : MonoBehaviour
         Application.Quit();
     }
     //---------------------------------------------聲音---------------------------------------------------------
-    public void SetMasterVolume()
+    public void MusicBarVolume()
     {
-        _masterBus.setVolume(_music.value);
+        _music.text = _musicBar.value.ToString("F2");
+    }
+    public void SensitivityBarVolume()
+    {
+        _sensitivity.text = _sensitivityBar.value.ToString("F2");
     }
     //---------------------------------------------事件---------------------------------------------------------
     public event UnityAction<int> onSwitchUse;
@@ -200,81 +216,5 @@ public class gameManager : MonoBehaviour
         int seconds = Mathf.FloorToInt(timeInSeconds % 60);
         int milliseconds = Mathf.FloorToInt((timeInSeconds * 1000) % 1000 /10);
         return minutes.ToString("D2") + ":" + seconds.ToString("D2") + ":" + milliseconds.ToString("D2");
-    }
-    void SaveTime(string fileName, string TimingResults, float Timing)
-    {
-        // 路徑設置（相對於Application.persistentDataPath）
-        string filePath = Path.Combine(Application.persistentDataPath, fileName);
-
-        // 寫入數值到文件
-        using (StreamWriter writer = new StreamWriter(filePath))
-        {
-            writer.WriteLine(TimingResults);
-            writer.WriteLine(Timing);
-        }
-        Debug.Log("Values saved to file: " + filePath);
-    }
-    void LoadTiming(string fileName)
-    {
-        // 路徑設置（相對於Application.persistentDataPath）
-        string filePath = Path.Combine(Application.persistentDataPath, fileName);
-
-        // 如果文件存在，則讀取數值
-        if (File.Exists(filePath))
-        {
-            using (StreamReader reader = new StreamReader(filePath))
-            {
-                // 讀取並解析數值
-                string TimingResults;
-                while ((TimingResults = reader.ReadLine()) != null)
-                {
-                    Debug.Log("Read string: " + TimingResults);
-                }
-                float Timing = float.Parse(reader.ReadLine());
-                Debug.Log("Read float value: " + Timing);
-            }
-        }
-        else
-        {
-            Debug.Log("File not found at: " + filePath);
-        }
-    }
-    float ReadTiming(string fileName)
-    {
-        // 路徑設置（相對於Application.persistentDataPath）
-        string filePath = Path.Combine(Application.persistentDataPath, fileName);
-
-        // 如果文件存在，則讀取數值部分
-        if (File.Exists(filePath))
-        {
-            using (StreamReader reader = new StreamReader(filePath))
-            {
-                string line = reader.ReadLine();
-                float value = float.Parse(line);
-                Debug.Log("Read value: " + value);
-                return value;
-            }
-        }
-        else
-        {
-            Debug.Log("File not found at: " + filePath);
-            return 0;
-        }
-    }
-    string ReadTimer(string fileName)
-    {
-        string filePath = Path.Combine(Application.persistentDataPath, fileName);
-        if (File.Exists(filePath))
-        {
-            using (StreamReader reader = new StreamReader(filePath))
-            {
-                string loadedString = reader.ReadLine();
-                return loadedString;
-            }
-        }
-        else
-        {
-            return null;
-        }
     }
 }
