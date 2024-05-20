@@ -252,13 +252,15 @@ public class PlayerManager : MonoBehaviour
             if (isPause)
             {
                 Time.timeScale = 0f;
+                gameManager._cross.SetActive(false);
                 Cursor.lockState = CursorLockMode.Confined;
                 gameManager._pause.SetActive(true);
             }
             else
             {
                 gameManager._pause.SetActive(false);
-                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.lockState = CursorLockMode.Locked; 
+                gameManager._cross.SetActive(true);
                 Time.timeScale = 1.0f;
             }
         }

@@ -60,7 +60,8 @@ public class Mech_MenuManager : MonoBehaviour
     }
     public void MusicBarVolume()
     {
-        _music.text = _musicBar.value.ToString("F2");
+        float Volume = _musicBar.value * 100;
+        _music.text = Volume.ToString("0") + "%";
     }
     public void SensitivityBarVolume()
     {

@@ -22,6 +22,7 @@ public class gameManager : MonoBehaviour
     public GameObject _pause;
     public GameObject _setting;
     public GameObject _pass;
+    public GameObject _cross;
     public Slider progressBar;
     public TextMeshProUGUI _timer;
     public TextMeshProUGUI _bridge;
@@ -149,16 +150,16 @@ public class gameManager : MonoBehaviour
         canPause = false;
         _pause.SetActive(false);
         _musicBar.value = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
+        MusicBarVolume();
         _sensitivityBar.value = PlayerPrefs.GetFloat("Sensitivity", 1.0f);
+        SensitivityBarVolume();
         _setting.SetActive(true);
     }
     public void SaveSetting()
     {
-        _masterBus.setVolume(_musicBar.value); 
-        _musicBar.value = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
-        MusicBarVolume();
-        _sensitivityBar.value = PlayerPrefs.GetFloat("Sensitivity", 1.0f);
-        SensitivityBarVolume();
+        _masterBus.setVolume(_musicBar.value);
+        PlayerPrefs.SetFloat("Sensitivity", _sensitivityBar.value);
+        PlayerPrefs.SetFloat("MusicVolume", _musicBar.value);
         PlayerPrefs.Save();
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().setSensitivity();
         canPause = true;
@@ -197,7 +198,8 @@ public class gameManager : MonoBehaviour
     //---------------------------------------------Án­µ---------------------------------------------------------
     public void MusicBarVolume()
     {
-        _music.text = _musicBar.value.ToString("F2");
+        float Volume = _musicBar.value * 100;
+        _music.text = Volume.ToString("0") + "%";
     }
     public void SensitivityBarVolume()
     {
