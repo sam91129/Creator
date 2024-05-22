@@ -5,8 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class TYFP : MonoBehaviour
 {
-    //int A = 0;
     float T = 5f;
+    //int A = 0;
+    private void Start()
+    {
+        Time.timeScale = 1.0f;
+        
+    }
+    
     void Update()
     {
         T -= Time.deltaTime;

@@ -178,7 +178,7 @@ public class gameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         _playerPanel.SetActive(false);
         _thisTiming.text = _timer.text;
-        if (nowTimimg < PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + "Timing", 0f))
+        if (nowTimimg < PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name + "Timing", float.MaxValue))
         {
             _bestTiming.text = _timer.text;
             PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name + "Timing", nowTimimg);
